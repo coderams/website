@@ -4,7 +4,8 @@ body {
 #lk {
 	font-size: 300%;
 	color: black;
-	margin-top: 2em;
+	margin-top: 0em;
+	margin-bottom: 0em;
 }
 #cqtext {
 	text-align: left;
