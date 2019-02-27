@@ -2,8 +2,9 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 #lk {
-	font-size: 400%;
+	font-size: 300%;
 	color: black;
+	margin-top: 2em;
 }
 #cqtext {
 	text-align: left;
