@@ -34,10 +34,12 @@ body {
 	display: inline;
 }
 #navmenu ul li a {
+	display: inline-block;
 	text-decoration: none;
 	padding: .8em 4em;
 	color: #fff;
 	background-color: #036;
+	margin-top: 5px;
 }
 #navmenu ul li a:hover {
 	color: #fff;
