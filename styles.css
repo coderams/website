@@ -40,6 +40,9 @@ body {
 	color: #fff;
 	background-color: #036;
 	margin-top: 5px;
+	border-radius: 10px;
+	margin-left: .1em;
+	margin-right: .1em;
 }
 #navmenu ul li a:hover {
 	color: #fff;
