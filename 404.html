@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<body style="margin:0">
+		<canvas id="graphics" style="margin:0" ></canvas>
+		<div center style="position:absolute;margin:auto;top:0;right:0;bottom:0;left:0;width:600px;height:400px">
+			<h1 style="font-size:100px"><font color="green"><center>404 ERROR</center></font></h1>
+			<h2 style="font-size:40px"><font color="green"><center>This page does not exist!</center></font></h2>
+		</div>
+    </body>
+	<script type="text/javascript">
+		var nums = "10"
+		nums = nums.split("");
+		graphics.height = window.innerHeight-4;
+		graphics.width = window.innerWidth;
+		var ints = []
+		console.log('width: ' + graphics.width);
+		for(var i = 0; i < Math.floor(graphics.width/12); i++) {
+			ints[i] = Math.floor(Math.random()*(graphics.height/12));
+		}
+		function draw() {
+			var canvas = document.getElementById('graphics');
+			if (canvas.getContext('2d')) {
+				var ctx = canvas.getContext('2d');
+				ctx.fillStyle = "rgba(0, 0, 0, .05)";
+				ctx.fillRect(0, 0, graphics.width, graphics.height);
+				ctx.font = '12px serif';
+				ctx.fillStyle = "#0FF"
+				for(var i = 0; i < ints.length; i++) {
+				    ctx.fillText(" ",i*12,ints[i]*12);
+					ctx.fillText(nums[Math.floor(Math.random()*2)],i*12,ints[i]*12);
+					ints[i] = ints[i] + 1;
+					if (ints[i]>graphics.height/12) {
+						ints[i] = 0;
+				    }
+				}
+
+			} else {
+				console.log('browser not supported for cool graphics :(');
+			}
+		}
+		setInterval(draw, 40);
+	</script>
+</html>
