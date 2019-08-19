@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135359143-1"></script>
+    <style>
+      a:visited {
+      	color: blue;
+      }
+      a {
+      	text-decoration: none;
+      }
+    </style>
+    <script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-135359143-1');
+		</script>
+		<title>JDHS CodeRams</title>
+		<link rel="icon" href="images/icon.png"></link>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	</head>
+	<div id="titleblock" align="CENTER">
+		<img src="images/logo.png" alt="CodeRams logo" style="position:relative;width:150px;height:150px;margin-right:0px;right:100px;top:50px">
+		<h1 style="position:relative;display:inline;margin-left:0px;right:80px">JDHS CodeRams</h1>
+		<h2>Jamesville Dewitt High School's Computer Science club</h2>
+		<div style="margin-bottom: 2em"></div>
+	</div>
+	<div style="margin-bottom:3em"></div>
+	<hr style="width:1350px;height:3px;color:#f00;background-color:#f00;border:none;margin-bottom:0px"></hr>
+	<hr style="width:1350px;height:10px;color:#aaa;background-color:#aaa;border:none;margin-top:0px"></hr>
+	<div id="navmenu">
+		<ul>
+			<li><a style="background-color:#545454" href="home.html">Home</a></li>
+			<li><a href="competitions.html">Competitions</a></li>
+			<li><a href="officers.html">Officers</a></li>
+			<li><a href="members.html">Members</a></li>
+			<li><a href="mission.html">Mission</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</div>
+	<div style="margin-bottom:1em"></div>
+	<hr style="width:800px;height:8px;color:#aaa;background-color:#aaa;border:none;margin-top:0px"></hr>
+	<div style="margin-bottom:3em"></div>
+	<body style="background-color:white" link="blue">
+    <h1 id="pagetitle">Members</h1>
+    <table id="memberlist" align="center" borderspacing=30px>
+      <tr>
+        <th>Name</th>
+        <th>Skills</th>
+        <th>Projects</th>
+      </tr>
+    </table>
+    <script>
+      var members = [
+      ["Xavier Plourde", "python", "javascript", "games", "codequest", ["Ultimate Ski Race 2 (JS Game)", "Color Arena (JS Game)", "Number Blast (JS Game)", "Number Runner (JS Game)", "Tracks and Buildings (JS Game)", "Haunted House Escape (JS Game)", "Github Account (plourde27)"], ["https://www.khanacademy.org/computer-programming/ultimate-ski-race-2-official-release/6165327433269248", "https://www.khanacademy.org/computer-programming/color-arena-official-release/5911728555196416", "https://www.khanacademy.org/computer-programming/number-blast/5295329467629568", "https://www.khanacademy.org/computer-programming/number-runner/4973312618037248", "https://www.khanacademy.org/computer-programming/tracks-buildings-contest-entry/5499501521829888", "https://www.khanacademy.org/computer-programming/haunted-house-escape-game/6452198165872640", "https://github.com/plourde27"]],
+      ["Tristan Lonsway", "java", "neural networks", "games", "codequest", ["Github Account (Kryptikz)"], ["https://github.com/Kryptikz"]],
+      ["Brian Hulbert", "java", "games", "python", "neural networks", "codequest", ["Github Account (ShackyRabbit4404)"], ["https://github.com/ShackyRabbit4404"]],
+      ["Shamus Endries", "python", "codequest", [], []],
+      ["Samuel Kim", "python", "codequest", [], []]];
+      for (var i = 0 ; i < members.length ; i++) {
+        var st = "";
+        var txt = members[i][members[i].length - 2];
+        var links = members[i][members[i].length - 1];
+        if (txt.length === 0) {
+          st = "<em>No Projects Yet!</em>";
+        }
+        else {
+          for (var j = 0 ; j < txt.length ; j++) {
+            st += "<a href=" + links[j] + ">" + txt[j] + "<br>";
+          }
+        }
+        document.getElementById("memberlist").innerHTML += "<tr><td id=\"mname\">" + members[i][0] + "</td>" + "<td id=\"mskills\"><em>" + members[i].slice(1, members[i].length - 2).join(", ") + "</em></td><td id=\"mproj\">" + st + "</td></tr>";
+
+      }
+    </script>
+
+
+
+	</body>
+</html>

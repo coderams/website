@@ -1,6 +1,26 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 }
+#pagetitle {
+	font-size: 50px;
+	text-align: center;
+	margin-top: 10px;
+}
+#mname {
+	font-size: 30px;
+}
+
+table {
+	border-spacing: 10px;
+}
+table, td {
+	border-collapse: separate;
+	border-top: 1px solid black;
+	padding: 12px 12px 0px 12px
+}
+#mproj {
+	text-align: center;
+}
 #lk {
 	font-size: 250%;
 	color: black;
