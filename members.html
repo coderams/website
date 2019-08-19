@@ -68,7 +68,7 @@
         }
         else {
           for (var j = 0 ; j < txt.length ; j++) {
-            st += "<a href=" + links[j] + ">" + txt[j] + "<br>";
+            st += "<a href=" + links[j] + " target=blank>" + txt[j] + "<br>";
           }
         }
         document.getElementById("memberlist").innerHTML += "<tr><td id=\"mname\">" + members[i][0] + "</td>" + "<td id=\"mskills\"><em>" + members[i].slice(1, members[i].length - 2).join(", ") + "</em></td><td id=\"mproj\">" + st + "</td></tr>";
