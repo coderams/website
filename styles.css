@@ -1,10 +1,22 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 }
+#contacttext {
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+}
 #pagetitle {
 	font-size: 50px;
 	text-align: center;
 	margin-top: 10px;
+}
+#contactname {
+	text-align: center;
+	font-size: 25px;
+}
+#contactemail {
+	font-size: 20px;
 }
 #mname {
 	font-size: 30px;
@@ -13,7 +25,14 @@ body {
 table {
 	border-spacing: 10px;
 }
-table, td {
+#firstel {
+
+}
+table, th {
+	border-top: 1px solid black;
+	padding-top: 12px;
+}
+td {
 	border-collapse: separate;
 	border-top: 1px solid black;
 	padding: 12px 12px 0px 12px
