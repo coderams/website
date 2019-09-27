@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 119: Conway’s Game of Life</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 17<br>This problem has a difficulty of 55</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       In 1940, computer scientist John von Neumann defined life as a creation which can reproduce itself and simulate a Turing machine: briefly, a device which acts according to a set of rules. This definition gave rise to a continuing series of mathematical experiments. Among the most famous of these is a “game” created by mathematician John Conway in 1970 called Life. Conway’s Life consists of a set of four rules to be followed by a computer given an initial state of a grid filled with “live” and “dead” cells. <br>
+       In each generation: <br>
+       	1.	Any live cell adjacent to one or zero live cells dies (from loneliness). <br>
+       <br>
+       	2.	Any live cell adjacent to two or three live cells lives. <br>
+       <br>
+       	3.	Any live cell adjacent to four or more live cells dies (from overcrowding). <br>
+       <br>
+       	4.	Any dead cell adjacent to exactly three live cells becomes alive (through <br>
+       reproduction). <br>
+       <br>
+       Diagonal cells are considered to be adjacent. Life evolves by applying these rules to the “world” represented by the grid. The rules are applied, the world is redrawn, the rules are applied again, and the world is redrawn again, repeating indefinitely. <br>
+       <img src="../pics/119_A.png">
+
+       These seemingly simple rules are completely deterministic; that is, each generation is determined entirely by the state of the previous generation. Despite this, these rules can yield some very complex behavior. Theoretically, Life is a “universal Turing machine;” this means that anything that can be calculated through an algorithm can be calculated with Life. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You must design a program that implements Conway’s Life on a 10-by-10 grid. Your program will be given an initial state for the first generation. It must then determine the state of the world after a given number of generations have been performed. Note that cells outside the bounds of the 10-by-10 grid are always considered dead. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+       	•	A line containing a positive integer, X, indicating the number of generations to calculate <br>
+       <br>
+       	•	Ten lines containing ten characters each representing the initial state of the world. Characters will be either ‘1’, representing a “live” cell, or ‘0’, representing a “dead” cell. <br>
+      </p><p id="code"><br>1<br>
+       	6<br>
+       	0000000000<br>
+       	0000000000<br>
+       	0000000000<br>
+       	0000010000<br>
+       	0000111000<br>
+       	0000111000<br>
+       	0000010000<br>
+       	0000000000<br>
+       	0000000000<br>
+       	0000000000<br>
+       	<br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the state of the world after the indicated number of generations. Each test case should include ten lines with ten characters each. <br>
+     </p><p id="code"><br>
+       0000000000<br>
+       0000000000<br>
+       0000111000<br>
+       0001000100<br>
+       0000000000<br>
+       0000000000<br>
+       0001000100<br>
+       0000111000<br>
+       0000000000<br>
+       0000000000<br><br>
+    </p></body>
+</html>

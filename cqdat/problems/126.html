@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 126: Sudoku</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 24<br>This problem has a difficulty of 85</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Sudoku is a popular logic puzzle commonly found in newspapers, magazines, and online. Most likely originating in Indiana in 1979, the puzzle format found great popularity in Japan in the 1980s and became a worldwide phenomenon in the new millennium. Newspapers in particular contributed to the puzzle’s establishment as a household name due to the puzzle’s similarities with crossword puzzles. <br>
+       Sudoku is played on a 9-by-9 grid of squares
+       divided into 3-by-3 subgrids. Each square is filled
+       in with one of the numbers from 1 to 9 inclusive,
+       such that in the final solution any given digit
+       appears exactly once within its row, column, and
+       subgrid. The original puzzle is mostly blank, with only some numbers pre-filled as hints. The player must use these hints to determine how to fill in the remaining squares through process of elimination, logical deduction, and trial and error. In the image above, the bold black numbers are the original hints given by the puzzle; the italic red numbers are those filled in by the player to produce the solution. In order to be a “proper” Sudoku puzzle, a given set of hints must have one unique solution. <br>
+       The properties of Sudoku puzzles have lent it to a great deal of study by mathematicians and computer scientists. Considerable research has been put into finding the minimum number of clues that can be given while still producing a unique solution (17), and into finding puzzles that follow certain patterns. Solving Sudoku puzzles efficiently is a somewhat difficult task in computer science; it falls into the category of problems known as “NP-complete.” This means that it is believed that no algorithm exists that can solve a Sudoku puzzle in less than polynominal time (without having loops nested at least two deep). <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You will need to write a program that can read a Sudoku puzzle and find its solution. Remember, to solve a Sudoku puzzle, you must fill in all the blank squares with a <br>
+       number between 1 and 9 inclusive, such that each number appears exactly once in each row, column, and 3-by-3 subgrid. <br>
+       All of the puzzles your program will be given will be “proper” Sudoku puzzles; as stated above, this means that each puzzle will have exactly one valid solution. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include nine lines of text. Each line will contain only the digits from 1 through 9 inclusive and underscores (_). Underscores represent blank spaces in the puzzle that must be filled. Digits represent hints that should remain in place in the final solution. <br>
+     </p><p id="code"><br>2 4_2____<br>____6____<br>_589_____<br>_9__5__8_<br>___34__51<br>_________<br>__16__32_<br>_8_1_____<br>3_62__9_4<br>_________<br>___16__52<br>_7_5_4__6<br>39_______<br>62____39_<br>_______6_<br>9___3____<br>_5_71_94_<br>2__6__5_7 <br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the solved Sudoku puzzle, printing nine lines with nine digits per line. <br>
+     </p><p id="code"><br>462571839<br>
+       913468572<br>
+       758923146<br>
+       194756283<br>
+       827349651<br>
+       635812497<br>
+       541697328<br>
+       289134765<br>
+       376285914<br>
+       568327419<br>
+       439168752<br>
+       172594836<br>
+       394286175<br>
+       625471398<br>
+       781953264<br>
+       947835621<br>
+       856712943<br>
+       213649587<br><br>
+    </p></body>
+</html>

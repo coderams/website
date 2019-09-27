@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 110: Foveated Rendering</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 8<br>This problem has a difficulty of 35</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Virtual Reality has exploded into the market in the last five years, being used for everything from games and entertainment to product design and engineering. One of the more recent advances in VR headset design is the addition of eye tracking to increase performance. <br>
+       The human eye has an extremely narrow field of view in which perfect 20/20 vision is attainable and fine detail can be distinguished. This clarity of vision is due to the fovea, a small depression in the inner retina specialized for this purpose. However, due to the size of the fovea, the human eye can only see clearly within a field of view of less than 10°. The rest of our vision comes from the brain piecing together imagery as we look around. <br>
+       Due to this fact, a VR headset only needs to render the highest resolution imagery directly where the user is looking. Images outside of that field of view can be rendered at a lower quality, increasing the performance of the system. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+        <img src="../pics/110_A.png">
+       You have been tasked with writing a module for a virtual reality application that determines the rendering quality for each section of the headset’s screen. For simplicity, your module will only deal with a single eye on a single screen. The screen will be <br>
+       divided into a 20-by-20 grid of blocks. <br>
+       Your program will be given the coordinates within the grid at which the user is currently focusing their sight, and will need to output the rendering level of each cell in the grid row by row. <br>
+       The cell the user is looking directly at should be rendered at full quality - 100%. All cells around that cell should be rendered at half quality (50%), and all cells around those should be rendered at one-quarter quality (25%). All other cells should be rendered at the minimum level of 10%. <br>
+
+
+
+       <img src="../pics/110_B.png">
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include a single line of input containing two integers, separated by spaces, representing the row and column number of the eye position within the screen’s grid, respectively. Row and column numbers will be between 0 and 19 inclusive. <br>
+       </p><p id="code"><br>2<br>
+       7 10 <br>
+       0 0 <br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the rendering quality percentage for each block in the grid. Each row should be printed as a separate line, and columns should be separated by spaces. <br>
+       </p><p id="code"><br>10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 25 25 25 25 25 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 25 50 50 50 25 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 25 50 100 50 25 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 25 50 50 50 25 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 25 25 25 25 25 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       100 50 25 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       50 50 25 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       25 25 25 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br>
+       10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10<br><br>
+    </p></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 115: Minesweeper</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 13<br>This problem has a difficulty of 45</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Minesweeper is a type of single-player puzzle game in which the player continuously selects different cells of a rectangular grid. Each cell of the grid is either occupied by a bomb or is a safe cell. If the player selects a cell occupied by a bomb, they “explode” and lose the game. Otherwise, the selected cell shows the number of neighboring cells that contain bombs. Cells are neighbors if they are adjacent horizontally, vertically, or diagonally. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You will need to write a program that receives the size of a minesweeper grid and the locations of the mines within that grid, then uses that information to display the completed grid. The output should include the locations of all bombs, and numbers in the safe cells indicating the number of neighboring bombs. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include: <br>
+       	•	A line containing three positive integers separated by spaces, representing: o The number of rows within the minesweeper grid, R<br>
+       o The number of columns within the minesweeper grid, C<br>
+       o The number of bombs within the minesweeper grid, B <br>
+       <br>
+       	•	B lines representing the location of each bomb within the grid. Each line contains two integers separated by spaces, representing: <br>
+       <br>
+       o The row of the bomb’s cell. The topmost row in the grid is row 0. Values will range from 0 (inclusive) to R (exclusive). <br>
+       o The column of the bomb’s cell. The leftmost column in the grid is column 0. Values will range from 0 (inclusive) to C (exclusive). <br>
+     </p><p id="code"><br>2<br>
+        2 2 2<br>0 0<br>1 1<br>5 3 4<br>1 2<br>2 2<br>4 0<br>4 1<br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the minesweeper grid described by the input. Write each row on a separate line, and one character per cell. Cells containing bombs should be represented by an asterisk character (*); safe cells should contain a number (0 through 8 inclusive) equal to the number of bombs in neighboring cells. <br>
+     </p><p id="code"><br>*2<br>
+       2*<br>
+       011<br>
+       02*<br>
+       02*<br>
+       232<br>
+       **1<br><br>
+    </p></body>
+</html>

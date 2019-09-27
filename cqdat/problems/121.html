@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 121: Network Ranger</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 19<br>This problem has a difficulty of 65</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       How is the internet like the post office? They both use addresses! <br>
+       Computers and other devices that connect to the internet are assigned an Internet Protocol (IP) address when they connect. While a newer format is available, most systems still use the IPv4 format for these addresses. In this format, an IP address consists of four numbers, separated by periods. Each number can range from 0 to 255. For example, the address 127.0.0.1 always represents your own computer (the “localhost”). <br>
+       As with any other piece of data, your computer stores these addresses in a binary format. Each number in the address is represented by an eight-bit binary string of 0’s and 1’s; these strings are concatenated with each other to form the full address. For example, the IP address 166.23.250.209 is converted as: <br>
+       Just like mailing addresses can be grouped by a ZIP code or postal code, IP addresses can be grouped by blocks. Internet companies can reserve these blocks to use in assigning IP addresses to their customers, through a system called Classless Inter- Domain Routing (CIDR). A CIDR block is defined by writing an IP address followed by a slash and the number of bits that match between all members of the block (on the left side of each address). For example, the IP addresses 192.168.0.0 and 192.168.108.68 are represented as the following binary numbers: <br>
+       <img src="../pics/121_A.png">
+       The first 17 bits of both addresses are the same, so these addresses are part of the 192.168.0.0/17 block (any further matches after the first mismatch aren’t counted). This could also be written as the 192.168.108.65/17 block, but the convention is to use the first (smallest) address in a block when writing it out in this manner. <br>
+       <img src="../pics/121_B.png">
+                                                                                                                                                                                            <br>
+       Blocks can be any size from /0 to /32. A /32 block would require that all 32 bits match; this represents a single address. A /0 block wouldn’t require that any bits match; this represents the entire internet! <br>
+       For this problem, you are working with the FBI’s cyber crimes division to track down a ring of internet scammers using ransomware to attack innocent people. You’ve been able to track down a list of IP addresses used by the scammers. The FBI wants to get a search warrant to figure out who is behind these IP addresses, but a judge won’t issue the warrant unless you can identify the smallest possible range that covers all of those addresses. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your program will be given a list of IPv4 addresses and must identify the smallest CIDR block that contains every address. Each CIDR block should be written using the first (smallest) address within the block; that is, 192.168.0.0/16 may be an acceptable answer, but 192.168.0.1/16 is not. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+       	•	A line containing a single positive integer, X, indicating the number of IP addresses used in this test case <br>
+       <br>
+       	•	X lines, each containing a single IPv4 address <br>
+       </p><p id="code"><br>2<br>
+       	2<br>
+       	192.168.0.0<br>
+       	192.168.255.255<br>
+       	4<br>
+       	32.73.94.16<br>
+       	32.73.89.172<br>
+       	32.73.95.210<br>
+       	32.73.92.82<br>
+       	<br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the smallest CIDR range that contains every listed IP address, using the format described above. <br>
+     </p><p id="code"><br>192.168.0.0/16<br>
+       	32.73.88.0/21<br>
+       	<br>
+    </p></body>
+</html>

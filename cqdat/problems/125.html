@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 125: Evacuate!</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 23<br>This problem has a difficulty of 80</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       It’s your first day working at Lockheed Martin as a software engineer. You’ve finished your orientation and are at your new desk, ready to start work when... <br>
+       BEEP! ... BEEP! ... BEEP! <br>
+       It’s the fire alarm! You’re not familiar with the
+       building yet and don’t know where to go!
+       Fortunately, your coworkers help you get outside
+       safely, and it was just a fire drill anyway, but the
+       experience gives you an idea. What if you had an
+       app on your phone that could guide you to the nearest exit? You present the idea to your manager, and they agree to start the project! (Quick note: This could happen! Ask a volunteer about Lockheed Martin’s Destination Innovation program.)
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your program will read in an image of a building’s floor plan and must find the shortest route to the outside of the building from the given start position. While searching for the shortest path, you may travel in any cardinal direction - up, down, left, or right. You may not move diagonally, nor through walls. In the event that multiple paths are tied for the shortest length, take the path that exits closest to the top-left corner of the map. While the map will be rectangular (or square), the building’s layout may not be. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+       	•	A line containing two integers separated by spaces:<br>
+       o The first integer represents the width of the map, W<br>
+       o The second integer represents the height of the map, H <br>
+       <br>
+       	•	A total of H lines, each up to W characters long, containing the map of the building. <br>
+       <br>
+       <br>
+       o A # (hashtag) character represents a wall of the building.<br>
+       o A space indicates an empty navigable hallway or room.<br>
+       o A lowercase letter o represents your start position within the building.<br>
+       o An uppercase letter X represents an exit from the building.<br>
+       o Lines may be shorter than W characters; any “missing” characters will be <br>
+       outside the building and should have no bearing on your work. Remember not to print any trailing whitespace in your output. <br>
+       <img src="../pics/125_A.png"><br>
+       <img src="../pics/125_B.png"><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the original map of the building, with the shortest path marked using periods (.) in place of the spaces presented above. <br>
+       <img src="../pics/125_C.png"><br>
+       <img src="../pics/125_D.png"><br>
+    </p></body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 111: Time and Time Again</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 9<br>This problem has a difficulty of 45</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Times and periods of times can be expressed in many different ways. National and regional differences, and even personal preferences, have led to a wide range of formats for expressing times. This can lead to a great deal of confusion; does the date 01/03 refer to January 3rd or March 1st... or January 2003? Is the time 8:45 in the morning or the evening? <br>
+       You have been asked to break through some of this confusion by converting a list of times to a new, consistent format. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your program will receive a list of time durations that provide the number of hours, minutes, and/or seconds within the duration. <br>
+       	•	Hours will be given as a non-negative integer followed by a lowercase letter ‘h’ (e.g. 2h). Hours will range from 0 to 99 inclusive. <br>
+       <br>
+       	•	Minutes will be given as a non-negative integer followed by a lowercase letter ‘m’ (e.g. 2m). Minutes will range from 0 to 59 inclusive. <br>
+       <br>
+       	•	Seconds will be given as a non-negative integer followed by a lowercase letter ‘s’ (e.g. 2s). Seconds will range from 0 to 59 inclusive. <br>
+       These values may not be presented in this order. Values may be separated by spaces, commas, and/or the word “and”; this text should be ignored. Some of these values may be missing; for example, an input may only give you minutes and seconds. Any omitted values should be assumed to be zero. <br>
+       Regardless of what information is provided, your program will need to print the duration in a simpler, more consistent format: <br>
+       HH:MM:SS <br>
+       In this format, HH is a two-digit number representing the number of hours (including a leading zero, if necessary). MM is a two-digit number representing the number of minutes (including a leading zero, if necessary). SS is a two-digit number representing <br>
+       
+       the number of seconds (including a leading zero, if necessary). Each number is separated from the next with a colon, and they are always presented in the same order. All numbers must be included with the output, even if they are zero. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include a single line of input containing a string describing a time duration in a variable format as noted above. <br>
+     </p><p id="code"><br>5<br>
+       1m and 45s<br>
+       10m,10s<br>
+       32s, and 12h<br>
+       76h<br>
+       1s<br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the same time interval on a single line in the HH:MM:SS format described above. <br>
+       </p><p id="code"><br>00:01:45<br>
+       00:10:10<br>
+       12:00:32<br>
+       76:00:00<br>
+       00:00:01<br><br>
+    </p></body>
+</html>

@@ -9,38 +9,23 @@
         <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../styles.css">
     </head>
-    <body>    <h1 id="statement">Problem 103: Large Multiples</h1>
-      <p id="sub">    <em>This practice problem was made by CodeRams Co-President Plourde27<br>This problem has a difficulty of 70</em></p>      <p id="ptext">       <br>
-       For numbers 1 <= n <= 3, the lowest number that is divisible by all numbers less than or equal to n is simply the factorial of n. However, for n > 3, that is not always the case. For example, the number 2520 (2 * 2 * 2 * 3 * 3 * 5 * 7) is the lowest number that is divisible by all numbers from 1 to 10.<br>
-       <br>
-       In this problem, you are asked to find the lowest number that divides all of the numbers from 1 to a given number “n”.<br>
-       <br>
-      </p><h1 id="spec">Program Input</h1><p id="ptext">
-       <br>
-       The first line of Prob103.in.txt will contain a positive integer T indicating the number of test cases. The following T lines each contain a positive integer less than 1000.<br>
-       <br>
-      </p><h1 id="spec">Example Input:</h1><p id="code"><br>
-       7<br>
-       1<br>
-       2<br>
-       3<br>
-       10<br>
-       15<br>
-       30<br>
-       100<br>
-       <br>
-      </p><h1 id="spec">Program Output</h1><p id="ptext">
-       <br>
-       For each number “n”, output the lowest number that evenly divides all numbers 1 to “n”. Because the number can be very large, print the remainder when dividing the number by 10^9 + 7<br>
-       <br>
-      </p><h1 id="spec">Example Output:</h1><p id="code"><br>
-       1<br>
-       2<br>
-       6<br>
-       2520<br>
-       360360<br>
-       89546497<br>
-       485679014<br>
+    <body>    <h1 id="statement">Problem 103: No More Shouting</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 1<br>This problem has a difficulty of 10</em></p>
+    </p><h1 id="spec">Problem Background </h1><p id="ptext">
+     It’s common knowledge that on the internet, TYPING IN ALL<br>
+     UPPERCASE LETTERS ISN’T VERY POLITE. It just looks like you’re shouting<br>
+     at people, which isn’t a very good way to hold a conversation. You’ve been asked to design a browser extension that can (forcibly) calm everyone down by converting UPPERCASE SHOUTING into lowercase whispers. Try to stay calm as you solve this problem. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your program will be given lines of text in which all letters are uppercase. You must convert these letters to lowercase without otherwise changing the content of the text. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include a single line of text consisting of uppercase letters, numbers, spaces, and/or punctuation. <br>
+       </p><p id="code"><br>2<br>
+       THIS SENTENCE IS IN ALL CAPS<br>
+       SHOUTING ISN’T NICE.<br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the provided string after replacing all uppercase letters with their lowercase equivalents. Spaces, numbers, and punctuation should not be modified. <br>
+     </p><p id= "code"><br> this sentence is in all caps<br>
+       shouting isn’t nice.<br>
        <br>
     </p></body>
 </html>

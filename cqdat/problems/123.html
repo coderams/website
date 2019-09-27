@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 123: Hide Your Spies</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 21<br>This problem has a difficulty of 80</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       You’re working with an intelligence agency to guide a spy through a secret enemy installation. The enemy has cameras positioned throughout the building with a 360° field of view; if your spy is caught on camera, the mission will fail! Fortunately, there are a number of walls blocking the view of the cameras that your spy can hide behind. You need to be able to determine if your spies will be seen based on the position of the cameras, spies, and the walls in the room. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your mission, should you choose to accept it, is to determine if there is a clear line of sight from a camera at a given set of (𝑥, 𝑦) coordinates to a spy located at a different set of coordinates. Several walls will be positioned throughout the room; if a wall intersects a line drawn between the camera and the spy, the spy is hidden and avoids detection. You must write a program that checks if the spy is successfully hidden and reports if he has been detected or not. <br>
+
+       <img src="../pics/123_A.png">       
+       <img src="../pics/123_B.png">
+       </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+       	•	A line containing five integers separated by spaces, representing the following information, in order: <br>
+       o The X-coordinate of the spy within the current room<br>
+       o The Y-coordinate of the spy within the current room<br>
+       o The X-coordinate of the camera within the current room o The Y-coordinate of the camera within the current room o The number of walls in the current room, W <br>
+       <br>
+       	•	W lines containing four integers separated by spaces, each line representing information about a wall within the room: <br>
+       o The X-coordinate of the start of the wall o The Y-coordinate of the start of the wall o The X-coordinate of the end of the wall o The Y-coordinate of the end of the wall <br>
+
+       <br></p><p id="code"><br>
+       2<br>
+       2 2 6 4 1<br>
+        2 5 5 5 <br>
+        2 2 6 4 2<br>
+        4 1 4 5<br>
+        1 5 4 5<br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output a single line containing either the word “YES” (indicating that the spy was seen by the camera) or “NO” (if the spy evaded detection). <br>
+     </p><p id="code"><br>YES<br>NO <br><br>
+    </p></body>
+</html>

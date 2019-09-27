@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 112: Caesar Cipher</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 10<br>This problem has a difficulty of 40</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       The Caesar Cipher is one of the earliest known ciphers,
+       and among the simplest to learn. It is a “substitution
+       cipher”, in which each letter in the original message (the “plaintext”) is shifted a certain number of places down the alphabet. For example, with a shift of 1, an A would be replaced with a B, a B would be replaced with a C, and so on. This method is named after Julius Caesar, who apparently used it to communicate with his generals.
+       To pass an encrypted message from one person to another, it is necessary that both parties have the “key” for the cipher, so that the sender can encrypt it and the recipient can decrypt it. For the Caesar Cipher, the key is the number of letters by which to shift the cipher alphabet.
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You are working for the History Channel, who wants to decrypt all communications that Julius Caesar made to his generals in order to support a new documentary they’re filming about the Roman emperor. You will be given a list of encrypted messages, and the key believed to be used to encrypt those messages. Your program must decrypt those messages. <br>
+       For the purposes of this problem, we will be using the English alphabet, shown below in its standard order (with a shift of 0). <br>
+       ABCDEFGHIJKLMNOPQRSTUVWXYZ <br>
+       If encrypting a message with a shift of 1, each letter in the plaintext will be replaced with the respective letter shown in the 1-shifted alphabet below. <br>
+       BCDEFGHIJKLMNOPQRSTUVWXYZA <br>
+       To decrypt a message, the process is reversed; a letter in the ciphertext would be replaced with the respective letter in the original English alphabet. <br>
+       Spaces are not encrypted in this cipher and should remain in place when decrypting a message. <br>
+
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include two lines: <br>
+       	•	A line with a single integer representing the message key - the number of letters by which to shift the alphabet when encrypting the message. <br>
+       <br>
+       	•	A line containing lowercase letters and spaces, representing the encrypted message. <br>
+      </p><p id="code"><br>3<br>
+        1<br>
+       	buubdl bu ebxo<br>
+       	3<br>
+       	ghvwurb wkh fdvwoh<br>
+       	6<br>
+       	yzkgr znk ynov<br>
+       	<br>
+
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+      For each test case, your program must output the decrypted message. Messages should be printed in lowercase, and all spaces should be retained. <br>
+       </p><p id="code"><br>attack at dawn<br>
+       	destroy the castle<br>
+       	steal the ship<br>
+       <br>
+    </p></body>
+</html>

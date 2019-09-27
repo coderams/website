@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 109: Image Compression</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 7<br>This problem has a difficulty of 35</em></p>      <p id="ptext"><br>
+      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Images can be saved onto a computer in many different types of file formats, each with its own advantages and disadvantages. JPEG (or JPG) images are commonly used for photography, because their format allows the image information to be compressed, reducing the size of the file and allowing you to take more pictures. The downside to this is that repeatedly editing a JPEG image causes the quality of the image to gradually get worse over time; each time the file is saved, the existing image data is compressed further and further, losing fine details.
+       The process of compressing a JPEG image is
+       complicated but can be broken down into several
+       individual steps. One of these steps is called
+       quantization, which takes a wide range of numbers created by a previous step in the process and converts them to a smaller, more manageable scale. This results in some loss of detail as previously mentioned; two different but close numbers may be converted to the same result number. However, the human eye often cannot discern very high-frequency changes, so this loss is usually not noticeable. <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       Your program will need to implement an example quantization algorithm that accepts perceived brightness values and converts them to an integer value between 0 and 255 inclusive. Your program will be given a list of decimal values representing brightness values (such as might be read by a scanner). Your program must identify the highest (max) value and the lowest (min) value from the list of values, then convert all values in the list to the target scale using this formula: <br>
+       <img src="../pics/109_A.png">
+       <br>All results should be rounded to the nearest integer.<br>
+         <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+       	•	A positive integer, X, representing the number of values in the list <br>
+       <br>
+       	•	X lines, each containing a decimal number to be converted <br>
+       </p><p id="code"><br>2<br>
+       5<br>
+       0.0<br>
+       25.0<br>
+       50.0<br>
+       75.0<br>
+       100.0<br>
+       6<br>
+       12.3<br>
+       -67.1<br>
+       122.8<br>
+       428.4<br>
+       -15.9<br>
+       221.0<br>
+       <br>
+
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the list of converted numbers, maintaining the same order. Print one number per line, and round all results to the nearest integer. <br>
+     </p><p id="code"><br>0<br>
+       64<br>
+       128<br>
+       191<br>
+       255<br>
+       41<br>
+       0<br>
+       98<br>
+       255<br>
+       26<br>
+       148<br>
+
+
+
+       <br>
+    </p></body>
+</html>

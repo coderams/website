@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 114: Monty Hall</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 12<br>This problem has a difficulty of 50</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       The “Monty Hall Problem” is a statistical problem named after the original host of the game show “Let’s Make a Deal!” In one of the game’s more famous segments, the host would give a contestant the choice of three doors. Behind one door was a car, but goats were behind the other two. The contestant would pick a door - for example, Door Number 1 - and the host, who knew what was behind each door, would pick a different door - for example, Door Number 3 - and open it. The host’s door would always contain a goat. The host would then give the contestant the option to switch to the other unopened door (Door Number 2, in this case). <br>
+       The problem is this: is it to the contestant’s advantage to switch doors? Does it matter if they switch? <br>
+       It may seem counter-intuitive, but the answer is yes - the contestant is actually twice as likely to win if they switch! The reason why has stumped even experts in mathematics until they had the solution proved to them. Here’s the solution: <br>
+       When the contestant makes their first choice, each door has a 33% chance of having a car behind it. To put this another way, there’s a 67% chance the contestant is wrong - that the car is behind one of the other two doors. <br>
+       <br>
+       <img src="../pics/114_A.png">
+       When the host opens one of the two incorrect doors, these probabilities don’t change; the contestant’s door still has a 33% chance of being right, and a 67% chance of being wrong. What has changed is that we know one of the other two doors in in fact wrong; it now has a 0% chance of being correct... shifting the 67% correct chance once shared between the two unselected doors to the single remaining door. <br>
+       <img src="../pics/114_B.png">
+       To summarize, there’s still a 67% chance that the contestant is wrong, but with only one other option remaining, that means the contestant has a 67% of being right if they switch to that other option. It’s not a guarantee, but they’re still twice as likely to win! <br>
+
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You’ve been hired by a TV studio that wants to create a new game show based upon the Monty Hall problem. In case contestants are familiar with the problem, however, they’re changing the game to make things more exciting. <br>
+       The game will start with a number of doors (greater than 3). As before, only one door actually contains a prize. The contestant will pick one of these doors at the start of the game. The host will then open one or more of the doors the contestant did not select that do not contain prizes. The contestant will then be given the opportunity to select a new door if they wish. This process continues until the last round, where the contestant is given one final chance to switch doors. The door with the prize is then revealed. <br>
+       The TV studio wants to conduct simulations of what they believe will be a worst-case scenario; a particularly knowledgeable contestant, and a particularly helpful host. Specifically, they want to run simulations in which the contestant and host follow these rules: <br>
+       Problem 12: Monty Hall <br>
+       <br>
+       	•	When given the option to select a door, the contestant will select the door with the highest probability of winning. In the event of a tie, the contestant will select the door with the lowest number amongst those that are tied. <br>
+       <br>
+       	•	When opening doors, the host will open the doors that had the highest probability of winning after the previous round. The host will never open the door with the prize and will never open any door the contestant has ever selected (either currently or previously). <br>
+       For example, consider a game in which there are ten doors. The prize is behind door number 6 (marked in green), and three doors will be opened in each of two rounds. The contestant starts by selecting the lowest numbered door, 1 (marked in yellow) <br>
+       <img src="../pics/114_C.png">
+       The host now opens three doors. Since all doors have an equal chance of having the prize, he opens the last three doors: 8, 9, and 10. This increases the probability of all the doors the contestant did not select: <br>
+       <img src="../pics/114_D.png">
+       The contestant is then given a chance to switch doors. The unselected, unopened doors now each have a 15% chance of being correct, so the contestant selects the first one of them. The host then opens three more doors with a high probability of winning. Normally he would open doors 5, 6, and 7, but door 6 contains the prize. As a result, he skips over door 6 and opens doors 4, 5, and 7 instead: <br>
+       Only four doors remain now, and the contestant is again given the chance to switch. With two doors now at a 37.5% probability of being correct, he selects the first one of those. Unfortunately, his choice is incorrect, but he’s still more than tripled his chances of winning from when the game started, simply by switching doors. <br>
+       <img src="../pics/114_E.png">
+       Your task is to write a program that will simulate several variations of this game. In each simulation, the contestant and host will both follow the rules outlined above. You must determine what the contestant’s chances of winning was are the end of each game. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include a single line of input containing three positive integers, separated by spaces. These integers represent, in order: <br>
+       • The number of rounds during which doors will be opened by the host <br>
+       	•	The number of doors at the start of the game <br>
+       <br>
+       	•	The number of doors opened in each round <br>
+       <br>
+     </p><p id="code"><br>3<br>
+       10 2 3<br>
+       10 3 2<br>
+       10 4 1<br><br>
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output a single line containing the probability that the contestant will win the prize at the end of the game, assuming both contestant and host follow the rules outlined above. Probabilities should be printed as a percentage rounded to two decimal places (include any trailing zeroes). <br>
+     </p><p id="code"><br>37.50%<br>
+       57.86%<br>
+       24.61%<br><br>
+    </p></body>
+</html>

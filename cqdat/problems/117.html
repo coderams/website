@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Code Quest Database</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+    <h1 id="statement">Problem 117: LMCoin</h1>
+      <p id="sub">    <em>Problem made by Lockheed Martin, is CodeQuest 2019 Problem 15<br>This problem has a difficulty of 55</em></p>      <p id="ptext">      </p><h1 id="spec">Problem Background </h1><p id="ptext">
+       Bitcoin and other “cryptocurrencies” are fast becoming very popular in today’s world. They are vastly different from traditional ways of paying for things, in that they don’t’ require a bank or credit card company to act as a mediator between the buyer and seller. This avoids having to give the bank or other organization a transaction fee. <br>
+       Instead, bitcoin is given directly to the other party. However, this leaves a big problem - how do you prove you’ve paid for something? Or that you even have the money to pay in the first place without someone vouching for you? This is known as the “double spending problem.” <br>
+       Instead of a bank recording all transactions in a central ledger, all users of bitcoin record all of the transactions at the same time. This means that any attempt to fool the system would be noticed and the transaction rejected. This is done through something called “blockchain.” In this problem, we will build a simple blockchain for LMCoin, our very own digital currency. <br>
+       As the name implies, a blockchain consists of several “blocks” of data, each representing a separate transaction. Each block is identified by a unique “hash”, a value that is generated using all of the information stored in a block; this includes the hash of the previous block in the chain. Therefore, as we go along the chain, the integrity of the chain increases and ensures past transactions cannot be altered. Bitcoin and other cryptocurrencies are created by “mining” them; adding a new block to the chain that produces a unique “hash” value within a certain range - this involves a lot of guesswork! <br>
+      </p><h1 id="spec">Problem Description </h1><p id="ptext">
+       You will need to write a program that implements the LMCoin blockchain. As the name implies, a blockchain consists of several “blocks” of data, each representing a separate transaction. Besides the start block (which doesn’t include the last item), each block has four pieces of information: <br>
+       1. A timestamp indicating when the block was created 2. Some data (such as a pizza order, for example)<br>
+       3. An index (this block’s position in the chain)<br>
+       4. The hash of the previous block in the chain <br>
+       The hash algorithm used by our currency will work as follows: <br>
+       <img src="../pics/117_A.png">
+       Where: <br>
+       	•	𝑛 is the index of the block within the chain; the first block in the chain has index 1. <br>
+       <br>
+       	•	𝐻𝑛 is the hash for the block at index 𝑛. (𝐻0 = 0) <br>
+       <br>
+       	•	𝑇 is the timestamp of the block at index 𝑛. 𝑛 <br>
+       <br>
+       	•	𝑉 is the numeric value of the data in the block at index 𝑛 (explained below). 𝑛 <br>
+       A block’s data is converted to a numeric value by adding the values of each letter in the data string, as shown below: <br>
+       <img src="../pics/117_B.png">
+       <br>For example, the value of the string “cheese” is 3 + 8 + 5 + 5 + 19 + 5 = 45. <br>
+       Timestamps will be in the format DDMMYYHHMM (two digits each for day, month, year, hour, and minute, respectively); for example, 8:30 AM on 27 April 2019 would be written as 2704190830. <br>
+      </p><h1 id="spec">Sample Input </h1><p id="ptext">
+       The first line of your program’s input, received from the file named above, will contain a positive integer representing the number of test cases. Each test case will include the following lines of input: <br>
+     </p><p id="code"><br>
+       	pepperoni veggie ham peppers cheese olives mushroom chicken beef bacon<br>
+       	2704191000 2704191030 2704191100 2704191130 2704191200 2704191230<br>
+       	2704191300 2704191330 2704191400 2704191430<br>
+       	candy candy salad chips pretzel icecream apple fries cookie sandwich<br>
+       	2602201200 2602201300 2702201200 2702201300 2802201200 2802201300<br>
+       	2902201200 2902201300 0103201200 0103201300<br>
+
+       <br>
+
+      </p><h1 id="spec">Sample Output </h1><p id="ptext">
+       For each test case, your program must output the hash of the tenth block in the chain, calculated using the provided values. Printed hash values should be rounded to the nearest whole number. Do not round any intermediate hash values used for calculations. <br>
+     </p><p id="code"><br>1393884230<br>
+       219309065<br><br>
+    </p></body>
+</html>
