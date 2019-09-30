@@ -94,3 +94,13 @@ td {
 	background-color: #fff;
 	color: #fff;
 }
+#cqtitle {
+	text-align: center;
+	font-size: 40px;
+	margin-top: 30px;
+}
+#cqrestext {
+	margin-left: 60px;
+	margin-right: 60px;
+	font-size: 18px;
+}
