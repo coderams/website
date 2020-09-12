@@ -1,79 +1,61 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135359143-1"></script>
-    <style>
-      a:visited {
-      	color: blue;
-      }
-      a {
-      	text-decoration: none;
-      }
-    </style>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="mainpage.html">Home</a></li>
+    			<li><a href="contests.html">Competitions</a></li>
+    			<li><a href="problems.html">Practice Problems</a></li>
+    			<li><a href="tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="scores.html">Competition Leaderboard</a></li>
+    			<li><a style="background-color:#545454" href="contact.html">Contact Us</a></li>
+    		</ul>
+	    </div>
+
+      <h1 id="pagetitle">Contact Us</h1>
+      <p id="subtitle"><em>Contact the CodeRams officers with any questions</em></p>
+
+        <br><br>
+
+        <table id="ucontestlist" align="center" borderspacing=30px>
+          <tr id="firstel">
+            <th>Officer Name</th>
+            <th>Email</th>
+            <th>Codeforces Username</th>
+            <th>Discord Username</th>
+          </tr>
+        </table>
+
+    </body>
+
     <script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'UA-135359143-1');
-		</script>
-		<title>JDHS CodeRams</title>
-		<link rel="icon" href="images/icon.png"></link>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	</head>
-	<div id="titleblock" align="CENTER">
-		<img src="images/logo.png" alt="CodeRams logo" style="position:relative;width:150px;height:150px;margin-right:0px;right:100px;top:50px">
-		<h1 style="position:relative;display:inline;margin-left:0px;right:80px">JDHS CodeRams</h1>
-		<h2>Jamesville Dewitt High School's Computer Science club</h2>
-		<div style="margin-bottom: 2em"></div>
-	</div>
-	<div style="margin-bottom:3em"></div>
-	<hr style="width:1350px;height:3px;color:#f00;background-color:#f00;border:none;margin-bottom:0px"></hr>
-	<hr style="width:1350px;height:10px;color:#aaa;background-color:#aaa;border:none;margin-top:0px"></hr>
-	<div id="navmenu">
-		<ul>
-			<li><a href="home">Home</a></li>
-			<li><a href="competitions">Past Competitions</a></li>
-			<li><a href="cqdat/problempage">Competition Practice</a></li>
-			<li><a href="officers">Officers</a></li>
-			<li><a href="members">Members</a></li>
-			<li><a href="mission">Mission</a></li>
-			<li><a style="background-color:#545454" href="contact">Contact</a></li>
-		</ul>
-	</div>
-	<div style="margin-bottom:1em"></div>
-	<hr style="width:800px;height:8px;color:#aaa;background-color:#aaa;border:none;margin-top:0px"></hr>
-	<div style="margin-bottom:3em"></div>
-	<body style="background-color:white" link="blue">
-    <h1 id="pagetitle">Contact Us</h1>
-		<p id="contacttext">Contact the CodeRams officers with any additional questions.</p>
-		<table id="contactname" align="center" borderspacing=30px>
-			<tr>
-				<th>Name</th>
-				<th>School Email</th>
-			</tr>
-			<tr>
-				<td id="contactname">Xavier Plourde</td>
-				<td id="contactemail">21xplourde@jd.cnyric.org</td>
-			</tr>
-			<tr>
-				<td id="contactname">Tristan Lonsway</td>
-				<td id="contactemail">20tlonsway@jd.cnyric.org</td>
-			</tr>
-			<tr>
-				<td id="contactname">Brian Hulbert</td>
-				<td id="contactemail"><em>This member's email will be added later</em></td>
-			</tr>
-			<tr>
-				<td id="contactname">Shamus Endries</td>
-				<td id="contactemail"><em>This member's email will be added later</em></td>
-			</tr>
-			<tr>
-				<td id="contactname">Samuel Kim</td>
-				<td id="contactemail"><em>This member's email will be added later</em></td>
-			</tr>
-		</table>
+      officers = [
+        ["Xavier", "21xplourde@jd.cnyric.org", "plourde27", "plourde27", true],
+        ["Shamus", "21sendries@jd.cnyric.org", "Shamusend", "se323", true],
+        ["Sam", "22skim@jd.cnyric.org", "Forlorn_Fire", "FreeA", true],
+        ["Stefan", "22swang@jd.cnyric.org", "StefanWang", "Stef", true]
+      ];
+      for (var i = 0 ; i < officers.length ; i++) {
+        if (officers[i][4]) {
+          document.getElementById("ucontestlist").innerHTML += "<tr><th>" + officers[i][0] + "</th><th>" + officers[i][1] + "</th><th>" + officers[i][2] + "</th><th>" + officers[i][3] + "</th></tr>";
+        }
+        else {
+          document.getElementById("ucontestlist").innerHTML += "<tr class=\"info\"><th>" + officers[i][0] + "</th><th>" + officers[i][1] + "</th><th>" + officers[i][2] + "</th><th>" + officers[i][3] + "</th></tr>";
 
+        }
+      }
+      </script>
 
-	</body>
 </html>

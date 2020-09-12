@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]DIVISORS AND PRIME FACTORS",
+        "This tutorial will explain how to use important math algorithms in your programs.",
+        "[big]Divisors",
+        "Divisors of a number are any numbers that evenly divide another number. For example, 3 is a divisor of 6, because 3 evenly divides 6. However, 4 is not a divisor of 7, because 4 does not evenly divide 7.",
+        "The easiest way to check if one number is a divisor of another is to use the mod operator. If x mod y is equal to zero, then y is a divisor of x. If x mod y is not equal to zero, then y is not a divisor of x.",
+        "For example, this code reads in two space-separated numbers, and checks whether or not the second number is a divisor of the first:",
+        "[cd]x, y = [int(i) for i in input().split(\" \")]",
+        "[cd]if x % y == 0:",
+        "[cd]    print(str(x) + \" is a divisor of \" + str(y))",
+        "[cd]else:",
+        "[cd]    print(str(x) + \" is not a divisor of \" + str(y))",
+        "This technique can be used to find all divisors of a number.",
+        "The easiest way to do this is to loop from 1 up to the number, and check whether or not each choice is a divisor. This code prints out each divisor of a given number \"n\":",
+        "[cd]n = int(input())",
+        "[cd]for i in range(1, n + 1):",
+        "[cd]    if n % i == 0:",
+        "[cd]        print(i)",
+        "However, this approach is not very efficient. If n is really large, the algorithm will run very slowly.",
+        "To speed it up, we can notice that if a number i is a divisor of n, then n / i is also a divisor of n. For example, 2 is a divisor of 12, and 12 / 2 = 6 is also a divisor of 12.",
+        "Thus, the divisor of a number can be split into pairs of divisors. For example, the number 12 has pairs of divisors 1 and 12, 2 and 6, and 3 and 4.",
+        "The product of each pair of divisors has to equal the original number, as you may have noticed in the example above. As a result, the maximum possible value for the lower number of a divisor pair is the square root of the original number.",
+        "So, instead of looping all the way up to n, we can loop up to the square root of n.",
+        "To find the square root of a number, we can use the power shortcut. In Python, to take one number to the power of another number, you can use two times signs, like this:",
+        "[cd]print(5 ** 3) #125",
+        "The square root of a number is the number taken to the power of 0.5. So, the square root of a number is calculated like this:",
+        "[cd]n = int(input())",
+        "[cd]sq = n ** 0.5",
+        "When using the square root of n in a loop, we have to convert it into an integer (loop bounds can't be decimals).",
+        "[cd]sq = int(sq)",
+        "Now that we have the bounds on the lower number of the divisor pair, we can loop through the possible divisor pairs:",
+        "[cd]for i in range(1, sq + 1):",
+        "[cd]    if n % i == 0:",
+        "[cd]        print(i)",
+        "[cd]        print(n // i) #equivalent to int(n / i)",
+        "Here's the full code for printing all divisors of a number:",
+        "[cd]n = int(input())",
+        "[cd]sq = n ** 0.5",
+        "[cd]sq = int(sq)",
+        "[cd]for i in range(1, sq + 1):",
+        "[cd]    if n % i == 0:",
+        "[cd]        print(i)",
+        "[cd]        print(n // i)",
+        "What if we wanted to print all of the divisors, in sorted order? To do this, we'll need to add all of the divisors to a list, sort the list, and print out each element, like this:",
+        "[cd]n = int(input())",
+        "[cd]sq = n ** 0.5",
+        "[cd]sq = int(sq)",
+        "[cd]divisorList = []",
+        "[cd]for i in range(1, sq + 1):",
+        "[cd]    if n % i == 0:",
+        "[cd]        divisorList.append(i)",
+        "[cd]        divisorList.append(n // i)",
+        "[cd]divisorList = sorted(divisorList)",
+        "[cd]for i in range(0, len(divisorList)):",
+        "[cd]    print(divisorList[i])",
+        "However, there is one problem with this code. If n is a perfect square, then the code will add the square root of n to the list twice. For example, if n was equal to 36, this would be the contents of divisorList:",
+        "[cd]1 2 3 4 6 6 9 12 18 36",
+        "To fix this, we can modify the above code so that it only includes n // i if i is the square root of n.",
+        "[cd]n = int(input())",
+        "[cd]sq = n ** 0.5",
+        "[cd]sq = int(sq)",
+        "[cd]divisorList = []",
+        "[cd]for i in range(1, sq + 1):",
+        "[cd]    if n % i == 0:",
+        "[cd]        divisorList.append(i)",
+        "[cd]        if i * i != n: #checks if i is equal to the square root of n, or not.",
+        "[cd]            divisorList.append(n // i)",
+        "[cd]divisorList = sorted(divisorList)",
+        "[cd]for i in range(0, len(divisorList)):",
+        "[cd]    print(divisorList[i])",
+        "[big]Prime Factors",
+        "The prime factors of a number are any numbers that are divisors of the number, and are also prime.",
+        "For example, the prime factors of of 84 are 2, 3, and 7.",
+        "In this tutorial, we'll show an efficient way to find the prime factors of a number.",
+        "The first key observation with prime factors is that the smallest divisor of a number (other than one) is always a prime factor.",
+        "This is because every divisor of a number is either a prime factor of the number, or a product of prime factors of the number. The smallest divisor can't be the product of any prime factors, because if it was, they would be smaller than the divisor, so the smallest divisor of any number has to be a prime factor.",
+        "Once we find the smallest divisor, we can factor it out of the number entirely. We already know that the divisor we just found is a prime factor, so we don't need to worry about it anymore, and dividing out the smallest prime factor will not change any of the other prime factors of the number.",
+        "For example, let's take the number 84.",
+        "The first step of the algorithm is to find the smallest divisor of 84, which is 2. This is also the smallest prime factor of 84, which we proved above.",
+        "Now, we divide 84 by two until it is no longer divisible by two. After we divide it by two, it becomes 42, which is still divisible by two. We divide 42 by two and get 21, which isn't divisible by two. Now, we can add two to the list of prime factors, and run the algorithm on 21.",
+        "The smallest divisor and prime factor of 21 is 3, so we divide 21 by 3 and get 7, which is not divisible by three. We can add 3 to the list of prime factors, and continue with 7.",
+        "7 is a prime number, so we add it to the list of prime factors, and end the algorithm. The final list of prime factors is 2, 3, and 7, which is correct.",
+        "Now, let's write this algorithm in code.",
+        "[cd]n = int(input())",
+        "[cd]sq = int(n ** 0.5)",
+        "[cd]factors = []",
+        "[cd]facdict = {}",
+        "[cd]i = 1",
+        "[cd]while i <= sq:",
+        "[cd]    if n % i == 0:",
+        "[cd]        if i not in facdict: #we check if the factor is already in a dictionary",
+        "[cd]            factors.append(i) #if we haven't used it yet, add the factor to the list of factors",
+        "[cd]            facdict[i] = True #and put it in the dictionary",
+        "[cd]        n = n // i",
+        "[cd]    else:",
+        "[cd]        i += 1 #n no longer divides i, so try the next number",
+        "[cd]",
+        "Now, we can print out all of the prime factors of the number by looping through the list:",
+        "[cd]for i in range(0, len(factors)):",
+        "[cd]    print(factors[i])"
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

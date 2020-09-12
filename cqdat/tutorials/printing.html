@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]CODING BASICS",
+        "This is the first CodeRams tutorial. These tutorials will walk you through how to code in Python.",
+        "If you haven't already, you should download Python <a href=\"https://python.org\">here</a>.",
+        "[big]Print Statements",
+        "The first program written by most programmers is a \"hello world\" program, which prints \"hello world\" to the screen.",
+        "We'll walk through how to write a hello world program in the next few steps.",
+        "First, open up Python, and create a new file, called \"helloworld.py\".",
+        "Then, type the following code into the file:",
+        "[cd]print(\"Hello World\")",
+        "To run your code, click on \"Run\" and \"Run Module\".",
+        "If you did everything correctly, the code should print \"Hello World\" to the screen.",
+        "Congratulations! You've now written your first program.",
+        "Let's break down the parts of the print statement in the above code.",
+        "The \"print\" signifies that you are going to print a string of text to the screen. After typing \"print\", you then type what you want to print inside of parentheses and quotes.",
+        "For example, this code prints \"CodeRams Club\" to the screen:",
+        "[cd]print(\"CodeRams Club\")",
+        "To practice, write a program to print your name to the screen.",
+        "[big]Variables",
+        "[med]Defining Variables",
+        "Variables are an essential way to store data in programs.",
+        "This line of code defines a variable \"x\":",
+        "x = 3",
+        "Now, \"x\" has a value of 3, which can be printed or modified, which we'll learn how to do later.",
+        "Variables can contain numbers (integers), decimal numbers, characters, or strings of text. Variable names can be anything consisting of lowercase characters. The following lines are all valid declarations of variables:",
+        "[cd]y = 7.65253",
+        "[cd]z = \'x\'",
+        "[cd]thisVariable = \"hello\"",
+        "[med]Printing Variables",
+        "Once you've defined a variable, you can print it to the screen.",
+        "To print a variable, you put it inside of the parentheses of a \"print\" statement, without quotes, like this:",
+        "[cd]x = 7",
+        "[cd]print(x)",
+        "This code prints the value of variable \"x\" to the screen, which is 7.",
+        "[med]Modifying Variables",
+        "After a variable has been defined, you can modify it to a new value, like this:",
+        "[cd]y = 8",
+        "[cd]y = 5",
+        "You can put math operations inside of variable assignments, and the program will calculate them automatically. For example, this code will print 8:",
+        "[cd]z = 3 + 5",
+        "[cd]print(z)",
+        "You can also put other variable names in variable declarations, like this:",
+        "[cd]x = 7",
+        "[cd]y = 8",
+        "[cd]z = x + y",
+        "[cd]print(z)",
+        "This code prints 15, the value of x + y.",
+        "[med]Incrementing Variables",
+        "When reassigning variables using math operations, you can also use the same variable in the math operation, like this:",
+        "[cd]x = 5",
+        "[cd]x = x + 3",
+        "[cd]print(x)",
+        "This code prints 8, because x was originally set to 5, but it was reassigned to x + 3, which is 8.",
+        "This code can be shortened, like this:",
+        "[cd]x = 5",
+        "[cd]x += 3",
+        "[cd]print(x)",
+        "In other words x += [a number] has the same effect as x = x + [a number].",
+        "[big]Data Types",
+        "As discussed earlier, variables can be of several different data types. We'll describe here how to convert variables of certain data types to variables of other data types, a useful skill.",
+        "[med]String to Integer",
+        "Variables can consist of numbers inside of strings, like this:",
+        "[cd]x = \"8\"",
+        "However, you can't apply any math operations on this variable, because it is still a string. To convert a string to an integer, we can use the int() command, like this:",
+        "[cd]y = \"7\"",
+        "[cd]y = int(y)",
+        "Now, \"y\" is an integer, and we can apply math operations on it.",
+        "[med]Integer to String",
+        "If you want to convert an integer back into a string containing the integer, you can use the str() command. For example, this code converts \"y\" back into a string:",
+        "[cd]y = 6",
+        "[cd]y = str(y)",
+        "Now, y is a number inside of a string, instead of an integer.",
+        "[med]Floats",
+        "A variable containing a decimal number, like 3.876, is called a \"float\", short for \"floating point number\". To convert an integer into a floating point number, you can use the float() command:",
+        "[cd]x = 3",
+        "[cd]x = float(x)",
+        "In this case, \"x\" will be converted into 3.0, the floating point representation of 3. To convert a floating point number back into an integer, we can use the int() command. The int() command will delete any digits after the decimal point, rather than rounding the number. Take a look at these examples:",
+        "[cd]y = 5.765",
+        "[cd]print(float(y)) #prints 5, not 6",
+        "[cd]x = 3.0",
+        "[cd]print(float(x)) #prints 3",
+        "The float() command can also be used to convert a string containing a floating point number into a float, and the str() command will do the opposite.",
+        "[cd]x = \"3.14159\"",
+        "[cd]y = float(x)",
+        "[cd]y += 2.0",
+        "[cd]z = str(y)",
+        "[cd]print(z) #prints 5.14159",
+        "Note that if you add a float to an integer, or an integer to a float, the result will be a float:",
+        "[cd]x = 3",
+        "[cd]y = 4.5",
+        "[cd]print(x + y) #prints 7.5",
+        "However, if you try to add an integer to a string, or a float to a string, it will generate an error:",
+        "[cd]print(\"3\" + 5.5) #generates an error",
+        "This is why it's important to convert strings to integers or floats before using them in math operations.",
+        "[big]Conclusion",
+        "Now you know how to write basic print statements, and define and manipulate variables.",
+        "In the next tutorial, you'll learn how to read input, another very important coding skill."
+
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

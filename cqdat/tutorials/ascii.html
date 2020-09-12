@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]ASCII VALUES AND CRYPTOGRAPHY",
+        "[big]ASCII Values",
+        "[med]Motivation",
+        "To introduce the importance of ASCII value manipulation, let's solve the following coding problem: given a lowercase character, print the next one in the alphabet.",
+        "For example, given \"a\", you would print \"b\", given \"b\" you would print \"c\", and so on. Given \"z\", you would print \"a\" (it wraps around).",
+        "One way to do this would be to make a huge list with each lowercase character, and use the .index() command. This approach works, but it's very tedious and inefficient, and it doesn't generalize to uppercase characters (in other words, if uppercase characters were included as well, we would have to make two lists, which would be even more tedious).",
+        "However, by manipulating ASCII values, we can solve this problem in one line of code.",
+        "[med]The ord() Command",
+        "In computer programming in general (i.e. in all languages, not just Python), each character is given a unique number that represents its ASCII value. For example, the value of \"A\" is 65, the value of \"7\" is 54, and the value of the spacebar is 32.",
+        "For now, these numbers aren't important, but the important thing is that the ASCII codes for both lowercase and uppercase letters are always one more than the letter directly before it in the alphabet (except for \"a\"), and one less than the letter directly above it in the alphabet (except for \"z\").",
+        "In Python, you can find the ASCII value of a character using the \"ord\" command, like this:",
+        "[cd]print(ord(\"a\")) #97, the ASCII value of \"a\"",
+        "[cd]print(ord(\"D\")) #68, the ASCII value of \"D\"",
+        "[med]The chr() Command",
+        "The \"chr\" command in Python is the opposite of the \"ord\" command: it returns the character with the given unique ASCII code.",
+        "See these examples:",
+        "[cd]print(chr(97)) #a",
+        "[cd]print(chr(68)) #D",
+        "Thus, chr(ord([any character])) will return the original character:",
+        "[cd]print(chr(ord(\"x\")) #x",
+        "[cd]print(chr(ord(\"Z\"))) #Z",
+        "[med]Ascii Value Manipulation",
+        "To find the next character after a given one in the alphabet, we can use the ord() and chr() commands.",
+        "First, we'll read in the character as input:",
+        "[cd]character = input()",
+        "Next, we'll convert the character to its ASCII value:",
+        "[cd]character = ord(character)",
+        "Then, this is just a number, so we can add one to it:",
+        "[cd]character += 1",
+        "Now, we can convert the number back into a character again and print it:",
+        "[cd]character = chr(character)",
+        "[cd]print(character)",
+        "[med]Using the Mod Operator",
+        "The method shown above works most of the time, but given \"Z\" or \"z\", it will print a random ASCII character, instead of printing \"A\" or \"a\".",
+        "To fix this, we can use the mod operator. First, however, we'll need to convert the characters to a 0-based scale, where \"a\" has a value of 0, \"b\" has a value of 1, and so on.",
+        "Remember that consecutive letters in the alphabet (such as \"c\" and \"d\") always have consecutive ASCII values, as well. So, to convert a lowercase letter to a 0-based scale, we can just find the ASCII code for \"a\", and subtract it from the ASCII code from each letter.",
+        "The code below converts the character \"e\" to its value on a 0-based scale:",
+        "[cd]original = ord(\"e\")",
+        "[cd]scaled = original - ord(\"a\") #subtract the value of a lowercase a",
+        "Now, we can add one to the scaled character code, like before. However, now that everything is 0-based, we can take the result modulo 26 to handle the case with \"z\" becoming \"a\".",
+        "In other words, for all characters except for \"z\", taking the result modulo 26 won't change anything. For \"z\", the original result will be 26, and taking it modulo 26 will make it 0, corresponding to \"a\", which is correct.",
+        "Here's the final code that handles the \"z\" to \"a\" case:",
+        "[cd]originalChar = input() #read in the original character",
+        "[cd]originalChar = ord(originalChar) #scale to ASCII value",
+        "[cd]originalChar = originalChar - ord(\"a\") #convert to a 0-based scale",
+        "[cd]newChar = (originalChar + 1) % 26 #add 1, dealing with the z to a case",
+        "[cd]newChar = newChar + ord(\"a\") #add the ASCII code of \"a\"",
+        "[cd]newChar = chr(newChar) #convert back to a character",
+        "[cd]print(newChar)",
+        "The code above can be shortened, although it is less readable:",
+        "[cd]originalChar = input()",
+        "[cd]newChar = chr((ord(originalChar) - ord(\"a\") + 1) % 26 + ord(\"a\"))",
+        "[cd]print(newChar)",
+        "[big]Cryptography",
+        "Another use for ASCII value manipulation is in cryptography problems. Problems will never require you to know cryptography specifics themselves, but many problems describe a cryptography concept and require you to implement it, which almost always uses ASCII values.",
+        "[med]Caesar Cipher Encryption",
+        "The Caesar Cipher is a more general case of the problem described above (finding the next letter in the alphabet). The Caesar Cipher will encrypt a word or sentence with a key K, which is a number between 0 and 25.",
+        "The Caesar Cipher takes every letter in the word (not including spaces or punctuation), and increases its ASCII value by K. For example, if K was equal to 4, then the cipher would encrypt \"a\" into \"e\", \"b\" into \"f\", and \"c\" into \"g\".",
+        "If the encryption would result in a letter after \"z\", then it wraps around to the start of the alphabet. For example, with K equal to 4 like before, \"v\" becomes \"z\", \"w\" becomes \"a\", \"x\" becomes \"b\", \"y\" becomes \"c\", and \"z\" becomes \"d\".",
+        "Like in the earlier code, we can use the mod operator to do this.",
+        "For clarity, we'll first write a function to apply the Caesar Cipher encryption on a single character, given K:",
+        "[cd]def caesar(originalCharacter, k):",
+        "[cd]    originalCharacter = ord(originalCharacter) - ord(\"a\") #convert to ASCII value on a 0-based scale",
+        "[cd]    newCharacter = (originalCharacter + k) % 26 #add K to its value, and mod by 26 to deal with wraparound",
+        "[cd]    newCharacter = chr(newCharacter + ord(\"a\")) #convert back to a character",
+        "[cd]    return newCharacter",
+        "Now, we'll loop through the text and apply the Caesar Cipher on each letter (for now, we'll assume that nothing is uppercase in the sentence):",
+        "[cd]text = input() #read in the text",
+        "[cd]k = int(input()) #read in the key",
+        "[cd]for i in range(0, len(text)): #loop through the text",
+        "[cd]    if ord(text[i]) >= ord(\"a\") and ord(text[i]) <= ord(\"z\"): #the character is within the ASCII values of \"a\" and \"z\", so it's a lowercase letter",
+        "[cd]        text[i] = caesar(text[i], k) #apply the Caesar Cipher",
+        "[cd]print(text) #print the final encrypted text",
+        "To deal with uppercase characters, we can make a separate function for uppercase characters, with the same code, except with ord(\"A\") being used to convert the ASCII values to a 0-based scale.",
+        "[med]Caesar Cipher Decryption",
+        "To decrypt the Caesar Cipher, given the key, we can simply decrease the ASCII value of the letter by K. For example, if K was equal to 4, \"e\" decrypts to \"a\", \"f\" decrypts to \"b\", and \"g\" decrypts to \"c\".",
+        "However, dealing with wrapping around to the end of the alphabet is slightly harder than it is with encryption. Instead of the letters at the end of the alphabet wrapping around to the beginning, the letters at the beginning of the alphabet wrap around to the end. For example, \"a\" decrypts to \"w\", \"b\" decrypts to \"x\", and \"c\" decrypts to \"y\" (when K is equal to 4).",
+        "Unfortunately, we can't simply mod the new value by 26, because the values will become negative, which will cause the mod operator to not work correctly. The crucial observation for decrypting is that decreasing the ASCII value of a character by K is the same as increasing the ASCII value by 26 - K. For example, decreasing the ASCII value of a character by 4 is the same as increasing it by 22.",
+        "This way, to decrypt text encrypted using the Caesar Cipher, we can simply encrypt it with a key of 26 - K. This is because increasing the 0-based ASCII value of a character by 26 (and taking it mod 26) will always result in the same character.",
+        "Here's the code for decrypting a Caesar Cipher with a key of K:",
+        "[cd]text = input() #read in the text",
+        "[cd]k = int(input()) #read in the key",
+        "[cd]for i in range(0, len(text)): #loop through the text",
+        "[cd]    if ord(text[i]) >= ord(\"a\") and ord(text[i]) <= ord(\"z\"): #the character is within the ASCII values of \"a\" and \"z\", so it's a lowercase letter",
+        "[cd]        text[i] = caesar(text[i], 26 - k) #apply the Caesar Cipher decryption using 26 - k",
+        "[cd]print(text) #print the final encrypted text",
+        "[med]Other Ciphers",
+        "There are many other ciphers used in coding problems, such as the Vigenere Cipher, Morse Code, and the Affine Cipher.",
+        "These ciphers all involve finding the 0-based ASCII value of each uppercase or lowercase letter, and applying some operation on each one.",
+        "However, as stated above, the problems will always give you the details of the cipher itself. You don't need to memorize cipher details, but rather, how to manipulate the ASCII values of characters in the text.",
+        "[big]Conclusion",
+        "Now you know how to manipulate ASCII values of letters in words or sentences, and how to apply it to cryptography problems. In the next tutorial, we'll explore advanced problems involving recursion and backtracking."
+
+
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

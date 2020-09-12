@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]LOGIC",
+        "[big]Boolean Logic",
+        "[med]Boolean Variables",
+        "A boolean variable is a variable that only has two possible states, \"True\", and \"False\". For example, this code defines a variable \"exampleBoolean\" with the value \"False\".",
+        "[cd]exampleBoolean = False",
+        "If you print out a boolean value, it will simply print out its value, \"True\" or \"False\".",
+        "[cd]print(exampleBoolean) #prints \"False\"",
+        "[med]Boolean Expressions",
+        "Boolean variables can also be defined through numerical expressions that are either true or false.",
+        "For example, 9 is greater than 5, or, in other words, the expression \"9 > 5\" is true.",
+        "If we defined a variable with this expression, it would become a boolean variable, which will be true if the expression is true, and false otherwise.",
+        "Here's an example, with the \"9 > 5\" expression described above.",
+        "[cd]exampleExpression = 9 > 5",
+        "[cd]print(exampleExpression) #prints \"True\"",
+        "Here's another example, where the expression evaluates to false:",
+        "[cd]anotherExpression = 9 > 13",
+        "[cd]print(anotherExpression) #prints \"False\" (9 is not greater than 13)",
+        "So far, we've only seen the greater than operator for evaluating expressions. Let's look at a few other operators that can be used in boolean expressions.",
+        "To evaluate whether one number is less than another number, we can use the \"<\" symbol, like this:",
+        "[cd]yetAnotherExpression = 6 < 11",
+        "[cd]print(yetAnotherExpression) #prints \"True\"",
+        "To evaluate whether two values (could be integers, strings, or booleans) are equal, we can use two equals signs, like this:",
+        "[cd]nextExpression = 7 == 8",
+        "[cd]print(nextExpression) #prints \"False\" (7 does not equal 8)",
+        "Make sure to remember to use two equals signs when checking if two values are equal.",
+        "To check if two values (again, they could be integers, strings, or booleans) are not equal, you can use an exclamation point, followed by a single equals sign, like this:",
+        "[cd]thisExpression = 7 != 9",
+        "[cd]print(thisExpression) #prints \"True\" (7 does not equal 9)",
+        "We can also use the greater than or equal to operator, or the similar less than or equal to operator.",
+        "To use the greater than or equal to operator, type the greater than symbol ( > ), and then type an equals sign, like this:",
+        "[cd]expression = 7 >= 6 #True",
+        "[cd]expression2 = 8 >= 8 #True",
+        "[cd]expression3 = 8 >= 9 #False",
+        "The less than or equal operator works similarly:",
+        "[cd]expression = 3 <= 5 #True",
+        "[cd]expression2 = 5 <= 5 #True",
+        "Now that you know how boolean expressions work, we'll take a look at the most important application of them, in if/else statements.",
+        "[big]If/Else Statements",
+        "[med]Basic If Statements",
+        "If statements allow you to run a certain piece of code, only if a certain condition is true.",
+        "For example, your code could run a certain section of code only if a number you read in as input was greater than three.",
+        "The basic template of an if statement is like this:",
+        "[cd]if [boolean expression]:",
+        "[cd]    [some code]",
+        "[cd][more code]",
+        "The if statement above will evaluate whether or not [boolean expression] is true. If it is, the code will run [some code] first, and then proceed to run [more code]. If the expression is not true, then the code will skip [some code] and only run [more code].",
+        "Note that with if statements, indentation is important. When typing [some code], make sure to type a tab (left of the Q key) before typing any of the code.",
+        "Let's now look at a real example of an if statement.",
+        "This code will read in a number as input, and it will print out \"Big Number\" if the number is greater than 10.",
+        "[cd]number = int(input())",
+        "[cd]if number > 10:",
+        "[cd]    print(\"Big Number\")",
+        "This code will read in a string as input, and print out \"Hi!\" if the input string is \"Hello\".",
+        "[cd]word = input()",
+        "[cd]if word == \"Hello\":",
+        "[cd]    print(\"Hi!\")",
+        "[med]Else Statements",
+        "Else statements will run whenever the boolean expression in an if statement above it evaluates to false.",
+        "The basic structure of an if/else statement is like this:",
+        "[cd]if [boolean expression]:",
+        "[cd]    [some code]",
+        "[cd]else:",
+        "[cd]    [some more code]",
+        "[cd][even more code]",
+        "If [boolean expression] evaluates to true, then the code will run [some code], and will proceed to run [even more code].",
+        "Otherwise, the code will run [some more code], and then proceed to run [even more code].",
+        "This example will read in an integer, and print out \"Big Number\" if the number is greater than or equal to 10, and \"Small Number\" otherwise.",
+        "[cd]num = int(input())",
+        "[cd]if num >= 10",
+        "[cd]    print(\"Big Number\")",
+        "[cd]else:",
+        "[cd]    print(\"Small Number\")",
+        "Now, let's look at <a href=\"https://codeforces.com/gym/268800/problem/01\" target=\"blank\">this example problem</a>, Problem 1 from the CodeRams Contest #3, which occurred on February 13, 2020.",
+        "The problem asks you to read in a string. If the string is \"EARTH\", then you should print 9.807, and if the string is \"MARS\", then you should print 3.711.",
+        "This problem can be solved with if/else statements, like this:",
+        "[cd]planet = input()",
+        "[cd]if planet == \"EARTH\":",
+        "[cd]    print(9.807)",
+        "[cd]else:",
+        "[cd]    print(3.711)",
+        "[med]Elif Statements",
+        "Elif statements will run the code after it only if the boolean expression it contains evaluates to true, and if the previous if statement did not run. The basic structure looks like this:",
+        "[cd]if [boolean expression]:",
+        "[cd]    [some code]",
+        "[cd]elif [another boolean expression]:",
+        "[cd]    [more code]",
+        "[cd]else:",
+        "[cd]    [even more code]",
+        "If [boolean expression] is true, the code will run [some code]. If [another boolean expression] is true and [boolean expression] is not true, then the code will run [more code]. If both [boolean expression] and [another boolean expression] are false, then the code will run [even more code].",
+        "This example will read in a number, and print \"Big Number\" if an input number is greater than 100, \"Medium Number\" if the number is between 10 and 100, inclusive, and \"Small Number\" if the number is less than 10.",
+        "[cd]number = int(input())",
+        "[cd]if number > 100:",
+        "[cd]    print(\"Big Number\")",
+        "[cd]elif number >= 10:",
+        "[cd]    print(\"Medium Number\")",
+        "[cd]else:",
+        "[cd]    print(\"Small Number\")",
+        "Now, let's look at <a href=\"https://codeforces.com/gym/278258/problem/04\" target=\"blank\">this problem</a>, Problem 4 from the CodeRams Contest #8, which occurred on May 2, 2020.",
+        "The problem asks you to parse an input string that is a number, with \"GB\" on the end. Doing so requires lists or looping, so for now we'll just assume that the input was just the number (like \"200\").",
+        "If the number is less than or equal to 200, you should print \"SMALL\". Otherwise, if the number is less than or equal to 500, then you should print \"MEDIUM\". Otherwise, you should print \"LARGE\".",
+        "This problem can be solved using an if/elif/else structure, like this:",
+        "[cd]number = int(input())",
+        "[cd]if number <= 200:",
+        "[cd]    print(\"SMALL\")",
+        "[cd]elif number <= 500:",
+        "[cd]    print(\"MEDIUM\")",
+        "[cd]else:",
+        "[cd]    print(\"LARGE\")",
+        "You can also use multiple elif statements, each of which will run only if its boolean expression evaluates to true, and if all of the previous if or elif statements did not run.",
+        "This example illustrates how to use multiple elif statements:",
+        "[cd]if number > 1000:",
+        "[cd]    print(\"Huge Number\")",
+        "[cd]elif number > 100:",
+        "[cd]    print(\"Big Number\")",
+        "[cd]elif number >= 10:",
+        "[cd]    print(\"Medium Number\")",
+        "[cd]else:",
+        "[cd]    print(\"Small Number\")",
+        "Another classic use of if, else, and elif statements is to print a student's letter grade, given their numerical average. For example, if a student's average was 93, then they would have an \"A\", and if their average was 76, then they would have a \"C\"",
+        "Try to solve this problem on your own, before looking at the solution below.",
+        "[cd]average = int(input())",
+        "[cd]if average >= 90:",
+        "[cd]    print(\"A\")",
+        "[cd]elif average >= 80:",
+        "[cd]    print(\"B\")",
+        "[cd]elif average >= 70:",
+        "[cd]    print(\"C\")",
+        "[cd]elif average >= 65:",
+        "[cd]    print(\"D\")",
+        "[cd]else:",
+        "[cd]    print(\"F\")",
+        "Now that you know how to use if, elif, and else statements, let's look at compound boolean expressions, and how to use them in if and else statements.",
+        "[big]Compound Boolean Expressions",
+        "[med]Expressions using \"and\"",
+        "The first type of compound boolean expression uses the keyword \"and\". The \"and\" keyword separates two simple boolean expressions, and the compound boolean expression will evaluate to true only if both of the simple boolean expressions evaluate to true.",
+        "Here's an example of a compound boolean expression:",
+        "[cd]x = int(input())",
+        "[cd]expression = x >= 3 and x <= 6 #will be True only if x is between 3 and 6, inclusive",
+        "[cd]anotherExpression = x > 7 and x != 9 #will be True only if x is greater than 7 and not equal to 9.",
+        "[med]Expressions using \"or\"",
+        "Compound boolean expressions can also use the keyword \"or\". The \"or\" keyword also separates two simple boolean expressions, and the compound boolean expression will evaluate to true if either one of the simple boolean expressions (or both of them) evaluates to true.",
+        "Here's an example:",
+        "[cd]x = int(input())",
+        "[cd]expression = x >= 7 or x <= 4 #will be True if x is either greater than 7, or less than 4",
+        "[cd]anotherExpression = x < 5 or x == 10 #will be True only if x is either less than 5, or equal to 10",
+        "[med]Larger Compound Boolean Expressions",
+        "Compound boolean expressions can also contain more than two simple boolean expressions.",
+        "Large compound boolean expressions using \"and\" will only evaluate to true if all of the simple boolean expressions evaluate to true. See this example:",
+        "[cd]x = int(input())",
+        "[cd]expression = x >= 5 and x <= 15 and x != 8 #will be True only if x is between 5 and 15, inclusive, and not equal to 8",
+        "[cd]anotherExpression = x > 3 and x != 8 and x != 11 #will be True only if x is greater than 3, and not equal to 8 or 11",
+        "Large compound boolean expressions containing \"or\" will evaluate to true if any of its simple boolean expressions evaluate to true. Here's an example:",
+        "[cd]x = int(input())",
+        "[cd]expression = x >= 3 or x == 1 or x == 0 #will be True if x is greater than or equal to 3, or if x is equal to 0 or 1.",
+        "[cd]anotherExpression = x <= 5 or x == 7 or x == 6 #will be True if x is less than or equal to 5, or if x is equal to 6 or 7.",
+        "Note that combining \"and\" and \"or\" into one boolean expression can lead to messy order of operations errors. We'll explain how to get around this later.",
+        "Now that you know how to use compound boolean expressions, let's see how to use them in if statements.",
+        "[med]If Statements Using Compound Boolean Expressions",
+        "Like simple boolean expressions, compound boolean expressions can be used in if statements, and the code following the if statement will only run if the compound boolean expression evaluates to true. Here's an example:",
+        "[cd]num = int(input())",
+        "[cd]if num >= 3 and num <= 6:",
+        "[cd]    print(\"The number is between three and six.\")",
+        "As the print statement illustrates, in the code above, the print statement will only run if \"num\" is is between 3 and 6, inclusive.",
+        "Here's another example, using an else statement:",
+        "[cd]num = int(input())",
+        "[cd]if num < 8 or num == 9:",
+        "[cd]    print(\"The number is less than eight, or equal to nine.\")",
+        "[cd]else:",
+        "[cd]    print(\"The number is not less than eight, and not equal to nine.\")",
+        "The else statement above will only run if neither of the conditions of the if statement are true, since the conditions are separated using an \"or\" operator.",
+        "This example shows another way to solve the student grade problem from above. Note that the other way (without using compound boolean expressions) is generally considered \"better\", as it uses less boolean expressions in total and is less prone to typos or errors.",
+        "[cd]average = int(input())",
+        "[cd]if average >= 90:",
+        "[cd]    print(\"A\")",
+        "[cd]if average >= 80 and average < 90:",
+        "[cd]    print(\"B\")",
+        "[cd]if average >= 70 and average < 80:",
+        "[cd]    print(\"C\")",
+        "[cd]if average >= 65 and average < 70:",
+        "[cd]    print(\"D\")",
+        "[cd]if average < 65:",
+        "[cd]    print(\"F\")",
+        "Note that since all of the statements are \"if\" statements, rather than an if/elif/else structure, multiple of them could potentially evaluate to true. However, because of the constraints provided in each boolean expression, only one will evaluate to true in this specific example.",
+        "[big]Using the Mod Operator",
+        "While it's not related to logic, the mod operator is very useful and is good to know at this point.",
+        "The mod operator, short for modulo, evaluates the remainder of the first number, when divided by the second number.",
+        "In other words, x mod y will return the remainder of x, when divided by y.",
+        "For example, let's evaluate the expression 17 mod 5. 17 divided by 5 is 3, with a remainder of 2, so 17 mod 5 = 2.",
+        "In python, you can use the mod operator by typing the percent symbol. For example, 17 % 5 will evaluate 17 mod 5.",
+        "This example will read in an integer, and print out it's remainder, when divided by 5.",
+        "[cd]x = int(input())",
+        "[cd]remainder = x % 5",
+        "[cd]print(remainder)",
+        "If a number x has a remainder of 0 when divided by another number y, then x has to be a multiple of y (x has to evenly divide y). We can therefore use the mod operator to figure out whether or not one number is a multiple of another number.",
+        "This number checks whether or not an input number is a multiple of 7:",
+        "[cd]number = int(input())",
+        "[cd]if number % 7 == 0:",
+        "[cd]    print(\"Multiple of 7\")",
+        "[cd]else:",
+        "[cd]    print(\"Not a Multiple of 7\")",
+        "[big]Conclusion",
+        "Now you have learned how to use boolean expressions, and if, elif, and else statements, in your code. In the next tutorial, we'll explore for and while loops, another very important skill."
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

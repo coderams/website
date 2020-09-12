@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]BINARY SEARCH"
+
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]GENERAL CODING-RELATED MATH",
+        "For coding problems, there are several built-in math functions that are useful to know. This tutorial will go over them.",
+        "[big]Exponentiation",
+        "[med]Basics",
+        "Some problems ask you to compute a number to a certain power. For example, 3 to the power of 5 is 243.",
+        "As an example, we'll look at PB012, which asks us to find one number to the power of another.",
+        "To start, we'll read in the two integers, using the shortcut described in the list tutorial:",
+        "[cd]num1, num2 = [int(i) for i in input().split(\" \")]",
+        "The problem asks us to print num1 to the power of num2. One way to do this is using a for loop, multiplying a new variable by num1, num2 times:",
+        "[cd]answer = 1",
+        "[cd]for i in range(0, num2):",
+        "[cd]    answer = (answer * num1) #multiplies the answer by num1, num2 times",
+        "[cd]print(answer)",
+        "However, in Python, there is an even easier way. We can just use two multiplication signs for exponentiation, like this:",
+        "[cd]print(num1 ** num2) #num1 to the power of num2",
+        "This is a useful trick for any problems involving taking a number to the power of another.",
+        "For practice using this trick, se if you can solve PB001 using only one line of code.",
+        "[med]Square and Cube Roots",
+        "The square root of a number is the same thing as taking the number to the power of 0.5, so we can just use the trick shown above for doing exponentiation:",
+        "[cd]print(16 ** 0.5) #prints sqrt(16) = 4",
+        "This method can be used for cube roots as well (the cube root of something is equivalent to taking it to the power of 1/3):",
+        "[cd]print(125 ** (1/3)) #prints 5",
+        "[big]Rounding",
+        "All problems involving decimal numbers have to deal with rounding of integers in some way, because decimal numbers programming languages aren't always completely accurate to a large number of decimal places.",
+        "For our competitions and practice problems, we usually don't instruct participants to round their answers, and answers are judged as correct as long as they're very close to the correct answer (to prevent precision issues).",
+        "However, CodeQuest almost always requires participants to round their answers to a certain number of decimal places when decimal numbers are involved.",
+        "[med]Rounding Basics",
+        "In Python, there are two main commands for rounding: int(), and round().",
+        "int() rounds all decimal numbers down, so int(5.1) would equal 5, int(6.7) would equal 6, and int(9.95) would equal 9.",
+        "However, round() rounds all decimal places to the nearest number, so round(5.2) would equal 5, round(5.9) would equal 6, and round(8.5) would equal 9.",
+        "See these additional examples:",
+        "[cd]print(round(7.7)) #8.0",
+        "[cd]print(int(7.7)) #7.0",
+        "[cd]print(round(6.5)) #7.0",
+        "[cd]print(int(6.5)) #6.0",
+        "[cd]print(round(6.3)) #6.0",
+        "[cd]print(int(6.3)) #6.0",
+        "At CodeQuest, rounding is usually done to the nearest integer, so the round() command is used more often.",
+        "The round() command can also round a number to a certain number of decimal places, as specified as a second command in the function.",
+        "For example, round(3.75, 1) rounds the number to 1 decimal place and returns 3.8",
+        "See these examples:",
+        "[cd]print(round(8.736, 2)) #8.74",
+        "[cd]print(round(7.741, 0)) #8.0",
+        "[med]Trailing Zeros",
+        "Unfortunately, the round command on its own will not always successfully solve CodeQuest problems involving rounding.",
+        "See this example:",
+        "[cd]print(round(8.899, 2))",
+        "This example prints \"8.9\", while the correct answer is \"8.90\". Unfortunately, even though these are equal numbers, the CodeQuest checker program will still mark this as incorrect. Note that in almost all other competitions this next step is not necessary, since they check whether or not the actual values of the decimal numbers are equal, not just the string values.",
+        "To fix this, we'll have to add trailing zeros to the number. The easiest way to do this is using a while loop:",
+        "[cd]num = round(8.899, 2)",
+        "[cd]num = str(num) #convert to a string",
+        "[cd]while len(num) <= 2:",
+        "[cd]    num += \"0\" #add trailing zeros",
+        "[cd]print(num) #prints 8.90, the correct answer",
+        "[big]Conclusion",
+        "This concludes the Basic Coding Tutorials. The next tutorials will explore more advanced concepts, like 2D lists."
+
+
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        var nt = [];
+        var cd = 0;
+
+        for (var j = 0 ; j < text[i].length - 5 ; j++) {
+          if (text[i][j] == "P" && text[i][j+1] == "B") {
+            nt.push("<a href=\"https://codeforces.com/gym/102697/problem/" + text[i][j+2] + text[i][j+3] + text[i][j+4] + "\" target=\"blank\">this problem</a>");
+            cd = 5;
+          }
+          else if (cd <= 0) {
+            nt.push(text[i][j]);
+          }
+          cd--;
+        }
+
+        for (var j = text[i].length - 5 ; j < text[i].length ; j++) {
+          nt.push(text[i][j]);
+        }
+
+        text[i] = nt.join("");
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

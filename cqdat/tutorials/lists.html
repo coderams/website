@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]LISTS",
+        "[big]Basics of Lists",
+        "[med]Defining Lists",
+        "Lists are an extremely useful way to organize multiple variables.",
+        "For example, let's say that you wanted to store five variables, and modify them several times.",
+        "You could simply define five different variables, and modify each one, but this is very inefficient and tedious. Instead, we can use a list.",
+        "Defining lists, at first glance, is similar to defining other types of variables. In fact, a list is just another type of variable, that stores different variables inside of it.",
+        "To define a list, however, rather than simply placing a number, boolean, or string to the right of the equals sign, you place each element of the list separated by commas, and enclosed in square brackets.",
+        "For example, this code defines a list with three integer elements: 2, 3, and 4.",
+        "[cd]myList = [2, 3, 4]",
+        "Lists can also contain booleans, strings, or even other lists, which we'll explore in the tutorial on 2D lists.",
+        "Unlike in Java or C++, the same list can contain different types of elements. For example, one list could contain a boolean, string, and two integers.",
+        "The following examples are all valid ways to define a list:",
+        "[cd]list1 = [3, 7, 8, 9]",
+        "[cd]list2 = [\"hello\", \"world\", 5]",
+        "[cd]list3 = [False, False, True]",
+        "[cd]list4 = [1, 1, 1, \"coderams\"]",
+        "If you print out a list, it will print out each element separated by commas, and enclosed in brackets, the same syntax that you use to define a list, like this:",
+        "[cd]list1 = [4, 5, 7, 9]",
+        "[cd]print(list1) #prints \"[4, 5, 7, 9]\"",
+        "[med]Accessing and Modifying Elements in Lists",
+        "To access an element of a list, you first write the name of the list, and then enclose the index of the element you want to access in square brackets.",
+        "The indices of a list start at 0! This is a very important thing to remember, and is a common mistake when using lists.",
+        "Here are some examples of accessing list elements:",
+        "[cd]theList = [4, 7, 11, 3, 9, 5, 2]",
+        "[cd]print(theList[0]) #4 (first element)",
+        "[cd]print(theList[3]) #3 (fourth element)",
+        "[cd]print(theList[6]) #2 (seventh element)",
+        "We can also assign individual list elements to variables:",
+        "[cd]theList = [4, 7, 8, 2, 5, 9, 3]",
+        "[cd]secondElement = theList[1] #7",
+        "[cd]thirdElement = theList[2] #8",
+        "[cd]print(secondElement + thirdElement) #15",
+        "If you try to access an index greater than or equal to the length of the list, the program will generate an index out of bounds error. For example, these lines of code will each generate an error (except the first one):",
+        "[cd]theList = [3, 4, 5]",
+        "[cd]print(theList[3]) #error",
+        "[cd]print(theList[77]) #error",
+        "To change the value of an element of the list, we can use a similar syntax to modifying variables. Instead of placing the variable name on the left side of the equals sign, however, we'll place the \"address\" of the list element: the list name, with the index in square brackets, like this:",
+        "[cd]myList = [3, 4, 5]",
+        "[cd]myList[1] = 6 #change the second element of myList to 6",
+        "[cd]print(myList) #prints \"[3, 6, 5]\"",
+        "[med]Looping Through Lists",
+        "To access all of the elements of a list, it's important to know how to find the length of a list.",
+        "To find the length of a list, we can use the len() command, like this:",
+        "[cd]myList = [7, 8, 10, 3]",
+        "[cd]print(len(myList)) #4 (myList has 4 elements)",
+        "To loop through a list, we'll set \"i\" to the index in the list, and loop from 0 to len(myList) - 1, to find all elements in the list. Note that to do this, we'll need to set the upper bound of the for loop to len(myList), because the loop will go up to one less than the upper bound.",
+        "This code will loop through and print out each element of myList:",
+        "[cd]myList = [3, 7, 9, 11]",
+        "[cd]for i in range(0, len(myList)):",
+        "[cd]    print(myList[i]) #prints each element of myList",
+        "We can also modify elements of lists inside of loops. For example, this code will make all of the elements of myList equal to six:",
+        "[cd]myList = [3, 7, 9, 13]",
+        "[cd]for i in range(0, len(myList)):",
+        "[cd]    myList[i] = 6 #sets each element equal to six",
+        "We can also use the len() command to print out the last element of a list:",
+        "[cd]myList = [4, 7, 8, 10]",
+        "[cd]print(myList[len(myList) - 1]) #10",
+        "There's a useful shortcut for this in Python: negative indices. If you access a negative index in a list, the list will return the index from the end, rather than the beginning.",
+        "For example, the index -1 in a list will return the last element, -2 will return the second-to-last element, and so on. See these examples:",
+        "[cd]myList = [4, 5, 8, 8, 3, 5, 9]",
+        "[cd]print(myList[-1]) #9",
+        "[cd]print(myList[4]) #3",
+        "[cd]print(myList[-7]) #4",
+        "[cd]print(myList[-10]) #generates an error (out of bounds)",
+        "[med]Adding Elements to Lists",
+        "To add an element to a list, we can use the append() command. The append command will add whatever element is inside of the parentheses to the end of the list",
+        "Here's an example:",
+        "[cd]myList = [] #empty list",
+        "[cd]myList.append(3)",
+        "[cd]myList.append(5)",
+        "[cd]print(myList) #[3, 5]",
+        "[cd]myList[0] = 7",
+        "[cd]myList.append(6)",
+        "[cd]print(myList) #[7, 5, 6]",
+        "Now that you know how to use lists, let's explore how to convert strings to lists.",
+        "[big]List to String Conversion",
+        "[med]The Split Command",
+        "Let's say you had the following string:",
+        "[cd]exampleString = \"3 5 9 11 13 15\"",
+        "The string shown above consists of several numbers, each one separated by a space.",
+        "What if we wanted to convert the string into a list, where each element was each space-separated number in the string?",
+        "For example, given the string above, we would get the following list:",
+        "[cd]convertedList = [3, 5, 9, 11, 13, 15]",
+        "To do this, we can use the .split() command.",
+        "First, we'll need to define a new variable: convertedList",
+        "We'll assign the string, converted to a list of its elements, to convertedList, by putting it on the right side of the equation, like this:",
+        "[cd]exampleString = \"3 5 9 11 13 15\"",
+        "[cd]convertedList = exampleString.split(\" \")",
+        "The split command can be applied to any string, and will return a list of all of its characters, separated by whatever character is inside of the parentheses of the split command. This character is called the \"separator\".",
+        "In this example, the characters are separated by spaces, so a space is the separator. This modified code will convert a string of numbers, separated by commas, into a list of the numbers:",
+        "[cd]exampleString = \"3,5,9,11,13,15\"",
+        "[cd]convertedList = exampleString.split(\",\") #a comma is now the separator",
+        "However, there is one problem with this code: currently, all of the elements in convertedList are strings, instead of integers. For example, the first element of convertedList is \"3\", not simply 3.",
+        "To change this, we can loop through and convert each element into an integer using the int() command:",
+        "[cd]for i in range(0, len(convertedList)):",
+        "[cd]    convertedList[i] = int(convertedList[i]) #converts each element to an integer",
+        "We'll see the usefulness of this technique later, in the section on reading in lists.",
+        "[med]The Join Command",
+        "The join command, essentially, is the opposite of the split command. Given a list of strings, the join command will return a string, containing each element of the list, separated by a given separator.",
+        "The syntax of the join command is different from that of the split command, however. For example, this code will convert wordList into a single string containing all of the words, separated by spaces:",
+        "[cd]wordList = [\"hello\", \"world\", \"CodeRams\", \"Club\"]",
+        "[cd]wordString = \" \".join(wordList) #apply the join command to the separator, and put the list in parentheses",
+        "Instead of applying the join command to the list and putting the separator in parentheses, to use the join command we have to apply the command to the separator, and put the list name inside of the parentheses.",
+        "One application of the join command is printing out all elements of a list, without the brackets, like this:",
+        "[cd]wordList = [\"hello\", \"world\", \"this\", \"is\", \"a\", \"list\"]",
+        "[cd]print(\" \".join(wordList)) #prints \"hello world this is a list\"",
+        "[med]The List Command",
+        "What if we wanted to convert a string into a list, where each element was each character of the string?",
+        "This can't be done with the split command, because there aren't any possible separators that would accomplish this. The easiest way to convert a string into a list of its characters is to use the list() command. The commands is slightly different from the split command:",
+        "[cd]myString = \"hello\"",
+        "[cd]myList = list(myString)",
+        "[cd]print(myList) #[\"h\", \"e\", \"l\", \"l\", \"o\"]",
+        "[big]Reading In Lists",
+        "[med]Reading In Lists of Integers",
+        "Now, let's look at how to read in a list of integers.",
+        "In most problems that require you to read in a list of integers, the first line of the input will be a positive integer representing the length of the list. For example, this would be a possible input where the input is a list:",
+        "[cd]5",
+        "[cd]2 5 7 3 1",
+        "This is due to other languages like Java and C++ requiring you to know the length of a list before reading it in.",
+        "In Python, however, we can just read the integer to a variable first, and read in the list separately, like this:",
+        "[cd]n = int(input())",
+        "[cd]theList = input().split(\" \")",
+        "The variable theList, however, contains strings containing the integers, rather than the integers themselves. We have to use a for loop to fix this:",
+        "[cd]for i in range(0, n):",
+        "[cd]    theList[i] = int(theList[i])",
+        "There is a shortcut to this, however. This line of code will read in a list of space-separated integers, and automatically convert them to integers:",
+        "[cd]theList = [int(i) for i in input().split(\" \")]",
+        "For now, it's not important to know exactly how this \"list comprehension\" trick works. Just know how to use this one line of code, as it speeds up the process of solving coding problems considerably.",
+        "[med]Reading in Space-separated Integers",
+        "Some problems also can contain a line of a fixed number of integers.",
+        "For example, the first line of input could contain two space-separated integers \"n\" and \"m\", and we would need to read them in to two different variables.",
+        "First, we can read in the list containing \"n\" and \"m\" using the list comprehension trick described above:",
+        "[cd]inputLine = [int(i) for i in input().split(\" \")]",
+        "Then, we can cast \"n\" and \"m\" to the two elements of inputLine, like this:",
+        "[cd]n = inputLine[0]",
+        "[cd]m = inputLine[1]",
+        "However, we can use another shortcut for this. If we separate n and m by commas, they can replace the name of the list, and Python will automatically assign them to the two values given in the input:",
+        "[cd]n, m = [int(i) for i in input().split(\" \")]",
+        "This also works if we have more than two space-separated integers (but only if it is a fixed number):",
+        "[cd]a, b, c = [int(i) for i in input().split(\" \")]",
+        "Let's use this example to solve <a href=\"https://codeforces.com/gym/268800/problem/02\" target=\"blank\">this problem</a>, Problem 2 from the CodeRams Contest #3, which occurred on February 13, 2020.",
+        "The problem asks you to read in two space-separated integers, and print them in reverse order.",
+        "First, we can read in the two integers using the trick described above:",
+        "[cd]a, b = [int(i) for i in input().split(\" \")]",
+        "Then, we can convert the two integers to strings, and print them out in reverse order, separated by a space:",
+        "[cd]print(str(b) + \" \" + str(a))",
+        "Now that you know how to read in lists, let's look at some less common list commands.",
+        "[big]Additional List Commands",
+        "These list commands are more advanced, and you can skip over them if you would like. Many of them, however, are still useful for coding problems.",
+        "[med]Sorting a List",
+        "To sort a list, we can use the sorted() command, like this:",
+        "[cd]myList = [5, 6, 3, 2, 5, 4]",
+        "[cd]myList = sorted(myList)",
+        "[cd]print(myList) #[2, 3, 4, 5, 6]",
+        "This command is very useful for many problems, so make sure to keep it in mind.",
+        "[med]The Index Command",
+        "The index command can be used to find which index in a list a certain element has.",
+        "For example, in this list, the element 6 has an index of two:",
+        "[cd]myList = [3, 4, 6, 7]",
+        "If there are multiple of the same element in the list, .index() will return the one with the lowest index.",
+        "If there aren't any instances of an element, trying to find it using .index() will generate an error. See these examples:",
+        "[cd]myList = [7, 8, 12, 4, 5, 4, 6]",
+        "[cd]print(myList.index(8)) #1",
+        "[cd]print(myList.index(77)) #generates an error",
+        "[cd]print(myList.index(4)) #4",
+        "[cd]print(myList.index(5)) #4",
+        "[med]The Del Keyword",
+        "The \"del\" keyword can be used to delete an element from a list, like this:",
+        "[cd]myList = [4, 6, 11]",
+        "[cd]del myList[0]",
+        "[cd]print(myList) #[6, 11]",
+        "Attempting to delete an invalid index will generate an error.",
+        "Alternatively, you can delete the last element of a list using the .pop() function:",
+        "[cd]myList = [6, 8, 5]",
+        "[cd]myList.pop()",
+        "[cd]myList.pop() #deletes the last element of the new list",
+        "[cd]print(myList) #[6]",
+        "[med]List Slicing",
+        "List slicing is a fast way to find a certain range of a list.",
+        "For example, let's say you had the following list:",
+        "[cd]myList = [7, 8, 11, 15, 13, 6, 9, 11]",
+        "What if you wanted to make a new list, consisting of the second, third, and fourth elements of myList? You could use a loop:",
+        "[cd]newList = []",
+        "[cd]for i in range(1, 4):",
+        "[cd]    newList.append(myList[i])",
+        "[cd]print(newList) #[8, 11, 15]",
+        "However, this can be shortened, using the slicing technique:",
+        "[cd]newList = myList[1:4]",
+        "Basically, list slicing that is written in this way:",
+        "[cd]newList = oldList[x:y]",
+        "Is equivalent to this longer code:",
+        "[cd]newList = []",
+        "[cd]for i in range(x, y):",
+        "[cd]    newList.append(oldList[i])",
+        "You can also leave out one or both of the numbers that are separated by the colon.",
+        "If you leave out the first number, the new list will include all elements up to one less than the second number.",
+        "If you leave out the second number, the new list will include all elements from the first number onward.",
+        "If you leave out both numbers, the new list will be the same as the old list. See these examples:",
+        "[cd]myList = [5, 3, 9, 4, 8, 5, 6]",
+        "[cd]list1 = myList[1:5] #[3, 9, 4, 8]",
+        "[cd]list2 = myList[:2] #[5, 3]",
+        "[cd]list3 = myList[1:] #[3, 9, 4, 8, 5, 6]",
+        "[cd]list4 = myList[:] #[5, 3, 9, 4, 8, 5, 6]",
+        "[cd]list5 = myList[2:-2] #[9, 4, 8] (you can use negative indices in list slicing as well)",
+        "One additional application of list slicing is for reversing a list. To reverse a list you could do this:",
+        "[cd]myList = [5, 3, 9, 4, 8, 5, 6]",
+        "[cd]revList = []",
+        "[cd]for i in range(0, len(myList)):",
+        "[cd]    revList.append(myList[len(myList) - i - 1]) #will add the elements in reverse order",
+        "However, this is made much simpler with list slicing. To reverse a list, you can write the name of the old list, and put two colons, and a -1, inside of square brackets, like this:",
+        "[cd]myList = [5, 3, 9, 4, 8, 5, 6]",
+        "[cd]revList = myList[::-1]",
+        "This trick often comes in handy in coding contests, so keep it in mind.",
+        "[big]List Practice Problems",
+        "Lists are a very important coding topic, and this tutorial has a lot of information in it for a single tutorial.",
+        "Now, we're providing several example problems involving lists, from easiest to hardest, which you can solve for additional practice with lists:",
+        "<a href=\"https://codeforces.com/gym/260622/problem/03\" target=\"blank\">Problem 3</a>",
+        "<a href=\"https://codeforces.com/gym/280260/problem/02\" target=\"blank\">Problem 109</a>",
+        "<a href=\"https://codeforces.com/gym/281521/problem/03\" target=\"blank\">Problem 127</a>",
+        "<a href=\"https://codeforces.com/gym/268800/problem/05\" target=\"blank\">Problem 11</a>",
+        "<a href=\"https://codeforces.com/gym/281521/problem/07\" target=\"blank\">Problem 131</a>",
+        "<a href=\"https://codeforces.com/gym/277718/problem/05\" target=\"blank\">Problem 67</a>",
+        "<a href=\"https://codeforces.com/gym/274976/problem/07\" target=\"blank\">Problem 42</a>"
+
+      ];
+
+      /*
+      "<a href=\"https://codeforces.com/gym/260622/problem/03\" target=\"blank\">Problem 3</a>",
+      "<a href=\"https://codeforces.com/gym/280260/problem/02\" target=\"blank\">Problem 109</a>",
+      "<a href=\"https://codeforces.com/gym/281521/problem/03\" target=\"blank\">Problem 127</a>",
+      "<a href=\"https://codeforces.com/gym/268800/problem/05\" target=\"blank\">Problem 11</a>",
+      "<a href=\"https://codeforces.com/gym/281521/problem/07\" target=\"blank\">Problem 131</a>",
+      "<a href=\"https://codeforces.com/gym/277718/problem/05\" target=\"blank\">Problem 67</a>",
+      "<a href=\"https://codeforces.com/gym/274976/problem/07\" target=\"blank\">Problem 42</a>"
+
+      -Basics of Lists
+      --Defining Lists
+      --Accessing and Modifying Elements in Lists
+      --Looping Through Lists
+      --Adding Elements to Lists
+      -List to String Conversion
+      --The Split Command
+      --The Join Command
+      --The List Command
+      -Reading in a List
+      --Reading in Lists
+      --Reading in Space-separated Integers
+      -Additional List Commands
+      --The Index Command
+      --The Del Keyword
+      --List Slicing
+      -List Practice Problems
+      */
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

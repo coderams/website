@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="mainpage.html">Home</a></li>
+    			<li><a style="background-color:#545454" href="contests.html">Competitions</a></li>
+    			<li><a href="problems.html">Practice Problems</a></li>
+    			<li><a href="tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="scores.html">Competition Leaderboard</a></li>
+    			<li><a href="contact.html">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+    <h1 id="pagetitle">Upcoming Contests</h1>
+    <table id="ucontestlist" align="center" borderspacing=30px>
+      <tr id="firstel">
+        <th>Name</th>
+        <th>Date</th>
+        <th>Writers</th>
+      </tr>
+    </table>
+
+    <h1 id="pagetitle">Past Contests</h1>
+    <table id="contestlist" align="center" borderspacing=30px>
+      <tr id="firstel">
+        <th>Name</th>
+        <th>Date</th>
+        <th>Writers</th>
+        <th>Winner</th>
+      </tr>
+    </table>
+    <script>
+      var upcomingContests = [
+        ["CodeRams Algorithm Contest #1", "November 7, 2020", ["Xavier"]],
+        ["CodeRams Algorithm Contest #2", "December 19, 2020", ["Xavier"]],
+        ["CodeRams Algorithm Contest #3", "February 6, 2021", ["Xavier"]],
+        ["CodeRams Algorithm Contest #4", "March 27, 2021", ["Xavier"]],
+        ["CodeQuest Practice Contest #1", "March 28, 2021", ["TBD"]],
+        ["CodeQuest Practice Contest #2", "April 24, 2021", ["TBD"]],
+        ["CodeQuest", "April/May 2021", ["Lockheed Martin"]]
+      ];
+      var contests = [
+        ["CodeRams Contest #15", "September 5, 2020", "Stefan", ["Xavier"], 293459],
+        ["CodeRams Team Competition", "July 25-27, 2020", "JD Team 1 (Sam, Stefan, Andrew)", ["Xavier", "Tristan", "Brian"], 288784],
+        ["CodeRams Contest #13", "June 20, 2020", "Andrew", ["Sam", "Xavier"], 284796],
+        ["CodeRams Contest #12", "June 6, 2020", "Xavier", ["Tristan"], 283331],
+        ["CodeRams Contest #11", "May 23, 2020", "Bohdin", ["Xavier"], 281521],
+        ["CodeRams Contest #10", "May 16, 2020", "Bohdin", ["Xavier"], 280260],
+        ["CodeRams Contest #9", "May 9, 2020", "Xavier", ["Brian", "Shamus"], 279570],
+        ["CodeRams Contest #8", "May 2, 2020", "Tristan", ["Xavier"], 278258],
+        ["CodeRams Contest #7", "April 25, 2020", "Xavier", ["Tristan", "Sam"], 277718],
+        ["CodeRams Contest #6", "April 11, 2020", "Xavier", ["Tristan"], 275991],
+        ["CodeRams Contest #5", "April 4, 2020", "Xavier", ["Brian", "Shamus"], 274976],
+        ["CodeRams Contest #4", "March 28, 2020", "Tristan", ["Xavier"], 273650],
+        ["CodeRams Contest #3 [Novice]", "February 13, 2020", "Bohdin", ["Xavier", "Tristan", "Brian", "Sam"], 268800],
+        ["CodeRams Contest #2 [Novice]", "January 17, 2020", "Andrew", ["Xavier"], 260622],
+        ["CodeRams Contest #1 [Novice]", "November 22, 2019", "Bohdin", ["Xavier", "Tristan"], 0],
+        ["CodeQuest 2019", "April 27, 2019", "Codebusters (Xavier, Tristan, Brian)", ["Lockheed Martin"], 0],
+        ["JD Coding Invitational 2019", "March 2, 2019", "N/A", ["Mr. Lang"], 0],
+        ["CodeQuest 2018", "April 21, 2018", "OmegaRams (Xavier, Albert, Ben)", ["Lockheed Martin"], 0]
+      ];
+
+      for (var i = 0 ; i < upcomingContests.length ; i++) {
+        var st = "";
+        var name = upcomingContests[i][0];
+        var date = upcomingContests[i][1];
+        st = upcomingContests[i][0];
+
+        document.getElementById("ucontestlist").innerHTML += "<tr id=\"contest\"><td id=\"cname\">" + st + "</td>" + "<td id=\"cdate\">" + upcomingContests[i][1] + "</td><td id=\"cwrite\">" + upcomingContests[i][2].join(", ") + "</td></tr>";
+
+      }
+
+      for (var i = 0 ; i < contests.length ; i++) {
+        var st = "";
+        var name = contests[i][0];
+        var date = contests[i][1];
+        if (contests[i][4]) {
+          st = "<a href=https://codeforces.com/gym/" + contests[i][4] + "/standings target=blank>" + name + "<br>";
+        }
+        else {
+          st = contests[i][0];
+        }
+
+        document.getElementById("contestlist").innerHTML += "<tr id=\"contest\"><td id=\"cname\">" + st + "</td>" + "<td id=\"cdate\">" + contests[i][1] + "</td><td id=\"cwrite\">" + contests[i][3].join(", ") + "</em></td><td id=\"cwin\">" + contests[i][2] + "</td></tr>";
+
+
+      }
+    </script>
+    </body>
+</html>

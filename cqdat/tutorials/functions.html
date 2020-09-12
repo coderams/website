@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]FUNCTIONS AND DICTIONARIES",
+        "[big]Basics of Functions",
+        "Functions are a useful way to write one piece of code, possibly with a few parameters, to save yourself from having to write it multiple times later in the code.",
+        "For example, you could write a function to print out a long string of text, and print out the long string of text several times by simply calling the function.",
+        "Using parameters, which we'll get to later, you could also write a function to return a number multiplied by two, and use that in your code.",
+        "In Python, the basic structure of defining and calling functions is like this:",
+        "[cd]def [function name]():",
+        "[cd]    [some code]",
+        "[cd]",
+        "[cd][function name]() #this calls the function, and is equivalent to writing [some code] (but is shorter).",
+        "For example, this code will define a function called \"exampleFunction\" that will print \"Hello World\":",
+        "[cd]def exampleFunction():",
+        "[cd]    print(\"Hello World\")",
+        "Then, if we wanted to print out \"Hello World\", instead of using a print statement, we could do this:",
+        "[cd]exampleFunction() #prints \"Hello World\"",
+        "Now, we'll look at a more complex example.",
+        "This example code defines and calls a function called \"printOneToTen\" that prints all of the numbers from 1 to 10, inclusive:",
+        "[cd]def printOneToTen():",
+        "[cd]    for i in range(1, 11):",
+        "[cd]        print(i)",
+        "[cd]",
+        "[cd]printOneToTen() #prints all numbers from one to ten, inclusive",
+        "This example calls the printOneToTen function coded above ten times, each in a for loop:",
+        "[cd]for i in range(0, 10):",
+        "[cd]    printOneToTen() #prints all numbers from 1 to 10, inclusive, 10 times.",
+        "[big]Function Parameters",
+        "Functions can be even more useful when they have parameters.",
+        "As an example, let's say you wanted to make a function that squared a number, or that multiplied a number by three, or even one that added or multiplied two numbers. To do this, we'll need to use parameters.",
+        "The basic structure of defining and calling functions with parameters is like this:",
+        "[cd]def [function name]([x], [y], [z]) #you can have as many or as few parameters as you want",
+        "[cd]    [some code that uses [x], [y], and [z]]",
+        "[cd]",
+        "[cd][function name]([variable 1], [variable 2], [variable 3]) #this calls the function, with [variable 1] becoming [x] in the function, [variable 2] becoming [y], and [variable 3] becoming [z]",
+        "Inside of the function, the parameters act as temporary variables that can't be used outside of the function itself.",
+        "When you call the function, you replace each parameter with a value (such as an integer or string), or a variable name.",
+        "This example defines a function called \"multiplyByTwo\" and calls the function with various different parameters:",
+        "[cd]def multiplyByTwo(num):",
+        "[cd]    print(num * 2)",
+        "[cd]multiplyByTwo(3) #prints \"6\"",
+        "[cd]multiplyByTwo(17) #prints \"34\"",
+        "[cd]x = 7",
+        "[cd]multiplyByTwo(x) #prints \"14\"",
+        "[cd]multiplyByTwo(x + 3) #prints \"20\"",
+        "The next example calculates the product of two numbers:",
+        "[cd]def multiplyTogether(x, y):",
+        "[cd]    print(x * y)",
+        "[cd]multiplyTogether(3, 6) #18",
+        "[cd]multiplyTogether(7, 4) #28",
+        "[cd]x = 5",
+        "[cd]multiplyTogether(x, x) #25",
+        "[cd]multiplyTogether(x - 3, x + 3) #16",
+        "Now, we'll explore how to make functions even more useful by adding return statements.",
+        "[big]Return Statements",
+        "Return statements allow a function to return a value, instead of just printing things out. For example, we could put the value of a call to a function inside of a variable, and then manipulate the variable further.",
+        "The general format for a function with a return statement is like this:",
+        "[cd]def [function name]([parameters]) #you don't have to have any parameters",
+        "[cd]    [some code]",
+        "[cd]    return [some value]",
+        "[cd]print([function name]()) #prints the value returned by [function name]",
+        "[cd]x = [function name]() #sets the variable x to the value returned by [function name].",
+        "This example defines a function which returns a number squared (the number multiplied by itself):",
+        "[cd]def squareNumber(x):",
+        "[cd]    square = x * x",
+        "[cd]    return square",
+        "[cd]x = squareNumber(5) #25",
+        "[cd]print(squareNumber(x)) #625",
+        "This example prints the product of three numbers, plus one:",
+        "[cd]def productPlusOne(x, y, z):",
+        "[cd]    return x * y * z + 1",
+        "[cd]y = productPlusOne(3, 5, 7)",
+        "[cd]print(y) #106",
+        "Here are some more exercises for function definition and return statement that you can try on your own:",
+        "1. Make a function that prints the sum of five numbers",
+        "2. Make a function that returns the cube of a number (the number multiplied by itself three times)",
+        "3. Make a function that prints the largest element of a list (lists can be function parameters too)",
+        "[big]Dictionaries",
+        "[med]Defining Dictionaries",
+        "Dictionaries are a way to store information, similar to lists.",
+        "However, while elements in lists are accessed by their indices, elements in dictionaries are accessed by keys.",
+        "For example, a dictionary element could map from the key \"hello\" to the number 8.",
+        "Dictionaries have several advantages over using multiple lists, or the .index() command, mainly in efficiency, which we'll explore later in the algorithmic programming tutorials.",
+        "Defining an empty dictionary works similarly to defining a list, except that the brackets are curly brackets:",
+        "[cd]myDictionary = {} #defines an empty dictionary",
+        "To add an element with a certain key, we can use a similar syntax to modifying elements of lists:",
+        "[cd]myDictionary['hello'] = 5",
+        "Now, we can retrieve or modify that element in myDictionary in a similar manner:",
+        "[cd]print(myDictionary['hello']) #5",
+        "[cd]myDictionary['hello'] += 1",
+        "[cd]print(myDictionary['hello']) #6",
+        "To add key-to-element pairs in the original dictionary, we can separate the key and the element by a colon, and separate each one by a comma, like this:",
+        "[cd]myDictionary = {'hello': 5, 'world': 3, 'hellllo': 7}",
+        "[med]Looping Through Dictionaries",
+        "To loop through all keys in a dictionary, you can use this shortcut:",
+        "[cd]for i in myDictionary:",
+        "[cd]    print(i) #prints each key",
+        "And to loop through all elements of a dictionary, we can do this:",
+        "[cd]for i in myDictionary:",
+        "[cd]    print(myDictionary[i]) #prints each element",
+        "[med]Using the \"in\" Keyword",
+        "To check if a key exists in a dictionary, we can use the \"in\" keyword, like this:",
+        "[cd]myDictionary = {'hello': 6, 'world': 7, 'world2': 8}",
+        "[cd]check1 = 'hello' in myDictionary #True",
+        "[cd]check2 = 'world333' in myDictionary #False",
+        "If you try to access a key in a dictionary that doesn't exist, it will generate an error. So, if you're not sure whether or not a key exists in a dictionary, make sure to check if it exists using the \"in\" keyword."
+
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

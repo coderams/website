@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]LOOPING",
+        "[big]Motivation Behind Looping",
+        "Take a look at this example code, which prints a given input number three times:",
+        "[cd]n = int(input())",
+        "[cd]print(n)",
+        "[cd]print(n)",
+        "[cd]print(n)",
+        "The code is kind of tedious to type, and it's only worse if we were asked to print the number five times, or ten times.",
+        "Let's look at another problem, where we are asked to print out all of the integers, from 0 to 3, inclusive. This can still be accomplished using multiple print statements:",
+        "[cd]print(0)",
+        "[cd]print(1)",
+        "[cd]print(2)",
+        "[cd]print(3)",
+        "However, what if we were asked to print all of the integers from 0 to n, where n was given as input? We would need to use looping to solve this.",
+        "[big]While Loops",
+        "The structure of a while loop is similar to an if statement:",
+        "[cd]while [boolean expression]:",
+        "[cd]    [some code]",
+        "[cd][more code]",
+        "However, the execution of the while loop is different from that of an if statement.",
+        "The while loop will first check if [boolean expression] is true. If it is, the while loop will run [some code], and if not, the while loop will run [more code].",
+        "If [boolean expression] was true, and the code ran [some code], the code will again check if [boolean expression] is still true. If it is, the code will run [some code] again, and repeat the process. If not, the code will run [more code].",
+        "In other words, the code will run [some code] until [boolean expression] evaluates to false, and then proceed to run [more code].",
+        "Let's look at an example, which prints out \"Hello\" ten times.",
+        "[cd]helloCount = 0",
+        "[cd]while helloCount < 10:",
+        "[cd]    print(\"Hello\")",
+        "[cd]    helloCount += 1 #eventually, helloCount will equal 10, and the loop will end.",
+        "[cd]print(\"End of program\")",
+        "In the example above, we can observe a few key elements of basic while loops: we have a variable that we increment by one each time the while loop runs, a condition that will eventually terminate the while loop, and code that the program runs until the while loop is terminated.",
+        "Note that if the boolean expression in the while loop is never satisfied, the while loop will be an infinite loop, and the program will never finish running. This is a common mistake when using while loops.",
+        "Here's an example of an infinite loop:",
+        "[cd]helloCount = 0",
+        "[cd]while helloCount > -10:",
+        "[cd]    print(\"Hello\")",
+        "[cd]    helloCount += 1 #since helloCount is increasing and starts at 0, it will never be less than or equal to -10, and the while loop will continue infinitely many times",
+        "Here's another code example, which solves the problem of printing all integers from 0 to n discussed earlier:",
+        "[cd]n = int(input()),",
+        "[cd]num = 0",
+        "[cd]while num <= n:",
+        "[cd]    print(num)",
+        "[cd]    num += 1",
+        "[big]For Loops",
+        "[med]Basic For Loops",
+        "In most cases, for loops are an easier-to-use version of while loops, but they aren't as generalized as while loops, and only work in a few specific cases.",
+        "See this example of a while loop:",
+        "[cd]increment = 0",
+        "[cd]while increment < [upper limit]:",
+        "[cd]    [some code]",
+        "[cd]    increment += 1",
+        "This can be shortened to a for loop in the following format:",
+        "[cd]for increment in range(0, [upper limit]):",
+        "[cd]    [some code]",
+        "As you can see, using a for loop is less code, and it is easier to avoid accidentally causing an infinite loop if you use a for loop.",
+        "The for loop will loop from 0 to [upper limit], and run [some code] each time.",
+        "One very important thing to note about for loops in Python is that they will not run [some code] when \"increment\" is equal to [upper limit].",
+        "For example, if you had a for loop where [upper limit] was equal to 10, and the code printed out \"increment\", the code would print 0, 1, 2, and 3, all the way up to 9, but it would not print 10.",
+        "Let's look at this example, which will print all integers from 0 to n, inclusive, where n is given as input:",
+        "[cd]n = int(input())",
+        "[cd]for increment in range(0, n + 1): #to print up to n, we need to use n + 1 as the upper limit",
+        "[cd]    print(increment)",
+        "Note that most of the time, to avoid typing \"increment\", a variable simply called \"i\" is used in for loops. So, the previous code example would be written like this:",
+        "[cd]n = int(input())",
+        "[cd]for i in range(0, n + 1):",
+        "[cd]    print(i)",
+        "Now, you try. Write a program to read in a number as input, and print out \"CODERAMS\" that many times. Try it on your own before looking at the solution below:",
+        "[cd]n = int(input())",
+        "[cd]for i in range(0, n): #will print n times if we go up to n",
+        "[cd]    print(\"CODERAMS\")",
+        "[med]Nested For Loops",
+        "What if you wanted to print out all pairs of positive integers, where both integers were less than or equal to \"n\"? For example, if n was equal to two, you would print 1 and 1, 1 and 2, 2 and 1, and 2 and 2.",
+        "To do this, we'll need to put a second for loop inside of the main one. We'll call the other incrementing variable \"j\" (because we can't have two variables with the same name).",
+        "[cd]n = int(input())",
+        "[cd]for i in range(1, n + 1): #changing the 0 to a 1 will start the loop at 1",
+        "[cd]    for j in range(1, n + 1):",
+        "[cd]        print(str(i) + \" \" + str(j)) #since i and j are both integers, we need to convert them to strings when adding a space in between them",
+        "Nested for loops are useful for solving many coding problems, especially those involving 2D grids, as we'll see later. You're also not limited to only two nested for loops; in some problems using three or more nested for loops is necessary for solving the problem.",
+        "[big]Multi-Line Input",
+        "Now that you know how to code for and while loops, let's see how to use them to read in multiple lines of input.",
+        "Here's a basic example, which reads in four numbers, and prints each of them, multiplied by two:",
+        "[cd]for i in range(0, 4):",
+        "[cd]    num = int(input())",
+        "[cd]    print(num * 2)",
+        "However, what if there are a variable number of lines of input? This is the case in many coding problems.",
+        "In these types of problems, the first line of input will always be the number of lines of input that occur after it. For example, this is a possible input, where each line of input consists of a word:",
+        "[cd]4",
+        "[cd]hello",
+        "[cd]world",
+        "[cd]coderams",
+        "[cd]club",
+        "To read in this kind of input, you first read in the number of test cases, or the number of lines after the first line:",
+        "[cd]n = int(input())",
+        "Then, you loop through n times, and read in each test case:",
+        "[cd]for i in range(0, n):",
+        "[cd]    word = input()",
+        "[cd]    [some code to process each test case]",
+        "Let's look at <a href=\"https://codeforces.com/gym/273650/problem/02\" target=\"blank\">a different example</a>, Problem 2 from the CodeRams Contest #4, which occurred on March 28, 2020.",
+        "This problem asks you to read in several numbers, and to print their sum.",
+        "For example, given the input",
+        "[cd]3",
+        "[cd]5",
+        "[cd]8",
+        "[cd]11",
+        "You would output",
+        "[cd]24",
+        "(because 5 + 8 + 11 = 24)",
+        "To code this, we need to set a variable to 0 at the top of the code, and increment it for each test case, like this:",
+        "[cd]n = int(input())",
+        "[cd]numSum = 0",
+        "[cd]for i in range(0, n):",
+        "[cd]    num = int(input())",
+        "[cd]    numSum += num #add each number to the cumulative sum",
+        "[cd]print(numSum)",
+        "[big]Conclusion",
+        "Now, you know how to use for and while loops, and read multi-line input. In the next tutorial, we'll explore how to use lists."
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

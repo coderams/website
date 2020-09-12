@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+        "[huge]INPUT",
+        "[big]Reading Input",
+        "Almost all coding problems require you to read from an input file, and perform a certain function on the input data.",
+        "For example, a problem might ask you to read in an integer \"x\", and to print x + 3.",
+        "More difficult problems might ask you to code more advanced math functions, manipulate lists, or read multiple lines of input. For now, we'll discuss how to take in a single line of input.",
+        "To read a single line of input, you can use the input() command. The input is usually stored in a variable, like this:",
+        "[cd]inputLine = input()",
+        "Then, if we wanted to simply print out the input, we would use a print statement:",
+        "[cd]print(inputLine)",
+        "When running this code, you can test it on multiple possible inputs. Each time, you should either type or paste the input into the console (where the program prints text).",
+        "This command assumes that the line of input is a string.",
+        "If we want to read in an integer, we'll need to use the int() command discussed in the previous tutorial.",
+        "We'll start by reading the line of input in as a string:",
+        "[cd]inputLine = input()",
+        "Now, inputLine will contain a number inside of a string, like \"7\". We can convert it into an integer using the int() command:",
+        "[cd]inputLine = int(inputLine)",
+        "This code can be shortened into one line:",
+        "[cd]inputLine = int(input())",
+        "Reading in a float (decimal number) as input works similarly:",
+        "[cd]inputLine = float(input())",
+        "[big]Input Operations",
+        "Now that you know how to read in a string, integer, or float as input, we'll explore how to apply operations on the input variable.",
+        "We'll start by reading in an integer, \"x\":",
+        "[cd]x = int(input())",
+        "Now, let's say that we want to print x + 3. Since x is already an integer, we can simply apply the operation and print it out:",
+        "[cd]print(x + 3)",
+        "Now, you try. Modify this code to read in an integer, multiply it by 5, and print the result.",
+        "[big]Multiple Lines of Input",
+        "To read in multiple lines of input, we'll need to use multiple input statements, like this:",
+        "[cd]line1 = input()",
+        "[cd]line2 = input()",
+        "Then, we can apply a certain operation on the lines of input.",
+        "For example, we could read in two integers, and add them together. The following code does that:",
+        "[cd]x = int(input())",
+        "[cd]y = int(input())",
+        "[cd]print(x + y)",
+        "Problems might ask you to modify strings. You'll learn more about ways to do this later, but one way to modify strings is to add two strings together, using the \"+\" sign. Recall that adding a string to an integer or float generates an error. However, adding two strings does work. See this example:",
+        "[cd]firstString = \"hello\"",
+        "[cd]secondString = \"world\"",
+        "[cd]print(firstString + secondString)",
+        "[big]Example Problems",
+        "Now that you know how to read input, let's try a few example problems.",
+        "[med]Example 1",
+        "We'll first look at <a href=\"https://codeforces.com/gym/260622/problem/02\ target=\"blank\">Points Per Game</a>, which was Problem 2 in the CodeRams Contest #2, which occurred on January 17, 2020.",
+        "This problem asks you to take in two integers (\"points\" and \"games\"), and to divide them to get the \"points per game\", and print the result. We can do that using two input() commands, like this:",
+        "[cd]points = int(input())",
+        "[cd]games = int(input())",
+        "[cd]print(points / games)",
+        "If you looked at the official problem statement, you might have noticed that the example test cases' outputs were all decimal numbers (floats). However, we don't need to add a float command into our code, because Python automatically will convert the result of a division operation into a float.",
+        "If the problem had asked to find the player's points per game, rounded down, we could replace the last line with this:",
+        "[cd]print(int(points / games))",
+        "We can simplify this code using a useful shortcut. By using 2 division signs (//), Python will automatically round the result down and make it an integer. So, the previous code can be shortened to this:",
+        "[cd]print(points // games)",
+        "[med]Example 2",
+        "Next, we'll look at <a href=\"https://codeforces.com/gym/277718/problem/01\" target=\"blank\">It's a Me</a>, which was Problem 1 in the CodeRams Contest #7, which occurred on April 25, 2020.",
+        "The problem asks you to read in a string as input, and print out \"It's a Me, \" and the given string, added together. To accomplish this, we can use the string addition method described earlier, simply using the plus sign.",
+        "[cd]start = input()",
+        "[cd]name = \" Mario!\" #don't forget the space at the start, and the exclamation point.",
+        "[cd]print(start + name)",
+        "Note that it's important to have the space at the end of the \"start\" string. String addition operations don't automatically add a space, or any other character, between the two strings.",
+        "[med]Example 3",
+        "Finally, we'll look at <a href=\"https://codeforces.com/gym/260622/problem/05\" target=\"blank\">Resistors in Parallel</a>, which was Problem 5 in the CodeRams Contest #2, which occurred on January 17, 2020.",
+        "This problem asks you to read in two integers, \"a\" and \"b\", and calculate their equivalent resistance, which is calculated as (a * b) / (a + b). Try to solve this problem yourself, before looking at the solution below.",
+        "[cd]a = int(input())",
+        "[cd]b = int(input())",
+        "[cd]resistance = (a * b) / (a + b)",
+        "[cd]print(resistance)",
+        "[big]Conclusion",
+        "Now you know how to read in input, which is an essential skill for solving coding problems. In the next tutorial, you'll learn logic, another important coding skill."
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>

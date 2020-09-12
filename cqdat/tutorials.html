@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="mainpage.html">Home</a></li>
+    			<li><a href="contests.html">Competitions</a></li>
+    			<li><a href="problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="scores.html">Competition Leaderboard</a></li>
+    			<li><a href="contact.html">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <h1 id="pagetitle">Coding Tutorials</h1>
+    <p id="subtitle"><em>Learn useful coding knowledge, ranging from very easy to very advanced.</em></p>
+
+
+    <script>
+      var colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#888888", "#FF8800", "#8800FF", "#00FF88", "#88FF00", "#FF0088", "#0088FF", "#884400", "#44FF44", "#8888FF", "#FFFF44", "#884444", "#4444FF", "#AA77BB", "11FFCC", "DDBB99"];
+      var topics = [
+        ["Printing", "Learn how to write your first program, and write programs to print out text and variables.", "printing", 2],
+        ["Input", "Learn how to read a line of input and manipulate it", "input", 2],
+        ["Logic and If Statements", "Learn how to use boolean expressions, and if/else statements", "logic", 2],
+        ["For and While Loops", "Learn how to use looping to repeat a block of code several times", "looping", 2],
+        ["Lists", "Learn how to store multiple variables inside of a list", "lists", 2],
+        ["Functions and Dictionaries", "Learn how to use functions and dictionaries in your programs.", "functions", 2],
+        ["General Math Functions", "Learn how to use built-in math functions and operations", "builtin", 2],
+        ["2D Lists", "Learn how to solve more advanced problems using 2D lists", "2Dlists", 2],
+        ["Divisors and Prime Factors", "Learn how to implement more advanced math functions in your programs", "math", 2],
+        ["ASCII Values and Cryptography", "Learn how to use ord() and chr() to manipulate characters' ASCII values and solve cryptography problems", "ascii", 2],
+        ["Advanced Recursion and Backtracking", "Learn how to solve certain advanced problems using recursion and backtracking", "recursion", 0],
+        ["Permutations and Subsets", "Learn how to find permutations and subsets of a list.", "subsets", 0],
+        ["Geometry Basics", "Learn how to use various geometry concepts in coding problems", "geometry", 2],
+        ["Algorithmic Programming Basics", "Learn how to determine the time complexity of your program, and implement several basic algorithms", "algorithms", 0],
+        ["Sorting and Searching", "Learn how sorting algorithms work, and how to find a given value in a sorted list efficiently.", "binsearch", 0],
+        ["Algorithmic Math", "Learn how to use several number theory-related algorithms", "algorithmicmath", 0],
+        ["Basics of Graph Theory", "Learn how to store graphs, and basic graph algorithms like DFS.", "graphs", 0],
+        ["Flood Fill and Implicit Graphs", "Learn how to solve problems involving different types of graphs.", "flood", 0],
+        ["Shortest Paths", "Learn how to find the shortest path between two vertices in a graph", "paths", 0],
+        ["Trees", "Learn how to solve problems involving a special type of graph", "trees", 0],
+        ["Dynamic Programming", "Learn how to use an essential programming technique to solve many types of problems", "dp", 0],
+        ["Prefix Sums and Segment Trees", "Learn how to use advanced data structures to answer multiple queries about a given list.", "segtrees", 0],
+        ["More Tutorials Coming Soon!", "", "", 0]
+      ];
+
+      for (var i = 0 ; i < topics.length ; i++) {
+        if (topics[i][3] == 0 && i < topics.length - 1) {
+          topics[i][0] += " - Coming Soon";
+        }
+      }
+
+      var fac = "b";
+
+      var t1 = 7;
+      var t2 = 13;
+
+      document.body.innerHTML += "<p id=\"hugeexplanation\">Basic Coding Techniques</p>";
+
+      for (var i = 0 ; i < colors.length ; i++) {
+        if (!topics[i][3]) {
+          ic = i % colors.length;
+          ls = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+          r = ls.indexOf(colors[ic][1]) * 16 + ls.indexOf(colors[ic][2])
+          g = ls.indexOf(colors[ic][3]) * 16 + ls.indexOf(colors[ic][4])
+          b = ls.indexOf(colors[ic][5]) * 16 + ls.indexOf(colors[ic][6])
+          colors[i] = "rgba(" + r.toString() + ", " + g.toString() + ", " + b.toString() + ", 0.05);";
+        }
+      }
+
+      for (var i = 0 ; i < t1 ; i++) {
+        if (topics[i][3]) {
+          document.body.innerHTML += "<a style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box1\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></a>";
+        }
+        else {
+          document.body.innerHTML += "<div style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box2\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></div>";
+        }
+        if (topics[i][3]) {
+          document.body.innerHTML += "<p id=\"subbox\">" + topics[i][1] + "</p>";
+        }
+        else {
+          document.body.innerHTML += "<p id=\"subbox\" class=\"par\">" + topics[i][1] + "</p>";
+        }
+      }
+      document.body.innerHTML += "<p id=\"hugeexplanation\">More Advanced Coding Techniques</p>";
+
+      for (var i = t1 ; i < t2 ; i++) {
+        if (topics[i][3]) {
+          document.body.innerHTML += "<a style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box1\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></a>";
+        }
+        else {
+          document.body.innerHTML += "<div style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box2\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></div>";
+        }
+        if (topics[i][3]) {
+          document.body.innerHTML += "<p id=\"subbox\">" + topics[i][1] + "</p>";
+        }
+        else {
+          document.body.innerHTML += "<p id=\"subbox\" class=\"par\">" + topics[i][1] + "</p>";
+        }
+      }
+
+      document.body.innerHTML += "<p id=\"hugeexplanation\">Advanced Algorithmic Programming</p>";
+      for (var i = t2 ; i < topics.length ; i++) {
+        if (topics[i][3]) {
+          document.body.innerHTML += "<a style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box1\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></a>";
+        }
+        else {
+          document.body.innerHTML += "<div style=\"text-decoration:none\" href=\"tutorials/" + topics[i][2] + ".html\"><p id=\"box2\" style=\"background-color:" + colors[i] + fac + "0\">" + topics[i][0] + "</p></div>";
+        }
+        if (topics[i][3]) {
+          document.body.innerHTML += "<p id=\"subbox\">" + topics[i][1] + "</p>";
+        }
+        else {
+          document.body.innerHTML += "<p id=\"subbox\" class=\"par\">" + topics[i][1] + "</p>";
+        }
+      }
+
+    </script>
+
+
+    </body>
+</html>

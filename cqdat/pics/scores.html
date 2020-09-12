@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="mainpage.html">Home</a></li>
+    			<li><a href="contests.html">Competitions</a></li>
+    			<li><a href="problems.html">Practice Problems</a></li>
+    			<li><a href="tutorials.html">Coding Tutorials</a></li>
+    			<li><a style="background-color:#545454" href="scores.html">Competition Leaderboard</a></li>
+    			<li><a href="contact.html">Contact Us</a></li>
+    		</ul>
+	    </div>
+
+      <h1 id="pagetitle">Competition Leaderboard</h1>
+      <p id="subtitle"><em>The current or former CodeRams members with the highest cumulative competition scores.</em></p>
+      <br>
+      <table id="ucontestlist" align="center" borderspacing=30px>
+        <tr id="firstel">
+          <th>Username</th>
+          <th>Competition Score</th>
+          <th>Last Competed On</th>
+          <th>Alumni</th>
+          <th>Officer</th>
+        </tr>
+      </table>
+    </body>
+    <script>
+      rankList = [
+          ["plourde27", 888, "June 6, 2020", false, true],
+          ["LordPancake", 859, "September 5, 2020", false, false],
+          ["StefanWang", 793, "September 5, 2020", false, true],
+          ["tblonsway", 767, "May 16, 2020", true, false],
+          ["LeLaw", 758, "June 20, 2020", false, false]
+                ];
+
+      for (var i = 0 ; i < rankList.length ; i++) {
+        rank = "rookie";
+        if (rankList[i][1] >= 800) {
+          rank = "champion";
+        }
+        else if (rankList[i][1] >= 600) {
+          rank = "legend";
+        }
+        else if (rankList[i][1] >= 400) {
+          rank = "challenger";
+        }
+        st1 = "No";
+        st2 = "No";
+        if (rankList[i][3]) {
+          st1 = "Yes";
+        }
+        if (rankList[i][4]) {
+          st2 = "Yes";
+        }
+        stt = "rank";
+        if (i >= 5) {
+          stt = "secret class=\"rank\"";
+        }
+        document.getElementById("ucontestlist").innerHTML += "<tr><th class=\"" + stt + "\" id=" + rank + ">" + rankList[i][0] + "</th><th>" + rankList[i][1] + "</th><th>" + rankList[i][2] + "</th><th>" + st1 + "</th><th>" + st2 + "</th></tr>";
+
+      }
+    </script>
+</html>

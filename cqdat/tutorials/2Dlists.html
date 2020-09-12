@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JDHS CodeRams</title>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Squada One">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+      <p id="bigtext"><span class="red">CODE</span><span class="black"> RAMS</span></p>
+      <p id="caption">Jamesville-Dewitt High School's Computer Science Club</p>
+      <div id="navmenu">
+    		<ul>
+    			<li><a href="../mainpage.html">Home</a></li>
+    			<li><a href="../contests.html">Competitions</a></li>
+    			<li><a href="../problems.html">Practice Problems</a></li>
+    			<li><a style="background-color:#545454" href="../tutorials.html">Coding Tutorials</a></li>
+    			<li><a href="../scores">Competition Leaderboard</a></li>
+    			<li><a href="../contact">Contact Us</a></li>
+    		</ul>
+	    </div>
+		<body style="background-color:white" link="blue">
+
+    <div id="tutorial"></div>
+
+    <script>
+
+      function issm(x, st) {
+        if (x.split("").slice(0, st.length + 2).join("") == "[" + st + "]") {
+          return true;
+        }
+        return false;
+      }
+
+      var text = [
+      "[huge]2D LISTS",
+      "A 2D list is a list, where each element is another list. Each element of these additional lists could be integers, strings, or even other lists (making it a 3D list).",
+      "2D lists have many important applications in coding problems. We'll discuss them in detail in this tutorial.",
+      "[big]Basics of 2D Lists",
+      "[med]Defining 2D Lists",
+      "First, let's discuss how to define a 2D list.",
+      "To immediately define a 2D list, we can do something similar to how you define a 1D list. Like defining a 1D list, you separate each element with a comma, and enclose the list in square brackets. However, in this case, each element is another list, and we define each one in a similar way.",
+      "[cd]example2Dlist = [[1, 2], [4, 6], [11, 13]]",
+      "This code example defines a 2D list with three elements, with each sub-list having two elements. Note that the sub-lists of a 2D list don't all have to be the same length. In fact, you can even have a list where some elements are lists, and other elements are integers or strings. This is only rarely useful in coding problems, however.",
+      "[med]Accessing Elements of 2D Lists",
+      "Accessing each sub-list in a 2D list works similar to accessing individual elements in a 1D list. Let's say we have the following 2D list:",
+      "[cd]another2Dlist = [[7, 9, 3, 4], [8, 4, 6, 8], [1, 1, 2, 5]]",
+      "Then, to print out the first element of the 2D list, we could use the following code:",
+      "[cd]print(another2Dlist[0])",
+      "This prints out the first element of the 2D list, which is the following:",
+      "[cd][7, 9, 3, 4]",
+      "To print out an individual element from a 2D list, we can first cast one of its sub-lists to another variable, and access an individual element in the sub-list, like this:",
+      "[cd]my2Dlist = [[7, 8, 4], [3, 6, 9], [1, 1, 2]]",
+      "[cd]firstElement = my2Dlist[0]",
+      "[cd]individualElement = firstElement[0]",
+      "This code will store 7 in individualElement, the first element of the first sub-list of my2Dlist.",
+      "This code can be condensed into one line, like this:",
+      "[cd]my2Dlist = [[7, 8, 4], [3, 6, 9], [1, 1, 2]]",
+      "[cd]individualElement = my2Dlist[0][0]",
+      "This has the same effect as the previous code sample. In other words, to access any element in a 2D list, use two bracketed identifiers, with the first one representing the sub-list that contains the element, and the second one representing the index of the element in the sub-list.",
+      "For example, this code will print 9, the 3rd element in the 2nd sub-list of my2Dlist. (Remember that all lists use zero-based indexing.)",
+      "[cd]my2Dlist = [[7, 8, 4], [3, 6, 9], [1, 1, 2]]",
+      "[cd]print(my2Dlist[1][2])",
+      "[med]Reading 2D Lists",
+      "In most coding problems involving 2D lists, the input will consist of a grid representation of the 2D list, where each element in each sub-list may or may not be separated by a space, depending on the problem. For example, here's a possible input for a 5 by 5 2D list:",
+      "[cd]0 9 7 8 2",
+      "[cd]3 9 6 2 1",
+      "[cd]3 4 3 3 2",
+      "[cd]0 8 8 1 5",
+      "[cd]2 3 9 1 0",
+      "To read in a 2D list in this format, we can read each sub-list one at a time, and add each one to the 2D list using the append command. The code will look like this:",
+      "[cd]my2Dlist = []",
+      "[cd]for i in range(0, 5):",
+      "[cd]    sublist = [int(j) for j in input().split(\" \")]",
+      "[cd]    my2Dlist.append(sublist)",
+      "Now that you know how to define and access 2D lists, let's look at some of their applications.",
+      "[big]2D Grid Basics",
+      "The \"classic\" use for 2D lists is for 2D grids, which could be mazes, matrices, or maps. Problems involving these topics usually require 2D lists.",
+      "When the input is a 2D grid, each element in each sub-list is usually not separated by a space, and each element is usually represented by a character or number. For example, in <a href=\"https://codeforces.com/gym/260622/problem/07\" target=\"blank\">this problem</a> the input first consists of two space-separated integers n and m, representing the number of rows and columns of the 2D grid. Then, n lines follow, each containing m characters. For example, this would be a possible input:",
+      "[cd]2 3",
+      "[cd].x.",
+      "[cd]x..",
+      "[cd]xx.",
+      "To read in this input, we can start by reading in n and m:",
+      "[cd]n, m = [int(i) for i in input().split(\" \")]",
+      "Then, we'll define an empty 2D list, which we'll add the input data to:",
+      "[cd]grid = []",
+      "Next, we can loop through the n lines of input, and take each line in as a string. We can convert each string to a list of its characters using the list() command, and add each one to the 2D list, like this:",
+      "[cd]for i in range(0, n):",
+      "[cd]    line = list(input())",
+      "[cd]    grid.append(line)",
+      "Now that we have the input data stored in a 2D list, let's solve the problem. The problem asks you to find how many traps are in the given 2D grid, where a trap is represented as an \"x\". To do this, we'll loop through each element of each sub-list of the grid, and increment the \"count\" variable by one each time we find a trap.",
+      "[cd]count = 0",
+      "[cd]for i in range(0, n):",
+      "[cd]    for j in range(0, m):",
+      "[cd]        if grid[i][j] == \"x\": #the j-th character in the i-th sublist is an \"x\", corresponding to a trap in the grid",
+      "[cd]            count += 1",
+      "[cd]print(count)",
+      "We'll revisit 2D grids later in this tutorial, to explain more advanced techniques involving direction lists and finding adjacent elements.",
+      "[big]Sorting 2D Lists",
+      "Let's say that we're given a list of n people's favorite numbers, each on a new line. We have to sort everyone's favorite numbers and print them out, each on a new line. For example, the following could be the input:",
+      "[cd]5",
+      "[cd]94",
+      "[cd]86",
+      "[cd]91",
+      "[cd]52",
+      "[cd]105",
+      "For this example test case, the output would be the following:",
+      "[cd]52",
+      "[cd]86",
+      "[cd]91",
+      "[cd]94",
+      "[cd]105",
+      "To implement this, we can add each element to a 1D list, sort the list, and print each element again, like this:",
+      "[cd]n = int(input())",
+      "[cd]numbers = []",
+      "[cd]for i in range(0, n):",
+      "[cd]    x = int(input())",
+      "[cd]    numbers.append(x) #add each number to the list",
+      "[cd]numbers = sorted(numbers) #sort the numbers",
+      "[cd]for i in numbers:",
+      "[cd]    print(i) #print each one",
+      "That problem was solvable without using 2D lists. Now, let's add a twist to the problem: you're now given a list of people's names, and their favorite numbers. You have to print everyone's name, ordered by their favorite numbers, and ordered alphabetically by their names, if they have the same favorite number. For example, this would be a possible input:",
+      "[cd]5",
+      "[cd]Alice 94",
+      "[cd]Bob 86",
+      "[cd]Cheryl 91",
+      "[cd]Darryl 52",
+      "[cd]Ernie 105",
+      "The answer for that test case would be the following:",
+      "[cd]Darryl",
+      "[cd]Bob",
+      "[cd]Cheryl",
+      "[cd]Alice",
+      "[cd]Ernie",
+      "Darryl has the lowest favorite number, 52, so his name appears first, while Ernie has the highest favorite number, 105, so his name appears last in the list.",
+      "This problem is technically solvable without using a 2D list, but it is much easier to use a 2D list, and it helps us generalize the technique to more difficult problems that do require a 2D list.",
+      "To solve the problem, we need to sort pairs of numbers: people's names, and their favorite numbers.",
+      "To start, we'll define an empty 2D list, called \"pairs\":",
+      "[cd]pairs = []",
+      "For each person's name and favorite number given in the input, we'll add a two element sub-list to the \"pairs\" list, consisting of their favorite number, followed by their name.",
+      "[cd]for i in range(0, n):",
+      "[cd]    name, number = input().split(\" \")",
+      "[cd]    pairs.append([int(number), name]) #don't forget the square brackets here",
+      "Then, we have to sort the 2D list. The important thing to know is that when sorting 2D lists, Python will first compare the first element in each sub-list. If two or more sub-lists have the same first element, they will be sorted by their second element, and so on. For this problem, if we sort the 2D list \"pairs\", it will first sort by the first element in the list, each person's favorite number, and if they are equal, it will sort alphabetically by each person's name, which is what we want.",
+      "Now, the only thing left to do is sort the list, and print out everyone's name, which is the second element of each sub-list of \"pairs\".",
+      "[cd]pairs = sorted(pairs)",
+      "[cd]for i in pairs:",
+      "[cd]    print(i[1]) #each person's name",
+      "Now that we've solved that problem, let's look at a slightly harder version: you're given a list of people's names, favorite numbers, and ages. You should print everyone's names, ordered by their favorite numbers from lowest to highest, and ordered by their ages from highest to lowest, if they have the same favorite number. (Two people will never have the same age and favorite number.)",
+      "For example, this would be a possible input:",
+      "[cd]5",
+      "[cd]Alice 94 61",
+      "[cd]Bob 86 17",
+      "[cd]Cheryl 86 24",
+      "[cd]Darryl 52 81",
+      "[cd]Ernie 105 30",
+      "And this would be the output:",
+      "[cd]Darryl",
+      "[cd]Cheryl",
+      "[cd]Bob",
+      "[cd]Alice",
+      "[cd]Ernie",
+      "If the problem asked us to sort ages from lowest to highest, we could use the same technique as in the last problem. However, sorting the ages from highest to lowest makes the problem slightly more tricky.",
+      "The easiest way to do this is to use an interesting trick: we'll make all of the ages negative (by multiplying each one by -1) when adding them to the \"pairs\" list. That way, the ages will be sorted from highest absolute value to lowest absolute value, and the list will be sorted correctly. If we needed to print out the ages at the end, we could multiply each one by -1 again, and get the correct age. However, this problem only requires you to print everyone's names, so doing so is not necessary.",
+      "Now, let's implement this:",
+      "[cd]n = int(input())",
+      "[cd]pairs = []",
+      "[cd]for i in range(0, n):",
+      "[cd]    name, number, age = input().split(\", \")",
+      "[cd]    pairs.append([number, -1 * age, name]) #the order matters",
+      "[cd]",
+      "[cd]pairs = sorted(pairs)",
+      "[cd]for i in pairs:",
+      "[cd]    print(i[2]) #everyone's name",
+      "Now, let's use these techniques to solve <a href=\"https://codeforces.com/gym/273650/problem/16\" target=\"blank\">this difficult problem</a> from CodeRams Contest #4, which occurred on March 28, 2020.",
+      "To start, let's read in all of the data first, and add it to a 2D list.",
+      "[cd]n = int(input())",
+      "[cd]games = []",
+      "[cd]for i in range(0, n):",
+      "[cd]    team1, team2, result = input().split(\" \")",
+      "[cd]    games.append([team1, team2, result])",
+      "Next, we can create a dictionary, mapping each team's name to how many points the team has.",
+      "First, let's initialize the dictionary with each team having zero points.",
+      "[cd]teams = {}",
+      "[cd]for i in range(0, n):",
+      "[cd]    if games[i][0] not in teams: #we haven't added this team yet",
+      "[cd]        teams[games[i][0]] = 0",
+      "[cd]    if games[i][1] not in teams: #we haven't added this team yet",
+      "[cd]        teams[games[i][1]] = 0",
+      "Now, let's go through each game, and increment each team's score according to the rules:",
+      "[cd]for i in range(0, n):",
+      "[cd]    if games[i][2] == \"W\":",
+      "[cd]        teams[games[i][0]] += 3 #if the first team won, add three to their score",
+      "[cd]    else:",
+      "[cd]        teams[games[i][0]] += 1 #if the teams tied, add one to each of their scores",
+      "[cd]        teams[games[i][1]] += 1",
+      "Now, we need to sort the teams by their scores, but preserve their names, which is where a 2D list comes in.",
+      "Let's define an empty 2D list called \"sortedTeams\", and add each team's points first, followed by their team name:",
+      "[cd]sortedTeams = []",
+      "[cd]for i in teams:",
+      "[cd]    sortedTeams.append([i[1], i[0]]) #add each team's score, followed by their name",
+      "However, when sorting the teams using the sorted() command, we run into a problem: the teams are sorted in backwards order. We can use the [::-1] slicing command to reverse the list, like this:",
+      "[cd]sortedTeams = sorted(sortedTeams)[::-1]",
+      "This, however, doesn't fully solve the problem. If you run this code on the example input, you'll notice it incorrectly orders teams' names in case of a tie. To fix this, we can use a similar trick to the previous example problem: we'll multiply each team's score by -1, and multiply their score by -1 again when printing them out. We also don't need to reverse the list anymore, since both the name ordering and the point ordering are now in the correct order. The final code for sorting and printing out each team and their score looks like this:",
+      "[cd]for i in range(0, len(sortedTeams)):",
+      "[cd]    sortedTeams[i][0] = sortedTeams[i][0] * -1 #make each score negative",
+      "[cd]",
+      "[cd]sortedTeams = sorted(sortedTeams)",
+      "[cd]for i in sortedTeams:",
+      "[cd]    print(i[1], i[0] * -1)",
+      "This 2D list sorting technique is very useful in many coding problems. Here are some more problems involving 2D list sorting from past CodeRams competitions: <a href=\"https://codeforces.com/gym/280260/problem/07\" target=\"blank\">Problem 114</a> (Autocorrect), <a href=\"https://codeforces.com/gym/280260/problem/09\" target=\"blank\">Problem 116</a> (Tour de France), and <a href=\"https://codeforces.com/gym/281521/problem/11\">Problem 135</a> (Zoom Meeting).",
+      "[big]Direction Lists",
+      "Let's revisit 2D grids, and we'll explain how to do more advanced techniques involving direction lists.",
+      "To start, let's look at <a href=\"https://codeforces.com/gym/278258/problem/15\" target=\"blank\">this problem</a>, from the CodeRams Contest #8, which occurred on May 2, 2020.",
+      "In this problem, you're given a 2D grid consisting of building heights, and for each building, you have to calculate whether or not the building has a higher height than all adjacent buildings, including diagonally.",
+      "First, let's read the input into a 2D grid:",
+      "[cd]n, m = [int(i) for i in input().split(\" \")] #the number of rows and columns of the grid, respectively",
+      "[cd]grid = []",
+      "[cd]for i in range(0, n):",
+      "[cd]    subgrid = [int(j) for j in list(input())]",
+      "[cd]    grid.append(subgrid) #add each sub-list to the larger 2D list",
+      "Now, we need to figure out a way to find all spaces that are adjacent to each space in the grid.",
+      "Let's say we have a 5 by 5 grid, and we're looking at the 3rd element of the 3rd sublist. To get the height of this element, we would use grid[2][2]. Which elements are adjacent to this space in the grid? The second element of the third sub-list, or grid[2][1] is. So is grid[2][3], grid[1][2], and grid[3][2]. If we're including diagonals, grid[1][1], grid[1][3], grid[3][3], and grid[3][1] are also adjacent to grid[2][2].",
+      "How is this useful? Let's set i and j equal to 2. Then, the index of each adjacent element can be written as follows: grid[i - 1][j], grid[i + 1][j], grid[i][j - 1], and grid[i][j + 1]. If diagonals are included, grid[i - 1][j - 1], grid[i - 1][j + 1], grid[i + 1][j + 1], and grid[i + 1][j - 1] are also included.",
+      "We can generalize this for any indices i and j. Let's make a 2D list, with 4 sub-lists, each containing two elements:",
+      "[cd]directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]",
+      "Then, excluding diagonals, the adjacent characters to grid[i][j] are given as grid[i + directions[k][0]][j + directions[k][1]], for all k from 0 to 3, inclusive.",
+      "If diagonals are included, like in this problem, the direction list would look like this:",
+      "[cd]directions = [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]]",
+      "Now that we know how to use this technique, let's solve the problem described above.",
+      "[cd]#the 2D list, grid has already been defined",
+      "[cd]for i in range(0, n):",
+      "[cd]    line = \"\"",
+      "[cd]    for j in range(0, m):",
+      "[cd]        directions = [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]]",
+      "[cd]        allHigher = True",
+      "[cd]        for k in directions: #loop through all adjacent spaces",
+      "[cd]            if i + k[0] >= 0 and i + k[0] < n and j + k[1] >= 0 and j + k[1] < m: #make sure the index is valid and not out of bounds",
+      "[cd]                if grid[i + k[0]][j + k[1]] >= grid[i][j]:",
+      "[cd]                    allHigher = False",
+      "[cd]        if allHigher:",
+      "[cd]            line += \"Y\" #this space is a skyscraper",
+      "[cd]        else:",
+      "[cd]            line += \"N\" #this space is not a skyscraper",
+      "[cd]    print(line)",
+      "For additional practice using directional lists, with some added difficulty, you can try <a href=\"https://codeforces.com/gym/278258/problem/22\" target=\"blank\">this problem</a>.",
+      "[big]Conclusion",
+      "2D lists are very useful in coding problems, and are important to know for CodeQuest and similar competitions. They have two main uses, described above: grids, and sorting multiple elements.",
+      "In the next tutorial, we'll look at advanced math functions, such as the GCD function, and how to implement them."
+      ];
+
+
+      var keywords = ["False", "await",	"else",	"import",	"pass", "None",	"break",	"except",	"in",	"raise", "True",	"class",	"finally",	"is",	"return", "and",	"continue",	"for",	"lambda",	"try", "as",	"def",	"from",	"nonlocal",	"while", "assert",	"del",	"global",	"not",	"with", "async",	"elif",	"if",	"or",	"yield"];
+
+      var code = false;
+      var thiscode = false;
+      var i = 0;
+      while (i < text.length) {
+        if (issm(text[i], "cd")) {
+          var st = "<pre id=\"code\">";
+          while (i < text.length && issm(text[i], "cd")) {
+            var txt = text[i].split("").slice(4, text[i].length).join("").split(" ");
+            var comment = false;
+            for (var j = 0 ; j < txt.length ; j++) {
+              if (txt[j][0] == "#") {
+                comment = true;
+              }
+              if ((keywords.indexOf(txt[j]) != -1 || (txt[j][txt[j].length-1] == ":" && keywords.indexOf(txt[j].split("").slice(0,txt[j].length-1).join("")) != -1)) && !comment) {
+                st += "<span class=\"bluecode\">" + txt[j] + "</span> ";
+              }
+              else if (comment) {
+                st += "<span class=\"comment\">" + txt[j] + "</span> ";
+              }
+              else {
+                st += txt[j] + " ";
+              }
+
+            }
+            st += "<br>"
+            i++;
+          }
+          st += "</pre>";
+
+          document.getElementById("tutorial").innerHTML += st;
+          if (i >= text.length) {
+            break;
+          }
+        }
+
+        if (issm(text[i], "huge")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"hugeexplanation\">" + text[i].split("").slice(6, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "big")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"bigexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else if (issm(text[i], "med")) {
+          document.getElementById("tutorial").innerHTML += "<p id=\"medexplanation\">" + text[i].split("").slice(5, text[i].length).join("") + "</p>";
+        }
+        else {
+          document.getElementById("tutorial").innerHTML += "<p id=\"explanation\">" + text[i] + "</p>";
+        }
+        i++;
+      }
+      console.log(document.getElementById("tutorial").innerHTML);
+    </script>
+
+
+    </body>
+</html>
