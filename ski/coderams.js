@@ -2120,13 +2120,13 @@ function runProgram(num, trailInd, raceInd) {
 
     var elem = document.getElementById("three");
 
-    elem.addEventListener("mousedown", e => {
+    elem.addEventListener("touchstart", e => {
       //console.log("clicked");
       clicked = true;
       //lockPointer(elem);
     });
 
-    elem.addEventListener("mouseup", e => {
+    elem.addEventListener("touchend", e => {
       //console.log("unclicked");
       clicked = false;
       //lockPointer(elem);
@@ -2398,7 +2398,6 @@ function runProgram(num, trailInd, raceInd) {
         scene.children.forEach(function(object) {
             scene.remove(object);
         });
-        document.getElementById("extra").innerHTML = "Going Back";
       }
       //if (!stopped) {
       else {
@@ -2885,6 +2884,9 @@ function runProgram(num, trailInd, raceInd) {
       running = false;
       loaded = false;
 
+      document.getElementById("extra").innerHTML = "Going Back";
+
+
       while (scene.children.length > 0) {
         scene.remove(scene.children[0]);
       }
@@ -2892,7 +2894,7 @@ function runProgram(num, trailInd, raceInd) {
 
       if (finalTime) {
         document.getElementById("result").innerHTML = "Time " + raceInd + " " + finalTime;
-      }
+
       else if (success) {
         document.getElementById("result").innerHTML = trailInd;
       }
@@ -2900,7 +2902,6 @@ function runProgram(num, trailInd, raceInd) {
         document.getElementById("result").innerHTML = -1;
       }
 
-      document.getElementById("extra").innerHTML = "";
 
 
       document.exitPointerLock();
@@ -3058,6 +3059,8 @@ elem.addEventListener('mousedown', function(event) {
 
 
           aboutRun2();
+
+          document.getElementById("game").hidden = true;
 
           //clicking = true;
         }

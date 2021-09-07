@@ -602,8 +602,14 @@
 
        document.getElementById("selimg").width = 0;
        document.getElementById("selimg").height = 0;
+       var menu = true;
 
      function animate2() {
+       console.log("hiding");
+       document.getElementById("game").width = 0;
+       document.getElementById("game").height = 0;
+       console.log(document.getElementById("game"));
+
        if (document.getElementById("result").innerHTML) {
          if (document.getElementById("result").innerHTML != -1) {
            console.log(document.getElementById("result").innerHTML);
@@ -700,13 +706,22 @@
        }
        window.requestAnimationFrame(animate2);
        if (document.getElementById("extra").innerHTML == "Loaded Lifts") {
+         menu = false;
          document.getElementById("extra").innerHTML = "";
-         //document.getElementById("game").width = 0;
-         //document.getElementById("game").height = 0;
+       }
+       if (document.getElementById("extra").innerHTML == "Going Back") {
+         menu = true;
+         document.getElementById("extra").innerHTML = "";
+       }
+
+       console.log(menu);
+
+       if (!menu) {
+         document.getElementById("game").width = 0;
+         document.getElementById("game").height = 0;
          loaded = true;
        }
        else {
-
 
                   document.getElementById("game").width = window.innerWidth;
                   document.getElementById("game").height = 50*207 + 270;
