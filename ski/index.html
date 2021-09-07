@@ -5,15 +5,25 @@
     <title>3D</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Squada One">
     <style>
-      body {margin: 0; -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); }
+      body {
+        margin: 0;
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+        -webkit-user-select: none;
+      }
       canvas {display: block; }
       ::selection {
         color: none;
         background: none;
       }
+      #click {
+        user-select: none;
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+        -webkit-user-select: none;
+      }
       #three {
         user-select: none;
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+        -webkit-user-select: none;
       }
 
       #top {
@@ -23,6 +33,7 @@
         margin-top: 5px;
         margin-bottom: 5px;
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+        -webkit-user-select: none;
       }
       #support {
         text-align: center;
@@ -581,7 +592,8 @@
 
 
 
-
+      var t1 = [0,0,0,0,0];
+      var t2 = [0,0,0,0,0];
         for (var i = 0 ; i < races.length ; i++) {
           g.fillStyle = 'rgb(100, 100, 100, 0.25)';
 
@@ -591,20 +603,35 @@
           g.fillText(races[i][0], window.innerWidth * 0.07, i*50 + 270 + 7);
 
           g.font = '21px Avenir';
-          g.fillText(stats[races[i][1]-1][0], window.innerWidth * 0.38, i*50 + 270 + 4);
+          g.fillText(stats[races[i][1]-1][0], window.innerWidth * 0.31, i*50 + 270 + 4);
 
           g.font = '21px AvenirNext-Bold';
 
           if (times[i] != -1) {
-            g.fillText(times[i] + "s", window.innerWidth * 0.63, i*50 + 270 + 4);
+            g.fillStyle = 'rgb(255, 0, 0)';
+            if (times[i] <= t1[i]) {
+              g.fillStyle = 'rgb(0, 255, 125)';
+            }
+            if (times[i] <= t2[i]) {
+              g.fillStyle = 'rgb(0, 255, 0)';
+            }
+            g.fillText(times[i] + "s", window.innerWidth * 0.58, i*50 + 270 + 4);
           }
+          g.fillStyle = 'rgb(0, 0, 0)';
+          g.fillText(t1[i] + "s", window.innerWidth*0.7, i*50 + 270 + 4);
+          g.fillText(t2[i] + "s", window.innerWidth*0.81, i*50 + 270 + 4);
+
         }
 
         g.fillStyle = 'rgb(0, 0, 0)';
-        g.font = '21px Avenir';
+        g.font = '18px Avenir';
         g.fillText("Trail Name", window.innerWidth*0.07, 234);
-        g.fillText("Mountain Name", window.innerWidth*0.38, 234);
-        g.fillText("Best Time", window.innerWidth*0.63, 234);
+        g.fillText("Mountain Name", window.innerWidth*0.31, 234);
+        g.fillText("Best Time", window.innerWidth*0.58, 234);
+        g.fillText("1 Candy Time", window.innerWidth*0.7, 234);
+        g.fillText("3 Candy Time", window.innerWidth*0.81, 234);
+
+
     };
 
 
