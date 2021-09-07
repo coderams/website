@@ -2561,7 +2561,7 @@ function runProgram(num, trailInd, raceInd) {
       console.log("DIFF");
       console.log(difft);
 
-      var CF = 9 * (60 / fps);
+      var CF = 15 * (60 / fps);
 
       if (turningRight){//mouseX > px) {
         if (ridingLift) {
