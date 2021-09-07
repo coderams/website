@@ -2105,6 +2105,9 @@ function runProgram(num, trailInd, raceInd) {
     var pressed2 = false;
 
     function animate() {
+      if (window.DeviceOrientationEvent) {
+        document.getElementById("support").innerHTML = "supported";
+      }
       if (lastCall != -1) {
         var diff = (Date.now() - lastCall) / 1000;
         time += diff;
@@ -2862,6 +2865,7 @@ function runProgram(num, trailInd, raceInd) {
       }
 
 
+      document.getElementById("top").innerHTML = 'TILTING';
 
     }
 
@@ -3082,6 +3086,11 @@ elem3.addEventListener('mousedown', function(event) {
   window.setTimeout(aboutRun2, 100);
 });
 
+/*window.addEventListener('deviceorientation', function(e) {
+  document.getElementById("top").innerHTML = 'TILTING';
+});*/
+
+//if (window.deviceOrientation)
 /*elem = document.getElementById("topbar");
 left = elem.offsetLeft + elem.clientLeft;
 etop = elem.offsetTop + elem.clientTop;
@@ -3110,7 +3119,3 @@ function go() {
   }
 }
 go();*/
-
-window.addEventListener('deviceorientation', function(e) {
-  document.getElementById("top").innerHTML = 'TILTING';
-});
