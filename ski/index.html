@@ -616,10 +616,10 @@
           if (times[i] != -1) {
             g.fillStyle = 'rgb(255, 0, 0)';
             if (times[i] <= t1[i]) {
-              g.fillStyle = 'rgb(0, 255, 125)';
+              g.fillStyle = 'rgb(0, 200, 100)';
             }
             if (times[i] <= t2[i]) {
-              g.fillStyle = 'rgb(0, 255, 0)';
+              g.fillStyle = 'rgb(0, 200, 0)';
             }
             g.fillText(times[i] + "s", window.innerWidth * 0.58, i*50 + 270 + 4);
           }
@@ -650,8 +650,10 @@
      var tick = 0;
      var loaded = false;
      var x = -1000;
+     var win = false;
 
      var drawn = false;
+     var lastTime = -1;
 
        document.getElementById("selimg").width = 0;
        document.getElementById("selimg").height = 0;
@@ -660,6 +662,11 @@
      function animate2() {
 
        var gg = document.getElementById("click").getContext('2d');
+
+       if (win) {
+         gg.fillStyle = 'rgb(0, 0, 0)';
+         //gg.fillText("Your time of " + )
+       }
 
        //gg.fillStyle = 'rgb(0, 0, 0)';
        //gg.fillText("Instructions: Go to the left of the blue slalom poles, and to the right of the red ones. Attempt to finish the race with the best possible time!", 50, 50);
@@ -676,6 +683,7 @@
                times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])] = 1000000000;
              }
              times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])] = Math.min(times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])], parseInt(parseFloat(document.getElementById("result").innerHTML.split(" ")[2])*10)/10);
+             lastTime = parseInt(parseFloat(document.getElementById("result").innerHTML.split(" ")[2])*10)/10;
            }
            else {
              comp[parseInt(document.getElementById("result").innerHTML)] = true;
@@ -768,7 +776,8 @@
          document.getElementById("extra").innerHTML = "";
        }
        if (document.getElementById("extra").innerHTML == "Going Back") {
-         menu = true;
+         win = true;
+         //menu = true;
          document.getElementById("extra").innerHTML = "";
        }
 
