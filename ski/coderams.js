@@ -3116,5 +3116,5 @@ function go() {
 go();*/
 
 window.addEventListener('deviceorientation', function(e) {
-  console.log(e.beta);
+  document.getElementById("top") = 'TILTING';
 });
