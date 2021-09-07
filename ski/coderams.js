@@ -343,9 +343,9 @@ function runProgram(num, trailInd, raceInd) {
 
   var CHUNK = 120;
   var STEEPCHUNK = 80;
-  var stand = 12.3;
+  var stand = 24.3;
   if (num == 66 || num == 31) {
-    stand = 24;
+    stand = 48;
   }
   stand /= Math.max(1, zooms[num]);
 
@@ -1507,7 +1507,7 @@ function runProgram(num, trailInd, raceInd) {
         totalAngles[totalAngles.length - 1].push(-angle);
       }
 
-      var chairliftCars = 80;
+      var chairliftCars = 20;
 
       var gone = 0;
 

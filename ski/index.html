@@ -5,10 +5,14 @@
     <title>3D</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Squada One">
     <style>
-      body {margin: 0; user-select: none;}
+      body {margin: 0;}
       canvas {display: block; }
+      #three {
+        user-select: none;
+      }
 
       #top {
+        user-select: none;
         text-align: center;
         font-family: 'Avenir';
         margin-top: 5px;
@@ -548,7 +552,7 @@
 
 
       canvas.width = window.innerWidth;
-      canvas.height = 50*207 + 270;
+      canvas.height = window.innerHeight - 270;
       //var processingInstance = new Processing(canvas, programCode);
 
       var g = canvas.getContext('2d');
@@ -615,6 +619,11 @@
        var menu = true;
 
      function animate2() {
+
+       var gg = document.getElementById("click").getContext('2d');
+
+       //gg.fillStyle = 'rgb(0, 0, 0)';
+       //gg.fillText("Instructions: Go to the left of the blue slalom poles, and to the right of the red ones. Attempt to finish the race with the best possible time!", 50, 50);
        //console.log("hiding");
        //document.getElementById("game").width = 0;
        //document.getElementById("game").height = 0;
@@ -734,7 +743,7 @@
        else {
 
                   document.getElementById("game").width = window.innerWidth;
-                  document.getElementById("game").height = 50*207 + 270;
+                  document.getElementById("game").height = 5*207 + 270;
 
          drawMenu();
 
