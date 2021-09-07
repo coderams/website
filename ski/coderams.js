@@ -98,7 +98,7 @@ var stats = [
   ["GRAND TARGHEE", "Alta, WY", 2270, 97, 5, 62, 1121, 1608, 1571, 890, 2],
   ["GRANITE PEAK", "Wausau, WI", 700, 58, 5, 63, 800, 1117, 1053, 443, 1],
   ["GREAT DIVIDE", "Marysville, MT", 1580, 110, 6, 64, 1473, 1565, 1670, 1470, 2],
-  ["GREEK PEAK", "Virgil, NY", 952, 55, 8, 65, 1370, 1053, 1560, 540, 1],
+  ["GREEK PEAK", "Virgil, NY", 952, 55, 8, 65, 1370, 1052, 1559, 541, 4],
   ["GUNSTOCK", "Gilford, NH", 1400, 48, 7, 66, 1493, 1377, 1154, 236, 2],
   ["HEAVENLY", "Heavenly, CA", 3500, 97, 28, 67, 2626, 1555, 2507, 1165, 4],
   ["HOGADON BASIN", "Casper Mountain, WY", 640, 28, 2, 68, 947, 1053, 690, 376, 1],
