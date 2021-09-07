@@ -344,6 +344,9 @@ function runProgram(num, trailInd, raceInd) {
   var CHUNK = 120;
   var STEEPCHUNK = 80;
   var stand = 12.3;
+  if (num == 66 || num == 31) {
+    stand = 24;
+  }
   stand /= Math.max(1, zooms[num]);
 
 
@@ -2544,7 +2547,7 @@ function runProgram(num, trailInd, raceInd) {
       console.log("DIFF");
       console.log(difft);
 
-      var CF = 9;
+      var CF = 19;
 
       if (turningRight){//mouseX > px) {
         if (ridingLift) {
