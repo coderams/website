@@ -283,7 +283,6 @@ function runProgram(num, trailInd, raceInd) {
   if (raceInd != -1) {
     starting = 6;
   }
-  console.log(num + " " + trailInd + " " + raceInd);
   var success = false;
   var cpval = 100;
   var countdown = 0;
@@ -694,9 +693,8 @@ function runProgram(num, trailInd, raceInd) {
     var SLALOM = 600;
 
     var rpos = [];
-    console.log(raceInd);
     if (raceInd != -1) {
-      console.log("not -1");
+
 
       for (var i = 0 ; i < races[raceInd][2].length ; i += 2) {
         var rp = translate(races[raceInd][2][i], races[raceInd][2][i+1]);
@@ -748,7 +746,6 @@ function runProgram(num, trailInd, raceInd) {
 
         var atval = Math.atan((el1 - el2)/ (Math.sqrt((rpos[i+1][0]-rpos[i][0])*(rpos[i+1][0]-rpos[i][0])+(rpos[i+1][1]-rpos[i][1])*(rpos[i+1][1]-rpos[i][1]))));
 
-        //console.log(Math.atan((el1 - el2)/ (Math.sqrt((rpos[i+1][0]-rpos[i][0])*(rpos[i+1][0]-rpos[i][0])+(rpos[i+1][1]-rpos[i][1])*(rpos[i+1][1]-rpos[i][1])))));
 
         var ang = Math.atan((rpos[i+1][1]-rpos[i][1])/(rpos[i+1][0]-rpos[i][0]));
         if (rpos[i][0] < rpos[i+1][0]) {
@@ -849,7 +846,7 @@ function runProgram(num, trailInd, raceInd) {
 
       var cx = (signs[j][1] + signs[j][3]) / 2;
       var cy = (signs[j][2] + signs[j][4]) / 2;
-      console.log(cx + " " + cy);
+
       var ROT = Math.atan((signs[j][4] - signs[j][2]) / (signs[j][3] - signs[j][1]));
       if (signs[j][1] < signs[j][3]) {
         ROT += Math.PI;
@@ -2103,11 +2100,21 @@ function runProgram(num, trailInd, raceInd) {
     var pentime = 0;
     var move = 0;
     var pressed2 = false;
+    var oa = -1;
+    var difft = 0;
+
+    window.addEventListener("deviceorientation", function(e) {
+      if (oa != -1) {
+        difft = e.alpha - oa;
+      }
+      oa = e.alpha;
+    });
 
     function animate() {
-      if (window.DeviceOrientationEvent) {
-        document.getElementById("support").innerHTML = "supported";
-      }
+      //if (window.DeviceOrientationEvent) {
+
+      //document.getElementById("support").innerHTML = "supported";
+
       if (lastCall != -1) {
         var diff = (Date.now() - lastCall) / 1000;
         time += diff;
@@ -2142,7 +2149,6 @@ function runProgram(num, trailInd, raceInd) {
       move = 1.6 * (FPFAC / avg);
       //move = 0;
 
-      console.log(pressed2);
 
       if (keys[81] && ridingLift) {
         move = 72 * (FPFAC / avg);
@@ -2158,7 +2164,6 @@ function runProgram(num, trailInd, raceInd) {
 
       for (var i = 0 ; i < chairliftPos.length ; i++) {
         for (var j = 0 ; j < chairliftPos[i].length ; j++) {
-        //  console.log(move);
 
           chairliftPos[i][j][5] += move;
 
@@ -2274,7 +2279,7 @@ function runProgram(num, trailInd, raceInd) {
 
       mouseX = parseInt(document.getElementById("extra2").innerHTML.split(" ")[0]);
       mouseY = parseInt(document.getElementById("extra2").innerHTML.split(" ")[1]);
-
+      //mouseX =
 
 
       var tarr = trees[parseInt(camx/(GRIDSCALE*TREEF))][parseInt((-camy/GRIDSCALE)/TREEF)];
@@ -2360,7 +2365,6 @@ function runProgram(num, trailInd, raceInd) {
         document.getElementById("top").innerHTML = "Press and hold Q to fast forward the lift ride";
       }
 
-      console.log(possible);
 
       if (stopped) {
         scene.children.forEach(function(object) {
@@ -2464,21 +2468,24 @@ function runProgram(num, trailInd, raceInd) {
 
       var PIF = Math.PI / 800;
 
-      if (mouseX > px) {
+      console.log("DIFF");
+      console.log(difft);
+
+      if (difft>0){//mouseX > px) {
         if (ridingLift) {
-          roty += (mouseX - px) * PIF;
+          roty -= (difft) * PIF;
         }
         else {
-          roty += Math.min(TURN/1.1, (mouseX - px) * PIF)
+          roty -= Math.min(TURN/1.1, (difft) * PIF)
         }
         friction = TURNFRICTION;
       }
-      if (mouseX < px) {
+      if (difft<0){//mouseX < px) {
         if (ridingLift) {
-          roty -= (px - mouseX) * PIF;
+          roty += (-difft) * PIF;
         }
         else {
-          roty -= Math.min(TURN/1.1, (px - mouseX) * PIF);
+          roty += Math.min(TURN/1.1, (-difft) * PIF);
         }
         friction = TURNFRICTION;
       }
@@ -2617,7 +2624,6 @@ function runProgram(num, trailInd, raceInd) {
       var elevat = (getElevation(camera.position.x / GRIDSCALE, (grid[0].length - 1 + camera.position.z / GRIDSCALE)) * (ELFA * (XF / 2.3)));
       camera.position.y = elevat + upd;
 
-      console.log("Lift: " + ridingLift);
 
       if (starting <= 0) {
 
@@ -2731,19 +2737,13 @@ function runProgram(num, trailInd, raceInd) {
           var dy = camx * m + b;
 
           if (i == 16) {
-            //console.log((camy >= dy) + " " + (on[i/4]));
-              //console.log(ocamy + " " + camy);
           }
 
           if (camy >= dy) {
             if (!on[i/4]) {
               on[i/4] = true;
-              console.log("linecross");
-              console.log(i);
               if (i>0 && ocamx >= Math.min(x1,x2) - 100 && ocamx <= Math.max(x1,x2) + 100 && ocamy >= Math.min(y1,y2) - 100 && ocamy <= Math.max(y1,y2) + 100) {
                 //if (!ch[i/4]) {
-                  console.log("CHECKPOINT!");
-                  console.log(i);
                 //}
                 if (!ch[i/4]) {
                   countdown = cpval;
@@ -2752,11 +2752,6 @@ function runProgram(num, trailInd, raceInd) {
                 ch[i/4] = true;
               }
               else if (i==16) {
-                console.log(x1 + " " + y1);
-                console.log(x2 + " " + y2);
-                console.log(Math.min(x1,x2)-100 + " " +Math.min(y1,y2)-100);
-                console.log(ocamx + " " + ocamy);
-                console.log(Math.max(x1,x2)+100 + " " + Math.max(y1,y2)+100);
               }
             }
 
@@ -2764,12 +2759,8 @@ function runProgram(num, trailInd, raceInd) {
           else if (camy < dy) {
             if (on[i/4]) {
               on[i/4] = false;
-              console.log("linecross");
-              console.log(i);
               if (i>0 && ocamx >= Math.min(x1,x2)-100 && ocamx <= Math.max(x1,x2)+100 && ocamy >= Math.min(y1,y2)-100 && ocamy <= Math.max(y1,y2)+100) {
                 //if (!ch[i/4]) {
-                  console.log("CHECKPOINT!");
-                  console.log(i);
                   if (!ch[i/4]) {
                     countdown = cpval;
                     cpnum = i/4;
@@ -2778,9 +2769,6 @@ function runProgram(num, trailInd, raceInd) {
                 ch[i/4] = true;
               }
               else if (i==16) {
-                console.log(x1 + " " + y1);
-                console.log(camx + " " + camy);
-                console.log(x2 + " " + y2);
               }
             }
           }
@@ -2804,7 +2792,6 @@ function runProgram(num, trailInd, raceInd) {
           var crossed = false;
 
           if (i == 2) {
-            //console.log(onr[i]);
           }
 
           if (camy >= dy && !onr[i]) {
@@ -2829,34 +2816,27 @@ function runProgram(num, trailInd, raceInd) {
             var inty = m2 * intx + b2;
 
 
-            //console.log(intx + " " + inty);
 
             var d1 = Math.sqrt((intx-x1)*(intx-x1) + (inty-y1)*(inty-y1));
             var d2 = Math.sqrt((intx-x2)*(intx-x2) + (inty-y2)*(inty-y2));
 
-            //console.log(d1);
-            //console.log(d2);
             if (i > 0 && i < sloms.length - 1) {
               if (Math.min(d1, d2) < 4000) {
                 if (Math.max(d1, d2) < Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))+25) {
                   //through the slalom
-                  console.log("FAIL " + i);
                   pentime = 100;
                   time += 5;
                 }
                 else if ((d1 < d2 && i%2 == 1) || (d1 > d2 && i%2 == 0)) {
-                  console.log("FAIL " + i);
                   pentime = 100;
                   time += 5;
                 }
                 else {
-                  console.log("SUCCESS " + i);
                 }
               }
             }
             else if (i == sloms.length - 1) {
               if (intx >= Math.min(x1,x2) - 375 && intx <= Math.max(x1,x2) + 25 && inty >= Math.min(y1,y2)-25 && inty <= Math.max(y1,y2)+25) {
-                console.log("COMPLETE");
                 finalTime = time;
               }
             }
@@ -2866,6 +2846,7 @@ function runProgram(num, trailInd, raceInd) {
 
 
       document.getElementById("top").innerHTML = 'TILTING';
+      difft = 0;
 
     }
 
