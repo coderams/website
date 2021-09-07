@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3D</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Squada One">
+    <style>
+      body {margin: 0; }
+      canvas {display: block; }
+      #top {
+        text-align: center;
+        font-family: 'Avenir';
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      #minimap {
+        position: absolute;
+        top: 33px;
+        left: 0px;
+      }
+    </style>
+    <script src="coderams.js" type="module">
+    </script>
+    <script src="three.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <!--<canvas id="topbar" display="block" margin="0 auto"></canvas>!-->
+    <div id="result" hidden=true></div>
+    <div id="top"></div>
+    <canvas id="selimg"></canvas>
+    <div id="three"></div>
+    <canvas id="game" display="block" margin="0 auto"></canvas>
+	   <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+    <div id="extra" hidden=true></div>
+    <div id="extra2" hidden=true>0 0</div>
+    <div id="pos" hidden=true></div>
+    <canvas id="minimap" width=0 height=0></canvas>
+    <img id="1" src="pixels/m1i.png">
+    <img id="2" src="pixels/m2i.png">
+    <img id="3" src="pixels/m3i.png">
+    <img id="4" src="pixels/m4i.png">
+    <img id="5" src="pixels/m5i.png">
+    <img id="6" src="pixels/m6i.png">
+    <img id="7" src="pixels/m7i.png">
+    <img id="8" src="pixels/m8i.png">
+    <img id="9" src="pixels/m9i.png">
+    <img id="10" src="pixels/m10i.png">
+    <img id="11" src="pixels/m11i.png">
+    <img id="12" src="pixels/m12i.png">
+    <img id="13" src="pixels/m13i.png">
+    <img id="14" src="pixels/m14i.png">
+    <img id="15" src="pixels/m15i.png">
+    <img id="16" src="pixels/m16i.png">
+    <img id="17" src="pixels/m17i.png">
+    <img id="18" src="pixels/m18i.png">
+    <img id="19" src="pixels/m19i.png">
+    <img id="20" src="pixels/m20i.png">
+    <img id="21" src="pixels/m21i.png">
+    <img id="22" src="pixels/m22i.png">
+    <img id="23" src="pixels/m23i.png">
+    <img id="24" src="pixels/m24i.png">
+    <img id="25" src="pixels/m25i.png">
+    <img id="26" src="pixels/m26i.png">
+    <img id="27" src="pixels/m27i.png">
+    <img id="28" src="pixels/m28i.png">
+    <img id="29" src="pixels/m29i.png">
+    <img id="30" src="pixels/m30i.png">
+    <img id="31" src="pixels/m31i.png">
+    <img id="32" src="pixels/m32i.png">
+    <img id="33" src="pixels/m33i.png">
+    <img id="34" src="pixels/m34i.png">
+    <img id="35" src="pixels/m35i.png">
+    <img id="36" src="pixels/m36i.png">
+    <img id="37" src="pixels/m37i.png">
+    <img id="38" src="pixels/m38i.png">
+    <img id="39" src="pixels/m39i.png">
+    <img id="40" src="pixels/m40i.png">
+    <img id="41" src="pixels/m41i.png">
+    <img id="42" src="pixels/m42i.png">
+    <img id="43" src="pixels/m43i.png">
+    <img id="44" src="pixels/m44i.png">
+    <img id="45" src="pixels/m45i.png">
+    <img id="46" src="pixels/m46i.png">
+    <img id="47" src="pixels/m47i.png">
+    <img id="48" src="pixels/m48i.png">
+    <img id="49" src="pixels/m49i.png">
+    <img id="50" src="pixels/m50i.png">
+    <img id="51" src="pixels/m51i.png">
+    <img id="52" src="pixels/m52i.png">
+    <img id="53" src="pixels/m53i.png">
+    <img id="54" src="pixels/m54i.png">
+    <img id="55" src="pixels/m55i.png">
+    <img id="56" src="pixels/m56i.png">
+    <img id="57" src="pixels/m57i.png">
+    <img id="58" src="pixels/m58i.png">
+    <img id="59" src="pixels/m59i.png">
+    <img id="60" src="pixels/m60i.png">
+    <img id="61" src="pixels/m61i.png">
+    <img id="62" src="pixels/m62i.png">
+    <img id="63" src="pixels/m63i.png">
+    <img id="64" src="pixels/m64i.png">
+    <img id="65" src="pixels/m65i.png">
+    <img id="66" src="pixels/m66i.png">
+    <img id="67" src="pixels/m67i.png">
+    <img id="68" src="pixels/m68i.png">
+    <img id="69" src="pixels/m69i.png">
+    <img id="70" src="pixels/m70i.png">
+    <img id="71" src="pixels/m71i.png">
+    <img id="72" src="pixels/m72i.png">
+    <img id="73" src="pixels/m73i.png">
+    <img id="74" src="pixels/m74i.png">
+    <img id="75" src="pixels/m75i.png">
+    <img id="76" src="pixels/m76i.png">
+    <img id="77" src="pixels/m77i.png">
+    <img id="78" src="pixels/m78i.png">
+    <img id="79" src="pixels/m79i.png">
+    <img id="80" src="pixels/m80i.png">
+    <img id="81" src="pixels/m81i.png">
+    <img id="82" src="pixels/m82i.png">
+    <img id="83" src="pixels/m83i.png">
+    <img id="84" src="pixels/m84i.png">
+    <img id="85" src="pixels/m85i.png">
+    <img id="86" src="pixels/m86i.png">
+    <img id="87" src="pixels/m87i.png">
+    <img id="88" src="pixels/m88i.png">
+    <img id="89" src="pixels/m89i.png">
+    <img id="90" src="pixels/m90i.png">
+    <img id="91" src="pixels/m91i.png">
+    <img id="92" src="pixels/m92i.png">
+    <img id="93" src="pixels/m93i.png">
+    <img id="94" src="pixels/m94i.png">
+    <img id="95" src="pixels/m95i.png">
+    <img id="96" src="pixels/m96i.png">
+    <img id="97" src="pixels/m97i.png">
+    <img id="98" src="pixels/m98i.png">
+    <img id="99" src="pixels/m99i.png">
+    <img id="100" src="pixels/m100i.png">
+    <img id="101" src="pixels/m101i.png">
+    <img id="102" src="pixels/m102i.png">
+    <img id="103" src="pixels/m103i.png">
+    <img id="104" src="pixels/m104i.png">
+    <img id="105" src="pixels/m105i.png">
+    <img id="106" src="pixels/m106i.png">
+    <img id="107" src="pixels/m107i.png">
+    <img id="108" src="pixels/m108i.png">
+    <img id="109" src="pixels/m109i.png">
+    <img id="110" src="pixels/m110i.png">
+    <img id="111" src="pixels/m111i.png">
+    <img id="112" src="pixels/m112i.png">
+    <img id="113" src="pixels/m113i.png">
+    <img id="114" src="pixels/m114i.png">
+    <img id="115" src="pixels/m115i.png">
+    <img id="116" src="pixels/m116i.png">
+    <img id="117" src="pixels/m117i.png">
+    <img id="118" src="pixels/m118i.png">
+    <img id="119" src="pixels/m119i.png">
+    <img id="120" src="pixels/m120i.png">
+    <img id="121" src="pixels/m121i.png">
+    <img id="122" src="pixels/m122i.png">
+    <img id="123" src="pixels/m123i.png">
+    <img id="124" src="pixels/m124i.png">
+    <img id="125" src="pixels/m125i.png">
+    <img id="126" src="pixels/m126i.png">
+    <img id="127" src="pixels/m127i.png">
+    <img id="128" src="pixels/m128i.png">
+    <img id="129" src="pixels/m129i.png">
+    <img id="130" src="pixels/m130i.png">
+    <img id="131" src="pixels/m131i.png">
+    <img id="132" src="pixels/m132i.png">
+    <img id="133" src="pixels/m133i.png">
+    <img id="134" src="pixels/m134i.png">
+    <img id="135" src="pixels/m135i.png">
+    <img id="136" src="pixels/m136i.png">
+    <img id="137" src="pixels/m137i.png">
+    <img id="138" src="pixels/m138i.png">
+    <img id="139" src="pixels/m139i.png">
+    <img id="140" src="pixels/m140i.png">
+    <img id="141" src="pixels/m141i.png">
+    <img id="142" src="pixels/m142i.png">
+    <img id="143" src="pixels/m143i.png">
+    <img id="144" src="pixels/m144i.png">
+    <img id="145" src="pixels/m145i.png">
+    <img id="146" src="pixels/m146i.png">
+    <img id="147" src="pixels/m147i.png">
+    <img id="148" src="pixels/m148i.png">
+    <img id="149" src="pixels/m149i.png">
+    <img id="150" src="pixels/m150i.png">
+    <img id="151" src="pixels/m151i.png">
+    <img id="152" src="pixels/m152i.png">
+    <img id="153" src="pixels/m153i.png">
+    <img id="154" src="pixels/m154i.png">
+    <img id="155" src="pixels/m155i.png">
+    <img id="156" src="pixels/m156i.png">
+    <img id="157" src="pixels/m157i.png">
+    <img id="158" src="pixels/m158i.png">
+    <img id="159" src="pixels/m159i.png">
+    <img id="160" src="pixels/m160i.png">
+    <img id="161" src="pixels/m161i.png">
+    <img id="162" src="pixels/m162i.png">
+    <img id="163" src="pixels/m163i.png">
+    <img id="164" src="pixels/m164i.png">
+    <img id="165" src="pixels/m165i.png">
+    <img id="166" src="pixels/m166i.png">
+    <img id="167" src="pixels/m167i.png">
+    <img id="168" src="pixels/m168i.png">
+    <img id="169" src="pixels/m169i.png">
+    <img id="170" src="pixels/m170i.png">
+    <img id="171" src="pixels/m171i.png">
+    <img id="172" src="pixels/m172i.png">
+    <img id="173" src="pixels/m173i.png">
+    <img id="174" src="pixels/m174i.png">
+    <img id="175" src="pixels/m175i.png">
+    <img id="176" src="pixels/m176i.png">
+    <img id="177" src="pixels/m177i.png">
+    <img id="178" src="pixels/m178i.png">
+    <img id="179" src="pixels/m179i.png">
+    <img id="180" src="pixels/m180i.png">
+    <img id="181" src="pixels/m181i.png">
+    <img id="182" src="pixels/m182i.png">
+    <img id="183" src="pixels/m183i.png">
+    <img id="184" src="pixels/m184i.png">
+    <img id="185" src="pixels/m185i.png">
+    <img id="186" src="pixels/m186i.png">
+    <img id="187" src="pixels/m187i.png">
+    <img id="188" src="pixels/m188i.png">
+    <img id="189" src="pixels/m189i.png">
+    <img id="190" src="pixels/m190i.png">
+    <img id="191" src="pixels/m191i.png">
+    <img id="192" src="pixels/m192i.png">
+    <img id="193" src="pixels/m193i.png">
+    <img id="194" src="pixels/m194i.png">
+    <img id="195" src="pixels/m195i.png">
+    <img id="196" src="pixels/m196i.png">
+    <img id="197" src="pixels/m197i.png">
+    <img id="198" src="pixels/m198i.png">
+    <img id="199" src="pixels/m199i.png">
+    <img id="200" src="pixels/m200i.png">
+    <img id="201" src="pixels/m201i.png">
+    <img id="202" src="pixels/m202i.png">
+    <img id="203" src="pixels/m203i.png">
+    <img id="204" src="pixels/m204i.png">
+    <img id="205" src="pixels/m205i.png">
+    <img id="206" src="pixels/m206i.png">
+    <img id="207" src="pixels/m207i.png">
+
+
+
+
+
+
+
+    <div id="num" hidden=true>
+
+
+    <script>
+
+    var comp = [];
+    for (var i = 0 ; i < 500 ; i++) {
+      comp.push(false);
+    }
+
+    var times = [];
+    for (var i = 0 ; i < 500 ; i++) {
+      times.push(-1);
+    }
+
+    //document.getElementById("7").hidden = true;
+    //g.fillStyle = '#ff0000';
+    //g.fillRect(0, 0, 200, 200);
+
+    var stats = [
+      ["AFTON ALPS", "Hastings, MN", 350, 48, 21, 0, 570, 706, 844, 357, 1],
+      ["ALTA", "Alta, UT", 2538, 119, 6, 1, 1367, 2046, 972, 1328, 2],
+      ["ALYESKA", "Anchorage, AK", 2500, 76, 7, 2, 1766, 1528, 1370, 911, 2],
+      ["ANGEL FIRE", "Angel Fire, NM", 2077, 81, 7, 3, 2218, 1358, 917, 517, 2],
+      ["ANTHONY LAKES", "Rock Creek, OR", 900, 21, 3, 4, 1184, 870, 1217, 334, 1],
+      ["ARAPAHOE BASIN", "Dillon, CO", 2530, 147, 9, 5, 452, 1630, 713, 1153, 2],
+      ["ARIZONA SNOWBOWL", "Flagstaff, AZ", 2300, 55, 8, 6, 1076, 1897, 1069, 588, 2],
+      ["ASPEN SNOWMASS", "Aspen, CO", 4406, 336, 40, 7, 1289, 1915, 2060, 1205, 4],
+      ["ATTITASH", "Bartlett, NH", 1750, 68, 9, 8, 1994, 1356, 1939, 296, 2],
+      ["BEAR CREEK", "Longswamp, PA", 510, 23, 6, 9, 796, 725, 500, 206, 1],
+      ["BEAR VALLEY", "Bear Valley, CA", 1900, 56, 10, 10, 1793, 1277, 1603, 843, 2],
+      ["BEAVER CREEK", "Eagle-Vail, CO", 3340, 150, 24, 11, 1348, 1516, 885, 857, 4],
+      ["BEAVER MOUNTAIN", "Garden, UT", 1600, 48, 6, 12, 1789, 1283, 1953, 489, 1],
+      ["BELLEAYRE", "Highmount, NY", 1404, 50, 8, 13, 1071, 1172, 972, 310, 2],
+      ["BERKSHIRE EAST", "Charlemont, MA", 1180, 38, 5, 14, 745, 961, 778, 304, 1],
+      ["BIG BOULDER", "Lake Harmony, PA", 600, 8, 8, 15, 814, 856, 650, 322, 1],
+      ["BIG SKY", "Bozeman, MT", 4350, 317, 36, 16, 2393, 1762, 2009, 1120, 4],
+      ["BLACKTAIL MOUNTAIN", "Lakeside, MT", 1440, 27, 4, 17, 779, 1342, 482, 402, 2],
+      ["BLUE HILLS", "Milton, MA", 309, 16, 4, 18, 682, 616, 883, 238, 1],
+      ["BLUE KNOB", "Claysburg, PA", 1072, 34, 6, 19, 684, 1382, 1430, 462, 1],
+      ["BLUE MOUNTAIN", "Danielsville, PA", 1082, 40, 16, 20, 918, 1125, 887, 238, 1],
+      ["BLUEWOOD", "Dayton, WA", 1125, 26, 3, 21, 953, 1200, 833, 277, 1],
+      ["BOGUS BASIN", "Horseshoe Bend, ID", 1800, 82, 10, 22, 1721, 678, 1462, 228, 2],
+      ["BOLTON VALLEY", "Bolton, VT", 1704, 71, 6, 23, 1990, 1161, 1548, 735, 2],
+      ["BOREAL", "Truckee, CA", 500, 34, 8, 24, 875, 1036, 724, 360, 1],
+      ["BRECKENRIDGE", "Breckenridge, CO", 3398, 187, 34, 25, 1230, 2188, 819, 1682, 4],
+      ["BRETTON WOODS", "Carroll, NH", 1500, 63, 10, 26, 1382, 1570, 1462, 519, 2],
+      ["BRIAN HEAD", "Brian Head, UT", 1548, 71, 8, 27, 1335, 965, 545, 569, 2],
+      ["BRIDGER BOWL", "Bridger, MT", 2600, 105, 11, 28, 1196, 1388, 1112, 937, 4],
+      ["BRIGHTON", "Park City, UT", 1745, 66, 7, 29, 1453, 1497, 285, 1008, 2],
+      ["BRISTOL MOUNTAIN", "Canandaigua, NY", 1200, 34, 6, 30, 1345, 1295, 1410, 420, 1],
+      ["BROMLEY", "Peru, VT", 1334, 47, 9, 31, 872, 1401, 1450, 421, 1],
+      ["BRUNDAGE", "McCall, ID", 1800, 67, 6, 32, 1352, 1439, 1260, 517, 2],
+      ["BUCK HILL", "Burnsville, MN", 309, 16, 10, 33, 554, 604, 516, 260, 1],
+      ["BUENA VISTA", "Puposky, MN", 230, 17, 6, 34, 642, 621, 437, 481, 1],
+      ["BURKE MOUNTAIN", "Burke, VT", 2011, 52, 5, 35, 1348, 1307, 1122, 250, 1],
+      ["CAMDEN SNOW BOWL", "Camden, ME", 850, 20, 3, 36, 1369, 1003, 935, 302, 1],
+      ["CAMELBACK", "Tannersville, PA", 800, 39, 16, 37, 1050, 869, 1141, 287, 1],
+      ["CANAAN VALLEY", "Davis, WV", 850, 47, 4, 38, 960, 772, 773, 181, 1],
+      ["CANNON MOUNTAIN", "Franconia, NH", 2180, 97, 11, 39, 1442, 1377, 641, 657, 2],
+      ["CASCADE MOUNTAIN", "Caledonia, WI", 460, 47, 11, 40, 947, 754, 793, 226, 1],
+      ["CATAMOUNT", "Hillsdale, NY", 1000, 38, 8, 41, 1126, 1094, 1231, 367, 1],
+      ["COFFEE MILL", "Wabasha, MN", 425, 14, 3, 42, 872, 746, 511, 339, 1],
+      ["COOPER", "Leadville North, CO", 1200, 59, 5, 43, 1472, 2448, 2174, 1823, 2],
+      ["COPPER MOUNTAIN", "Copper Mountain, CO", 2738, 150, 24, 44, 1392, 2047, 1397, 1362, 4],
+      ["CRANMORE MOUNTAIN", "Conway, NH", 1200, 57, 8, 45, 692, 1256, 1064, 410, 2],
+      ["CRESTED BUTTE", "Crested Butte, CO", 3062, 121, 14, 46, 2789, 1472, 1694, 717, 2],
+      ["CROTCHED MOUNTAIN", "Francestown, NH", 1016, 23, 5, 47, 789, 925, 803, 175, 1],
+      ["CRYSTAL MOUNTAIN", "White River, WA", 3100, 86, 11, 48, 1603, 1397, 1548, 492, 2],
+      ["DEER MOUNTAIN", "Terry, SD", 940, 63, 4, 49, 420, 1039, 908, 358, 1],
+      ["DEER VALLEY", "Park City, UT", 3000, 103, 21, 50, 1248, 1571, 1493, 890, 2],
+      ["DEVILS HEAD", "Greenfield, WI", 500, 23, 9, 51, 953, 774, 948, 498, 1],
+      ["DIAMOND PEAK", "Incline Village, NV", 1840, 30, 7, 52, 1406, 1280, 750, 520, 1],
+      ["DISCOVERY", "Granite, MT", 2380, 74, 8, 53, 2124, 1659, 2644, 1332, 2],
+      ["DODGE RIDGE", "Pinecrest, CA", 1600, 67, 12, 54, 1679, 728, 870, 277, 2],
+      ["DONNER SKI RANCH", "Truckee, CA", 750, 52, 8, 55, 417, 691, 847, 679, 1],
+      ["EAGLE ROCK", "Weston, PA", 550, 14, 3, 56, 845, 933, 611, 285, 1],
+      ["ECHO MOUNTAIN", "Idaho Springs, CO", 600, 9, 3, 57, 969, 904, 781, 284, 1],
+      ["ELDORA", "Eldora, CO", 1400, 65, 10, 58, 632, 1161, 1169, 521, 2],
+      ["ELK MOUNTAIN", "Union Dale, PA", 1000, 27, 7, 59, 1272, 1149, 970, 514, 1],
+      ["GIANTS RIDGE", "Biwabik, MN", 500, 35, 7, 60, 853, 758, 702, 244, 1],
+      ["GORE MOUNTAIN", "North Creek, NY", 2537, 110, 61, 14, 1171, 1699, 905, 752, 2],
+      ["GRAND TARGHEE", "Alta, WY", 2270, 97, 5, 62, 1121, 1608, 1571, 890, 2],
+      ["GRANITE PEAK", "Wausau, WI", 700, 58, 5, 63, 800, 1117, 1053, 443, 1],
+      ["GREAT DIVIDE", "Marysville, MT", 1580, 110, 6, 64, 1473, 1565, 1670, 1470, 2],
+      ["GREEK PEAK", "Virgil, NY", 952, 55, 8, 65, 1370, 1053, 1560, 540, 1],
+      ["GUNSTOCK", "Gilford, NH", 1400, 48, 7, 66, 1493, 1377, 1154, 236, 2],
+      ["HEAVENLY", "Heavenly, CA", 3500, 97, 28, 67, 2626, 1555, 2507, 1165, 4],
+      ["HOGADON BASIN", "Casper Mountain, WY", 640, 28, 2, 68, 947, 1053, 690, 376, 1],
+      ["HOLIDAY VALLEY", "Ellicottville, NY", 750, 60, 13, 69, 742, 748, 1492, 551, 1],
+      ["HOLIMONT", "Ellicottville, NY", 700, 55, 8, 70, 1084, 944, 1271, 398, 1],
+      ["HOMEWOOD", "Homewood, CA", 1650, 67, 8, 71, 1500, 1520, 986, 1074, 2],
+      ["HOODOO", "Santiam Junction, OR", 1035, 36, 6, 72, 969, 1388, 808, 744, 2],
+      ["HOWELSEN HILL", "Steamboat Springs, CO", 440, 17, 4, 73, 903, 1462, 888, 1193, 1],
+      ["HUNTER MOUNTAIN", "Hunter, NY", 1600, 67, 13, 74, 543, 1026, 1360, 470, 2],
+      ["HYLAND HILLS", "Bloomington, MN", 175, 11, 7, 75, 510, 415, 481, 270, 1],
+      ["JACK FROST", "Blakeslee, PA", 600, 18, 9, 76, 931, 991, 925, 401, 1],
+      ["JACKSON HOLE", "Teton Village, WY", 4139, 133, 13, 77, 2336, 1769, 1281, 424, 2],
+      ["JAY PEAK", "Jay, VT", 2153, 81, 9, 78, 1104, 1653, 1092, 378, 2],
+      ["JIMINY PEAK", "Lanesborough, MA", 1150, 45, 9, 79, 1123, 1158, 987, 373, 2],
+      ["JUNE MOUNTAIN", "June Lake, CA", 2590, 43, 7, 80, 818, 1691, 521, 289, 2],
+      ["KELLY CANYON", "Heise, ID", 1000, 51, 6, 81, 1100, 1202, 1050, 344, 2],
+      ["KEYSTONE", "Keystone, CO", 3128, 128, 20, 82, 663, 2083, 1244, 1972, 4],
+      ["KILLINGTON", "Killington, VT", 3050, 155, 22, 83, 2026, 1272, 1727, 919, 2],
+      ["KIRKWOOD", "Kit Carson, CA", 2000, 85, 12, 84, 1794, 1289, 1967, 719, 2],
+      ["KISSING BRIDGE", "Glenwood, NY", 550, 39, 10, 85, 915, 889, 889, 385, 1],
+      ["LABRADOR MOUNTAIN", "Truxton, NY", 700, 23, 4, 86, 999, 1052, 643, 500, 1],
+      ["LEE CANYON", "Charleston, NV", 860, 27, 3, 87, 755, 1195, 1255, 849, 2],
+      ["LIBERTY", "Carroll Valley, PA", 620, 21, 7, 88, 1463, 874, 972, 886, 1],
+      ["LITTLE SWITZERLAND", "Slinger, WI", 200, 18, 8, 89, 864, 620, 643, 377, 1],
+      ["LOOKOUT PASS", "Larson, ID", 1150, 38, 4, 90, 457, 1365, 800, 1072, 2],
+      ["LOON MOUNTAIN", "Lincoln, NH", 2100, 61, 10, 91, 1670, 1574, 1481, 702, 2],
+      ["LOST TRAIL", "Sula, MT", 1800, 69, 8, 92, 968, 1068, 848, 689, 2],
+      ["LOST VALLEY", "Auburn, ME", 240, 31, 4, 93, 637, 662, 509, 452, 1],
+      ["LOVELAND", "Keystone, CO", 2210, 94, 10, 94, 1654, 1097, 1631, 749, 2],
+      ["LUTSEN MOUNTAINS", "Lutsen, MN", 825, 62, 8, 95, 1296, 1304, 856, 910, 2],
+      ["MAD RIVER GLEN", "Fayston, VT", 2037, 52, 5, 96, 1379, 1427, 801, 285, 1],
+      ["MAGIC MOUNTAIN", "Londonderry, VT", 1500, 50, 4, 97, 1091, 1253, 894, 178, 1],
+      ["MAGIC MOUNTAIN", "Oakley, ID", 700, 11, 3, 98, 825, 834, 544, 234, 1],
+      ["MAMMOTH MOUNTAIN", "Mammoth Lakes, CA", 3100, 150, 25, 99, 418, 1058, 1174, 945, 4],
+      ["MAVERICK MOUNTAIN", "Elkhorn Hot Springs, MT", 2020, 22, 2, 100, 728, 1012, 1031, 257, 1],
+      ["MEADOWLARK", "Meadowlark Lake, WY", 1000, 14, 2, 101, 1016, 1091, 1213, 249, 1],
+      ["MISSION RIDGE", "Wenatchee Heights, WA", 2250, 53, 6, 102, 1529, 1094, 2390, 421, 2],
+      ["MONARCH MOUNTAIN", "Monarch, CO", 1162, 64, 7, 103, 878, 1285, 1259, 923, 1],
+      ["MONTAGE MOUNTAIN", "Scranton, PA", 1000, 26, 7, 104, 1247, 921, 1380, 394, 1],
+      ["MONTANA SNOWBOWL", "Schley, MT", 2600, 37, 4, 105, 1329, 1237, 1274, 631, 2],
+      ["MOUNT PETER", "Warwick, NY", 450, 18, 5, 106, 778, 793, 849, 236, 1],
+      ["MOUNT SNOW", "Dover, VT", 1700, 87, 20, 107, 1374, 1690, 1660, 514, 2],
+      ["MOUNT SUNAPEE", "Newbury, NH", 1510, 66, 10, 108, 1372, 1336, 998, 403, 2],
+      ["MOUNTAIN HIGH", "Wrightwood, CA", 1600, 59, 14, 109, 1315, 1514, 1152, 823, 1],
+      ["MT ABRAM", "Greenwood, ME", 1150, 54, 5, 110, 1362, 1377, 1342, 724, 1],
+      ["MT ASHLAND", "Ashland, OR", 1150, 44, 5, 111, 843, 929, 1098, 414, 1],
+      ["MT BACHELOR", "Elk Lake, OR", 3365, 121, 15, 112, 1857, 1939, 1766, 1378, 2],
+      ["MT BAKER", "Whatcom, WA", 1500, 38, 10, 113, 723, 764, 764, 285, 2],
+      ["MT BALDY", "Wrightwood, CA", 2100, 26, 4, 114, 1281, 471, 485, 640, 2],
+      ["MT HOOD MEADOWS", "Hood River, OR", 2777, 85, 13, 115, 1411, 1911, 1256, 1328, 2],
+      ["MT HOOD SKIBOWL", "Government Camp, OR", 1500, 69, 10, 116, 1160, 1153, 1210, 564, 2],
+      ["MT JEFFERSON", "Lee, ME", 432, 12, 3, 117, 996, 771, 650, 240, 1],
+      ["MT ROSE", "New Washoe City, NV", 1800, 65, 8, 118, 655, 912, 1093, 388, 2],
+      ["MT SHASTA", "Mt. Shasta, CA", 1435, 32, 5, 119, 1338, 1284, 1536, 687, 1],
+      ["MT SPOKANE", "Riverside, WA", 2000, 55, 8, 120, 643, 1143, 939, 756, 2],
+      ["NASHOBA VALLEY", "Westford, MA", 240, 17, 11, 121, 586, 826, 707, 541, 1],
+      ["NORDIC VALLEY", "Eden, UT", 960, 36, 5, 122, 1908, 802, 530, 150, 2],
+      ["NORTHSTAR", "Truckee, CA", 2280, 100, 20, 123, 1117, 1006, 1292, 380, 2],
+      ["OKEMO", "Ludlow, VT", 2200, 121, 20, 124, 1058, 1292, 1066, 413, 2],
+      ["OTIS RIDGE", "Otis, MA", 400, 11, 4, 125, 456, 774, 685, 218, 1],
+      ["PAJARITO", "Los Alamos, NM", 1410, 45, 6, 126, 1541, 1032, 1354, 393, 2],
+      ["PARK CITY", "Park City, UT", 3226, 341, 44, 127, 1093, 1626, 728, 1219, 4],
+      ["PEEK N PEAK", "French Creek, NY", 400, 27, 10, 128, 1245, 847, 1232, 319, 1],
+      ["PICO MOUNTAIN", "Killington, VT", 1967, 61, 7, 129, 854, 1631, 909, 853, 2],
+      ["POMERELLE", "Albion, ID", 1000, 24, 3, 130, 871, 1041, 1030, 445, 2],
+      ["POWDERHORN", "Powderhorn, CO", 1650, 50, 4, 131, 867, 1193, 336, 335, 2],
+      ["PURGATORY", "Silverton, CO", 2029, 105, 12, 132, 541, 1558, 949, 665, 4],
+      ["RAGGED MOUNTAIN", "Hill, NH", 1250, 57, 6, 133, 1146, 1301, 1022, 361, 2],
+      ["RED LODGE MOUNTAIN", "Red Lodge, MT", 2400, 70, 7, 134, 1576, 1457, 1060, 1187, 2],
+      ["RED RIVER", "Red River, NM", 1600, 64, 7, 135, 1020, 1595, 736, 698, 2],
+      ["ROUNDTOP", "Fortney, PA", 600, 19, 9, 136, 1067, 834, 858, 368, 1],
+      ["SANDIA PEAK", "Sandia Park, NM", 1700, 35, 4, 137, 837, 1644, 475, 226, 1],
+      ["SCHWEITZER", "Colburn, ID", 2400, 92, 10, 138, 896, 941, 858, 436, 2],
+      ["SEVEN SPRINGS", "Seven Springs, PA", 750, 33, 14, 139, 2053, 964, 1609, 475, 2],
+      ["SHAWNEE MOUNTAIN", "East Stroudsburg, PA", 700, 23, 9, 140, 767, 980, 720, 347, 1],
+      ["SHOWDOWN", "Forest Green, MT", 1400, 36, 4, 141, 1420, 1256, 1590, 537, 2],
+      ["SIERRA AT TAHOE", "Nebelhorn, CA", 2212, 47, 14, 142, 1314, 1138, 838, 565, 2],
+      ["SILVER MOUNTAIN", "Kellogg, ID", 2200, 80, 7, 143, 1050, 1395, 699, 1087, 2],
+      ["SIPAPU", "Tres Ritos, NM", 1055, 42, 6, 144, 726, 1212, 763, 641, 1],
+      ["SKI APACHE", "Ruidoso, NM", 1900, 17, 11, 145, 986, 1639, 1551, 323, 2],
+      ["SKI BIG BEAR", "Masthope, PA", 650, 18, 8, 146, 825, 1053, 1062, 375, 1],
+      ["SKI BUTTERNUT", "Great Barrington, MA", 1000, 22, 10, 147, 1125, 927, 1032, 276, 1],
+      ["SKI SANTA FE", "Tesuque, NM", 1725, 86, 7, 148, 1271, 1635, 1707, 901, 2],
+      ["SKI SAWMILL", "Oregon Hill, PA", 515, 13, 5, 149, 553, 643, 739, 226, 1],
+      ["SKI WARD", "Northborough, MA", 210, 9, 4, 150, 854, 715, 861, 210, 1],
+      ["SLEEPING GIANT", "Cody, WY", 810, 48, 3, 151, 723, 1044, 590, 525, 1],
+      ["SMUGGLERS NOTCH", "Cambridge, VT", 2610, 78, 8, 152, 996, 1238, 1048, 412, 2],
+      ["SNOW SUMMIT", "Big Bear Lake, CA", 1200, 27, 16, 153, 1035, 1338, 1156, 210, 1],
+      ["SNOW VALLEY", "Running Springs, CA", 1041, 32, 12, 154, 382, 1878, 719, 876, 1],
+      ["SNOWBASIN", "Ogden, UT", 2900, 107, 12, 155, 2112, 1689, 2051, 559, 2],
+      ["SNOWBIRD", "Alta, UT", 3240, 140, 14, 156, 1463, 2462, 1287, 1472, 2],
+      ["SNOWSHOE MOUNTAIN", "Snowshoe, WV", 1500, 61, 12, 157, 2066, 172, 1278, 790, 2],
+      ["SNOWY RANGE", "Centennial, WY", 990, 33, 5, 158, 1550, 850, 1651, 224, 2],
+      ["SODA SPRINGS", "Soda Springs, CA", 652, 20, 6, 159, 701, 839, 761, 210, 1],
+      ["SOLDIER MOUNTAIN", "Indian Head Rock, ID", 1400, 36, 3, 160, 649, 1243, 754, 638, 1],
+      ["SOLITUDE", "Solitude, UT", 2494, 82, 9, 161, 969, 1479, 1178, 1140, 2],
+      ["SPOUT SPRINGS", "Tollgate, OR", 610, 14, 4, 162, 416, 762, 660, 390, 1],
+      ["SPRING MOUNTAIN", "Sprint Mt, PA", 450, 9, 6, 163, 455, 710, 658, 185, 1],
+      ["SQUAW VALLEY", "Olympic Valley, CA", 2850, 245, 34, 164, 2459, 1798, 2714, 969, 4],
+      ["STEAMBOAT", "Steamboat Springs, CO", 3668, 169, 18, 165, 2035, 2206, 1554, 1376, 4],
+      ["STEVENS PASS", "Skykomish, WA", 1800, 53, 10, 166, 1310, 1244, 1879, 562, 2],
+      ["STOWE", "Stowe, VT", 2360, 116, 12, 167, 1466, 1188, 1556, 153, 4],
+      ["STRATTON", "Winhall, VT", 2003, 99, 11, 168, 578, 1327, 1046, 776, 2],
+      ["SUGAR BOWL", "Truckee, CA", 1500, 105, 12, 169, 1456, 1249, 1690, 702, 2],
+      ["SUGARBUSH", "Fayston, VT", 2600, 111, 16, 170, 656, 1315, 930, 958, 4],
+      ["SUGARLOAF", "Carabassett Valley, ME", 2820, 162, 13, 171, 1884, 1879, 1815, 974, 4],
+      ["SUICIDE SIX", "Pomfret, VT", 650, 24, 3, 172, 734, 897, 830, 405, 1],
+      ["SUN VALLEY", "Ketchum, ID", 3400, 120, 18, 173, 1282, 1937, 1311, 1160, 4],
+      ["SUNDANCE", "Sundance, UT", 2150, 45, 5, 174, 636, 2264, 1038, 1300, 2],
+      ["SUNDAY RIVER", "Newry, ME", 2340, 135, 18, 175, 955, 1683, 1554, 1057, 2],
+      ["SUNLIGHT MOUNTAIN", "Carbondale, CO", 2010, 72, 3, 176, 1212, 1528, 1413, 678, 2],
+      ["SUNRISE PARK", "Greer, AZ", 1800, 69, 6, 177, 491, 1711, 927, 792, 2],
+      ["TAHOE DONNER", "Truckee, CA", 600, 17, 4, 178, 628, 960, 974, 508, 1],
+      ["TAMARACK", "Donnelly, ID", 2800, 48, 7, 179, 1497, 1737, 1813, 717, 4],
+      ["TAOS", "Taos, NM", 3281, 110, 14, 180, 2003, 1702, 1657, 1157, 2],
+      ["TELLURIDE", "Telluride, CO", 4425, 147, 17, 181, 582, 1220, 1164, 1630, 4],
+      ["TENNEY MOUNTAIN", "Plymouth, NH", 1400, 48, 3, 182, 740, 1306, 1176, 167, 2],
+      ["TERRY PEAK", "Terry, SD", 1100, 30, 5, 183, 821, 1194, 990, 375, 1],
+      ["TETON PASS", "Choteau, MT", 1010, 43, 3, 184, 872, 1179, 831, 314, 1],
+      ["THE SUMMIT AT SNOQUALMIE", "Easton, WA", 1025, 65, 20, 185, 1082, 1136, 1140, 592, 2],
+      ["THUNDER RIDGE", "Patterson, NY", 500, 30, 6, 186, 923, 1103, 779, 274, 1],
+      ["TIMBERLINE", "Government Camp, OR", 3690, 41, 8, 187, 824, 2136, 811, 1542, 2],
+      ["TIMBERLINE MOUNTAIN", "Davis, WV", 1000, 22, 6, 188, 1141, 1104, 910, 283, 1],
+      ["TITUS MOUNTAIN", "Malone, NY", 1200, 50, 10, 189, 1863, 1243, 1979, 615, 2],
+      ["TUSSEY MOUNTAIN", "Boalsburg, PA", 520, 15, 5, 190, 710, 663, 786, 188, 1],
+      ["VAIL", "Vail, CO", 3450, 195, 31, 191, 1748, 833, 1465, 201, 4],
+      ["WACHUSETT", "Princeton, MA", 1000, 27, 8, 192, 1079, 983, 1118, 239, 1],
+      ["WATERVILLE VALLEY", "Waterville Valley, NH", 2020, 62, 12, 193, 1090, 1401, 1502, 506, 2],
+      ["WEST MOUNTAIN", "Queensbury, NY", 1010, 29, 5, 194, 567, 1159, 893, 327, 1],
+      ["WHITE PASS", "Naches Valley, WA", 2050, 45, 8, 195, 1283, 1505, 1600, 831, 2],
+      ["WHITE PINE", "Pinedale, WY", 1100, 25, 2, 196, 1244, 1177, 789, 240, 1],
+      ["WHITEFACE", "Wilmington, NY", 3430, 89, 12, 197, 567, 1663, 1224, 435, 4],
+      ["WHITEFISH", "Whitefish, MT", 2353, 113, 14, 198, 916, 1549, 1738, 881, 2],
+      ["WHITETAIL", "Kasiesville, PA", 935, 22, 8, 199, 1015, 1075, 1371, 316, 1],
+      ["WILDCAT MOUNTAIN", "Jackson, NH", 2112, 48, 5, 200, 1206, 1503, 1125, 229, 2],
+      ["WILLAMETTE PASS", "Cascade Summit, OR", 1563, 29, 5, 201, 985, 1960, 1417, 1301, 2],
+      ["WINDHAM MOUNTAIN", "Windham, NY", 1600, 54, 11, 202, 1096, 1004, 1471, 243, 2],
+      ["WINTER PARK", "Winter Park, CO", 3060, 121, 25, 203, 2091, 2304, 1883, 1666, 4],
+      ["WINTERPLACE", "Ghent, WV", 603, 27, 9, 204, 1357, 970, 1324, 712, 1],
+      ["WISP", "McHenry, MD", 700, 33, 12, 205, 540, 1288, 855, 722, 1],
+      ["WOLF CREEK", "Creed Consolidated 1, CO", 1604, 133, 10, 206, 2342, 1230, 2492, 548, 4]
+    ];
+
+    var trails = [
+      ["ODYSSEY", 66, 3, [1597, 574, 1586, 581, 1596, 648, 1572, 639, 1471, 965, 1459, 958, 1440, 1044, 1428, 1033, 1418, 1069, 1411, 1052]],
+      ["KARYATIS WAY", 66, 1, [1527, 522, 1531, 508, 1482, 500, 1486, 491, 1419, 484, 1420, 467, 1371, 482, 1354, 474, 1435, 627, 1414, 628, 1416, 696, 1406, 696, 1387, 746, 1382, 728, 1331, 771, 1330, 760, 1278, 827, 1267, 827, 1289, 910, 1286, 918, 1356, 960, 1350, 971, 1396, 1051, 1373, 1048]],
+      ["ARCADIAN GATE", 66, 2, [909, 434, 904, 424, 840, 477, 831, 462, 597, 546, 596, 528, 370, 687, 365, 667, 223, 835, 201, 835]],
+      ["SUPERSTAR", 84, 3, [1713, 947, 1732, 926, 1764, 1004, 1784, 984, 1804, 1053, 1818, 1039, 1900, 1154, 1912, 1141, 2015, 1234, 2035, 1190]],
+      ["CASCADE", 84, 4, [2008, 382, 1996, 383, 2020, 463, 1996, 464, 2029, 532, 2007, 535, 2035, 664, 2018, 668, 2065, 735, 2055, 767, 2109, 774, 2110, 798, 2136, 819, 2120, 816, 2120, 958, 2106, 956, 2099, 1178, 2074, 1194]],
+      ["MILKY WAY", 31, 1, [931, 317, 935, 302, 623, 378, 615, 368, 482, 737, 467, 739, 473, 809, 458, 807, 476, 880, 465, 887, 806, 1158, 802, 1175, 1086, 1307, 1065, 1305]],
+      ["MORNING STAR", 31, 2, [912, 341, 931, 361, 732, 528, 749, 550, 495, 763, 527, 778]],
+      ["SOUTHERN CROSS", 31, 2, [1098, 472, 1092, 463, 1051, 639, 1041, 620, 844, 734, 823, 753, 992, 975, 972, 978, 978, 1031, 972, 1016, 802, 1157, 802, 1172, 1086, 1300, 1063, 1302]],
+      ["COMET", 31, 4, [1091, 467, 1097, 471, 1080, 639, 1097, 633, 1104, 996, 1131, 990, 1133, 1109, 1171, 1113, 1132, 1314, 1170, 1321]],
+      ["ROCKET", 31, 3, [1252, 452, 1273, 456, 1239, 569, 1261, 571, 1193, 963, 1219, 968, 1155, 1312, 1178, 1312]],
+      ["GALAXY", 31, 3, [1393, 415, 1390, 401, 1372, 437, 1384, 431, 1362, 630, 1395, 631, 1326, 1040, 1343, 1037, 1313, 1170, 1337, 1169, 1325, 1297, 1345, 1303]],
+      ["NORTH STAR", 31, 2, [1374, 444, 1391, 438, 1415, 515, 1422, 509, 1524, 646, 1549, 649, 1491, 939, 1507, 942, 1355, 1284, 1364, 1298]]
+    ];
+
+    var races = [
+      ["ODYSSEY", 66,  [1595, 631, 1559, 733, 1524, 855, 1509, 888, 1472, 941, 1442, 1004]],
+      ["CRISTY'S RUN", 66, [1382, 751, 1360, 785, 1339, 821, 1329, 856, 1323, 880, 1319, 904, 1319, 934]],
+      ["JACOPIE", 87, [662, 495, 697, 545, 744, 624, 797, 705, 830, 751, 879, 818, 947, 919, 989, 986, 1021, 1041]],
+      ["ECHO", 62, [1403, 995, 1385, 1031, 1346, 1097, 1328, 1135, 1341, 1186, 1341, 1228, 1327, 1249, 1293, 1275, 1274, 1300, 1261, 1334, 1252, 1379, 1250, 1416, 1250, 1450, 1249, 1480, 1254, 1523, 1274, 1570, 1291, 1612, 1289, 1646]],
+      ["COMET", 31, [1089, 636, 1105, 687, 1112, 740, 1118, 844, 1118, 925, 1116, 990, 1128, 1031, 1143, 1080, 1145, 1137, 1145, 1192, 1147, 1258, 1146, 1312]],
+      ["SUPERSTAR", 84, [1719, 937, 1772, 994, 1819, 1055, 1878, 1125, 1934, 1177, 1978, 1204, 2032, 1238]],
+      ["ELKHORN", 17, [954, 1090, 976, 1122, 1011, 1161, 1042, 1186, 1109, 1219, 1160, 1236, 1192, 1265, 1221, 1298]],
+      ["LOWER BROADWAY", 75, [650, 662, 629, 717, 589, 832, 571, 892, 549, 953, 525, 1015]],
+      ["TWITCHER", 92, [1462, 686, 1456, 718, 1455, 746, 1455, 774, 1455, 792, 1447, 810, 1429, 843, 1431, 876, 1438, 899, 1444, 960, 1452, 1013, 1448, 1063, 1470, 1116, 1491, 1163, 1513, 1192, 1542, 1226, 1571, 1263, 1588, 1314, 1621, 1350, 1646, 1387, 1657, 1410, 1662, 1438, 1678, 1468, 1687, 1500, 1698, 1542]]
+    ];
+
+
+    var imgs = [];
+    for (img of document.getElementsByTagName('img')) {
+      imgs[img.id] = img;
+    }
+
+
+
+    var canvas = document.getElementById("game");
+
+    var mountSel = 0;
+
+    function drawMenu() {
+      var canvas = document.getElementById("game");
+
+
+      canvas.width = window.innerWidth;
+      canvas.height = 50*207 + 270;
+      //var processingInstance = new Processing(canvas, programCode);
+
+      var g = canvas.getContext('2d');
+
+      g.fillStyle = 'rgb(150, 150, 0)';
+      g.font = '120px Squada One';
+      g.fillStyle = 'rgb(0, 0, 0)';
+      g.fillText("CODE", window.innerWidth / 2 - 220, 100);
+      g.fillStyle = 'rgb(255, 0, 0)';
+      g.fillText("RAMS", window.innerWidth / 2 + 10, 100);
+
+      g.font = '36px Skia';
+      g.fillStyle = 'rgb(150, 150, 0)';
+      g.fillText("Ultimate Ski Race 3 - JDHS Activity Fair Edition", window.innerWidth / 2 - 350, 143);
+      g.font = '24px Avenir';
+      g.fillStyle = 'rgb(0, 0, 0)';
+      g.fillText("Made by former CodeRams president Xavier Plourde", window.innerWidth / 2 - 258, 176);
+      g.fillText("Win candy with a good enough time on any of these races:", window.innerWidth / 2 - 285, 206);
+
+
+
+
+
+        for (var i = 0 ; i < races.length ; i++) {
+          g.fillStyle = 'rgb(100, 100, 100, 0.25)';
+
+          g.fillRect(window.innerWidth * 0.05, i*50 + 245, window.innerWidth*0.9, 42, 5);
+          g.fillStyle = 'rgb(0, 0, 0)';
+          g.font = '26px AvenirNext-Bold';
+          g.fillText(races[i][0], window.innerWidth * 0.07, i*50 + 270 + 7);
+
+          g.font = '21px Avenir';
+          g.fillText(stats[races[i][1]-1][0], window.innerWidth * 0.38, i*50 + 270 + 4);
+
+          g.font = '21px AvenirNext-Bold';
+
+          if (times[i] != -1) {
+            g.fillText(times[i] + "s", window.innerWidth * 0.63, i*50 + 270 + 4);
+          }
+        }
+
+        g.fillStyle = 'rgb(0, 0, 0)';
+        g.font = '21px Avenir';
+        g.fillText("Trail Name", window.innerWidth*0.07, 234);
+        g.fillText("Mountain Name", window.innerWidth*0.38, 234);
+        g.fillText("Best Time", window.innerWidth*0.63, 234);
+    };
+
+
+
+    var mouseY = 0;
+    var mouseX = 0;
+    var nr = 0;
+    var orot = 0;
+
+     var tick = 0;
+     var loaded = false;
+     var x = -1000;
+
+     var drawn = false;
+
+       document.getElementById("selimg").width = 0;
+       document.getElementById("selimg").height = 0;
+
+     function animate2() {
+       if (document.getElementById("result").innerHTML) {
+         if (document.getElementById("result").innerHTML != -1) {
+           console.log(document.getElementById("result").innerHTML);
+           if (document.getElementById("result").innerHTML.split(" ")[0] == "Time") {
+             if (times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])] == -1) {
+               times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])] = 1000000000;
+             }
+             times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])] = Math.min(times[parseInt(document.getElementById("result").innerHTML.split(" ")[1])], parseInt(parseFloat(document.getElementById("result").innerHTML.split(" ")[2])*10)/10);
+           }
+           else {
+             comp[parseInt(document.getElementById("result").innerHTML)] = true;
+           }
+         }
+       }
+
+       x++;
+
+       var px = parseInt(document.getElementById("pos").innerHTML.split(" ")[0]);
+       var py = parseInt(document.getElementById("pos").innerHTML.split(" ")[1]);
+
+       //px = document.getElementById("7").width - 100;
+       //py = document.getElementById("7").height - 100;
+
+
+       mx = 100 - px;
+       my = 100 - py;
+       //mx = 0;
+      // my = 0;
+
+      var dd = imgs[parseInt(document.getElementById("num").innerHTML)];
+
+      for (img of document.getElementsByTagName('img')) {
+        img.hidden = true;
+      }
+      //document.getElementById("66").hidden = false;
+
+       if (loaded) {
+         var g = document.getElementById("minimap").getContext('2d');
+
+         var IW = 200;
+         document.getElementById("minimap").width = IW;
+         document.getElementById("minimap").height = IW;
+
+         g.clearRect(0, 0, IW, IW);
+         //g.fillStyle = '#ff0000';
+
+         g.fillStyle = 'rgb(0, 48, 144, 0.8)';
+
+
+
+         //g.fillRect(IW/2-10, IW/2-10, 4, 4);
+         //g.arc(100, 100, 10, 0, 2*Math.PI, false);
+         //g.fill();
+
+         g.translate(IW/2, IW/2);
+         nr = parseFloat(document.getElementById("pos").innerHTML.split(" ")[2]);
+         //console.log("Angle: ");
+         //console.log(nr);
+         //console.log(nr-orot);
+
+         g.rotate(nr);
+        //g.rotate(Math.PI/4);
+         orot = nr;
+
+         g.translate(-IW/2, -IW/2);
+
+         g.scale(1, 1);
+
+         g.drawImage(dd, mx, my, dd.width, dd.height);
+
+         g.translate(IW/2, IW/2);
+
+         g.rotate(-nr);
+        //g.rotate(Math.PI/4);
+
+         g.translate(-IW/2, -IW/2);
+
+         g.beginPath();
+         g.moveTo(IW/2-8, IW/2+11);
+         g.lineTo(IW/2, IW/2-11);
+         g.lineTo(IW/2+8, IW/2+11);
+         //g.lineTo(IW-5, IW+5);
+         g.fill();
+
+
+         /*g.width = 0;
+         g.height = 0;
+
+         g.width = 800;
+         g.height = 800;*/
+
+         //g.fillRect(0, 0, 200, 200);
+
+       }
+       window.requestAnimationFrame(animate2);
+       if (document.getElementById("extra").innerHTML == "Loaded Lifts") {
+         document.getElementById("extra").innerHTML = "";
+         //document.getElementById("game").width = 0;
+         //document.getElementById("game").height = 0;
+         loaded = true;
+       }
+       else {
+
+
+                  document.getElementById("game").width = window.innerWidth;
+                  document.getElementById("game").height = 50*207 + 270;
+
+         drawMenu();
+
+         document.getElementById("extra").innerHTML = "";
+
+       }
+
+       tick++;
+       /*if (loaded) {
+         var canvas2 = document.getElementById("topbar");
+         var processingInstance2 = new Processing(canvas2, programCode2);
+       }
+       else {
+         var canvas2 = document.getElementById("topbar");
+         var processingInstance2 = new Processing(canvas2, programCode3);
+       }*/
+    }
+
+    animate2();
+
+    /*var elem = document.getElementById("three");
+    var left = elem.offsetLeft + elem.clientLeft;
+    var etop = elem.offsetTop + elem.clientTop;
+
+
+    elem.addEventListener('mousemove', function(event) {
+      var x = event.pageX - left;
+      var y = event.pageY - etop;
+      document.getElementById("extra2").innerHTML = y;
+    });
+
+    const elem = document.getElementById("three");
+
+    function lockPointer(elem) {
+      if (elem.requestPointerLock) {
+        elem.requestPointerLock();
+      } else if (elem.webkitRequestPointerLock) {
+        elem.webkitRequestPointerLock();
+      } else if (elem.mozRequestPointerLock) {
+        elem.mozRequestPointerLock();
+      } else {
+        console.warn("Pointer locking not supported");
+      }
+    }
+
+    elem.addEventListener("mousedown", e => {
+      const {
+        movementX,
+        movementY
+      } = e;
+
+      mouseX += movementX;
+      mouseY += movementY;
+
+    });
+
+    elem.addEventListener("mousedown", e => {
+      lockPointer(elem);
+    });*/
+
+    var elem = document.getElementById("game");
+    var left = elem.offsetLeft + elem.clientLeft;
+    var etop = elem.offsetTop + elem.clientTop;
+
+    elem.addEventListener('mousedown', function(event) {
+      var x = event.pageX - left;
+      var y = event.pageY - etop;
+      //mouseY = y;
+      if (y >= 165 && y <= 207) {
+        var wd = (window.innerWidth*0.3-60);
+        if (x >= window.innerWidth*0.05 && x <= window.innerWidth*0.05 + wd) {
+          mountSel = 0;
+        }
+        if (x >= window.innerWidth*0.33 + 30 && x <= window.innerWidth * 0.33 + 30 + wd) {
+          mountSel = 1;
+        }
+        if (x >= window.innerWidth*0.67 + 30 && x <= window.innerWidth * 0.67 + 30 + wd) {
+          mountSel = 2;
+        }
+      }
+      console.log(mountSel);
+    });
+
+
+
+    var elem = document.getElementById("three");
+    elem.addEventListener("mousedown", e => {
+      lockPointer(elem);
+    });
+
+
+    function lockPointer(elem) {
+      if (elem.requestPointerLock) {
+        elem.requestPointerLock();
+      } else if (elem.webkitRequestPointerLock) {
+        elem.webkitRequestPointerLock();
+      } else if (elem.mozRequestPointerLock) {
+        elem.mozRequestPointerLock();
+      } else {
+        console.warn("Pointer locking not supported");
+      }
+    }
+
+    elem.addEventListener("mousemove", e => {
+      const {
+        movementX,
+        movementY
+      } = e;
+
+      mouseX += movementX;
+      mouseY += movementY;
+
+      document.getElementById("extra2").innerHTML = mouseX + " " + mouseY;
+    });
+
+    elem.addEventListener("mousedown", e => {
+      lockPointer(elem);
+    });
+
+    </script>
+  </body>
