@@ -2116,6 +2116,22 @@ function runProgram(num, trailInd, raceInd) {
       oa = e.alpha;
     });
 
+    var clicked = false;
+
+    var elem = document.getElementById("three");
+
+    elem.addEventListener("mousedown", e => {
+      //console.log("clicked");
+      clicked = true;
+      //lockPointer(elem);
+    });
+
+    elem.addEventListener("mouseup", e => {
+      //console.log("unclicked");
+      clicked = false;
+      //lockPointer(elem);
+    });
+
     function animate() {
       //if (window.DeviceOrientationEvent) {
 
@@ -2371,6 +2387,12 @@ function runProgram(num, trailInd, raceInd) {
         document.getElementById("top").innerHTML = "Press and hold Q to fast forward the lift ride";
       }
 
+      if (clicked) {
+        document.getElementById("top").innerHTML = "clicking";
+      }
+      else {
+        document.getElementById("top").innerHTML = "not clicking";
+      }
 
       if (stopped) {
         scene.children.forEach(function(object) {
@@ -2851,7 +2873,7 @@ function runProgram(num, trailInd, raceInd) {
       }
 
 
-      document.getElementById("top").innerHTML = alpha + " " + beta + " " + gamma;
+      //document.getElementById("top").innerHTML = alpha + " " + beta + " " + gamma;
       difft = 0;
 
     }
