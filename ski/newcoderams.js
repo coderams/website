@@ -670,10 +670,12 @@ function runProgram(num, trailInd, raceInd) {
       10000, 6000, -10000,
       20000, 6000, -10000,
       -10000, 6000, -20000,
+
       10000, 6000, -20000,
       20000, 6000, -20000,
       20000, 6000, -10000
     ] );
+
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     const material2 = new THREE.MeshBasicMaterial( { color: '0x000000' } );
     const mesh2 = new THREE.Mesh( geometry, material2 );
@@ -684,7 +686,7 @@ function runProgram(num, trailInd, raceInd) {
     //camera.lookAt(0, 0, 0);
 
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight - 150);
+    renderer.setSize(window.innerWidth, window.innerHeight - 50);
     document.getElementById("three").appendChild(renderer.domElement);
 
 
@@ -786,6 +788,7 @@ function runProgram(num, trailInd, raceInd) {
     /*var controls = new OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 2, 0);
     controls.update();
+
     camera.position.set(0, 200, 0);
     controls.update();*/
 
@@ -1123,6 +1126,7 @@ function runProgram(num, trailInd, raceInd) {
         /*var material4 = [];
         for (var i = 0 ; i < 6 ; i++) {
           var ind = parseInt(Math.random()*24) + 1;
+
           material4.push(new THREE.MeshBasicMaterial({
             map: loader.load("letters/" + chars[i] + ".png"),
             color: 0x00dd00,
@@ -1600,6 +1604,7 @@ function runProgram(num, trailInd, raceInd) {
     /*const mergedGeometry7 = BufferGeometryUtils.mergeBufferGeometries(seatgeo, false);
     const material7 = new THREE2.MeshBasicMaterial({color:'rgb(30, 30, 30)'});
     const mesh7 = new THREE2.Mesh(mergedGeometry7, material7);
+
     scene.add(mesh7);*/
 
 
@@ -1761,6 +1766,7 @@ function runProgram(num, trailInd, raceInd) {
 
     /*var grid = [
     ];
+
     for (var i = 0 ; i < 50 ; i++) {
       grid.push([]);
       for (var j = 0 ; j < 50 ; j++) {
@@ -1794,8 +1800,10 @@ function runProgram(num, trailInd, raceInd) {
         var cl = cols2[parseInt(el / elINC) % cols2.length];
         cl += ', 0.1)';
         cl = 0xffffff;
+
         cubes.push(new Cube([[y1*XF / 2, z1*XF / 2.3, -x1*XF / 2], [y2*XF / 2, z2*XF / 2.3, -x1*XF / 2], [y2*XF / 2, z3*XF / 2.3, -x2*XF / 2], [y1*XF / 2, z4*XF / 2.3, -x2*XF / 2]], cl));
       }
+
     }*/
 
     for (var i = 0 ; i < grid.length  - CHUNK*2; i+=CHUNK) {
@@ -2112,7 +2120,7 @@ function runProgram(num, trailInd, raceInd) {
 
     var elem = document.getElementById("three");
 
-    elem.addEventListener("touchstart", e => {
+    /*elem.addEventListener("touchstart", e => {
       //console.log("clicked");
       clicked = true;
       //lockPointer(elem);
@@ -2122,62 +2130,9 @@ function runProgram(num, trailInd, raceInd) {
       //console.log("unclicked");
       clicked = false;
       //lockPointer(elem);
-    });
-
-    var elem4 = document.getElementById("click");
-    var left = elem.offsetLeft + elem4.clientLeft;
-    var etop = elem.offsetTop + elem4.clientTop;
-    var mountSel = 2;
-
-    var turningLeft = false;
-    var turningRight = false;
-
-    elem4.addEventListener('mousedown', function(event) {
-      var x = event.pageX - left;
-      var y = event.pageY - etop;
-
-      if (y >= window.innerHeight - 100) {
-        if (x <= window.innerWidth / 2) {
-          turningLeft = true;
-        }
-        else {
-          turningRight = true;
-        }
-      }
-    });
-
-    elem4.addEventListener('mouseup', function(event) {
-      turningLeft = false;
-      turningRight = false;
-    });
-
-    elem4.addEventListener('touchstart', function(event) {
-      var x = event.pageX - left;
-      var y = event.pageY - etop;
-
-      if (y >= window.innerHeight - 100) {
-        if (x <= window.innerWidth / 2) {
-          turningLeft = true;
-        }
-        else {
-          turningRight = true;
-        }
-      }
-    });
-
-    elem4.addEventListener('touchend', function(event) {
-      turningLeft = false;
-      turningRight = false;
-    });
+    });*/
 
     function animate() {
-      document.getElementById("click").height = 100;
-      document.getElementById("click").width = window.innerWidth;
-      var g = document.getElementById("click").getContext('2d');
-      g.font = '24px Avenir';
-      g.fillStyle = 'rgb(0, 0, 0)';
-      g.fillText("Turn Left", 140, 70);
-      g.fillText("Turn Right", window.innerWidth - 340, 70);
       //if (window.DeviceOrientationEvent) {
 
       //document.getElementById("support").innerHTML = "supported";
@@ -2267,6 +2222,7 @@ function runProgram(num, trailInd, raceInd) {
           /*var oox = chairliftPos[i][j][1];
           var ooy = chairliftPos[i][j][2];
           var ooz = chairliftPos[i][j][3];
+
           //chairliftPos[i][j][0].translate(-chairliftPos[i][j][1], -chairliftPos[i][j][3], -chairliftPos[i][j][2]);
           chairliftPos[i][j][0].position.x -= oox;
           chairliftPos[i][j][0].position.z -= ooy;
@@ -2344,9 +2300,8 @@ function runProgram(num, trailInd, raceInd) {
       var px = mouseX;
 
       mouseX = parseInt(document.getElementById("extra2").innerHTML.split(" ")[0]);
-      //mouseY = parseInt(document.getElementById("extra2").innerHTML.split(" ")[1]);
+      mouseY = parseInt(document.getElementById("extra2").innerHTML.split(" ")[1]);
       //mouseX =
-      mouseY = 0;
 
 
       var tarr = trees[parseInt(camx/(GRIDSCALE*TREEF))][parseInt((-camy/GRIDSCALE)/TREEF)];
@@ -2443,7 +2398,6 @@ function runProgram(num, trailInd, raceInd) {
         scene.children.forEach(function(object) {
             scene.remove(object);
         });
-        document.getElementById("extra").innerHTML = "Going Back";
       }
       //if (!stopped) {
       else {
@@ -2544,23 +2498,21 @@ function runProgram(num, trailInd, raceInd) {
       console.log("DIFF");
       console.log(difft);
 
-      var CF = 9;
-
-      if (turningRight){//mouseX > px) {
+      if (difft>0){//mouseX > px) {
         if (ridingLift) {
-          roty += (CF) * PIF;
+          roty -= (difft) * PIF;
         }
         else {
-          roty += Math.min(TURN/1.1, (CF) * PIF)
+          roty -= Math.min(TURN/1.1, (difft) * PIF)
         }
         friction = TURNFRICTION;
       }
-      if (turningLeft){//mouseX < px) {
+      if (difft<0){//mouseX < px) {
         if (ridingLift) {
-          roty += (-CF) * PIF;
+          roty += (-difft) * PIF;
         }
         else {
-          roty += Math.min(TURN/1.1, (-CF) * PIF);
+          roty += Math.min(TURN/1.1, (-difft) * PIF);
         }
         friction = TURNFRICTION;
       }
@@ -2580,11 +2532,14 @@ function runProgram(num, trailInd, raceInd) {
         var avgx = (vecs[0].x + vecs[1].x + vecs[2].x) / 3;
         var avgy = (vecs[0].y + vecs[1].y + vecs[2].y) / 3;
         var avgz = (vecs[0].z + vecs[1].z + vecs[2].z) / 3;
+
         var dist = Math.sqrt(Math.pow(avgx - camera.position.x, 2) + Math.pow(avgy - camera.position.y, 2) + Math.pow(camera.position.z - avgz, 2));
+
         if (dist < mndist) {
           mndist = dist;
           mni = i;
         }
+
       }*/
 
 
@@ -2929,16 +2884,17 @@ function runProgram(num, trailInd, raceInd) {
       running = false;
       loaded = false;
 
+      document.getElementById("extra").innerHTML = "Going Back";
+
+
       while (scene.children.length > 0) {
         scene.remove(scene.children[0]);
       }
 
-      document.getElementById("extra").innerHTML = "Going Back";
-
 
       if (finalTime) {
         document.getElementById("result").innerHTML = "Time " + raceInd + " " + finalTime;
-      }
+
       else if (success) {
         document.getElementById("result").innerHTML = trailInd;
       }
@@ -2946,7 +2902,6 @@ function runProgram(num, trailInd, raceInd) {
         document.getElementById("result").innerHTML = -1;
       }
 
-      //document.getElementById("extra").innerHTML = "";
 
 
       document.exitPointerLock();
@@ -3025,6 +2980,8 @@ var etop = elem.offsetTop + elem.clientTop;
 var mountSel = 2;
 
 elem.addEventListener('mousedown', function(event) {
+  console.log("STARTING");
+
   var x = event.pageX - left;
   var y = event.pageY - etop;
   //mouseY = y;
@@ -3102,8 +3059,9 @@ elem.addEventListener('mousedown', function(event) {
           startX = (races[i][2][0] + races[i][2][2]) / 2;
           startY = (races[i][2][1] + races[i][2][3]) / 2;
 
-
           aboutRun2();
+
+          //document.getElementById("game").hidden = true;
 
           //clicking = true;
         }
@@ -3150,10 +3108,12 @@ elem3.addEventListener('mousedown', function(event) {
 left = elem.offsetLeft + elem.clientLeft;
 etop = elem.offsetTop + elem.clientTop;
 context = elem.getContext('2d');
+
 elem.addEventListener('mousedown', function(event) {
   if (running) {
     var x = event.pageX - left;
     var y = event.pageY - etop;
+
     if (x >= window.innerWidth*0.5 - 60 && x <= window.innerWidth*0.5 + 60 && y >= 5 && y <= 45) {
       stopped = true;
     }
