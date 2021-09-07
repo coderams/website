@@ -3111,6 +3111,6 @@ function go() {
 }
 go();*/
 
-window.addEventListener('deviceorientation', function(e) {
+/*window.addEventListener('deviceorientation', function(e) {
   document.getElementById("top") = 'TILTING';
-});
+});*/
