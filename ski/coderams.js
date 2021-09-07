@@ -2134,17 +2134,21 @@ function runProgram(num, trailInd, raceInd) {
 
     var turningLeft = false;
     var turningRight = false;
+    var poling = false;
 
     elem4.addEventListener('mousedown', function(event) {
       var x = event.pageX - left;
       var y = event.pageY - etop;
 
       if (y >= window.innerHeight - 100) {
-        if (x <= window.innerWidth / 2) {
+        if (x <= window.innerWidth / 3) {
           turningLeft = true;
         }
-        else {
+        else if (x >= window.innerWidth * 2 / 3){
           turningRight = true;
+        }
+        else {
+          poling = true;
         }
       }
     });
@@ -2152,18 +2156,23 @@ function runProgram(num, trailInd, raceInd) {
     elem4.addEventListener('mouseup', function(event) {
       turningLeft = false;
       turningRight = false;
+      poling = false;
     });
+
 
     elem4.addEventListener('touchstart', function(event) {
       var x = event.pageX - left;
       var y = event.pageY - etop;
 
       if (y >= window.innerHeight - 100) {
-        if (x <= window.innerWidth / 2) {
+        if (x <= window.innerWidth / 3) {
           turningLeft = true;
         }
-        else {
+        else if (x >= window.innerWidth * 2 / 3){
           turningRight = true;
+        }
+        else {
+          poling = true;
         }
       }
     });
@@ -2171,6 +2180,7 @@ function runProgram(num, trailInd, raceInd) {
     elem4.addEventListener('touchend', function(event) {
       turningLeft = false;
       turningRight = false;
+      poling = false;
     });
 
     function animate() {
@@ -2180,6 +2190,8 @@ function runProgram(num, trailInd, raceInd) {
       g.font = '24px Avenir';
       g.fillStyle = 'rgb(0, 0, 0)';
       g.fillText("Turn Left", 140, 70);
+      g.fillText("Use Poles", window.innerWidth*0.46, 70);
+
       g.fillText("Turn Right", window.innerWidth - 340, 70);
       //if (window.DeviceOrientationEvent) {
 
@@ -2435,12 +2447,12 @@ function runProgram(num, trailInd, raceInd) {
         document.getElementById("top").innerHTML = "Press and hold Q to fast forward the lift ride";
       }
 
-      if (clicked) {
+      /*if (clicked) {
         document.getElementById("top").innerHTML = "clicking";
       }
       else {
         document.getElementById("top").innerHTML = "not clicking";
-      }
+      }*/
 
       if (stopped) {
         scene.children.forEach(function(object) {
@@ -2710,7 +2722,7 @@ function runProgram(num, trailInd, raceInd) {
 
 
 
-        if (keys[87] && playerSpeed < POLE * 0.55) {
+        if ((poling || keys[87]) && playerSpeed < POLE * 0.55) {
           playerSpeed = Math.max(playerSpeed, POLE);
         }
 
