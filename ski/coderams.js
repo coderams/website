@@ -2102,11 +2102,17 @@ function runProgram(num, trailInd, raceInd) {
     var pressed2 = false;
     var oa = -1;
     var difft = 0;
+    var alpha = 0;
+    var beta = 0;
+    var gamma = 0;
 
     window.addEventListener("deviceorientation", function(e) {
       if (oa != -1) {
         difft = e.alpha - oa;
       }
+      alpha = e.alpha;
+      beta = e.beta;
+      gamma = e.gamma;
       oa = e.alpha;
     });
 
@@ -2845,7 +2851,7 @@ function runProgram(num, trailInd, raceInd) {
       }
 
 
-      document.getElementById("top").innerHTML = 'TILTING';
+      document.getElementById("top").innerHTML = alpha + " " + beta + " " + gamma;
       difft = 0;
 
     }
