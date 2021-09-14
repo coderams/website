@@ -278,11 +278,18 @@ for (var i = 0 ; i < stats.length ; i++) {
 var stopped = false;
 var trailInd = -1;
 var raceInd = -1;
+var first = true;
 
 function runProgram(num, trailInd, raceInd) {
   var starting = 0;
   if (raceInd != -1) {
-    starting = 6;
+    if (first) {
+      starting = 21;
+      first = false;
+    }
+    else {
+      starting = 6;
+    }
   }
   var success = false;
   var cpval = 100;
@@ -2388,7 +2395,16 @@ function runProgram(num, trailInd, raceInd) {
       }
 
       if (raceInd != -1) {
-        if (starting > 0) {
+        if (starting > 16) {
+          document.getElementById("top").innerHTML = "Instructions: go to the right of the red slalom poles, and to the left of the blue ones";
+        }
+        else if (starting > 11) {
+          document.getElementById("top").innerHTML = "Your goal is to reach the finish line as fast as possible";
+        }
+        else if (starting > 6) {
+          document.getElementById("top").innerHTML = "Missing slalom poles gives you a time penalty";
+        }
+        else if (starting > 0) {
           var tst = (parseInt(starting*10)/10);
           if (tst % 1 == 0) {
             tst = tst + ".0";
@@ -2802,7 +2818,7 @@ function runProgram(num, trailInd, raceInd) {
       }*/
       //}
 
-      if (keys[79]) {
+      if (finalTime > 0) {
 
         quit(success);
 
@@ -2951,6 +2967,8 @@ function runProgram(num, trailInd, raceInd) {
       }
 
       document.getElementById("extra").innerHTML = "Going Back";
+
+      document.getElementById("extra3").innerHTML = raceInd + " " + finalTime;
 
 
       if (finalTime) {

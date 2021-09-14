@@ -66,9 +66,11 @@
     <canvas id="selimg"></canvas>
     <div id="three"></div>
     <canvas id="game" display="block" margin="0 auto"></canvas>
+    <canvas id="win" display="block" margin="0 auto"></canvas>
     <canvas id="click"></canvas>
 	   <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
     <div id="extra" hidden=true></div>
+    <div id="extra3" hidden=true></div>
     <div id="extra2" hidden=true>0 0</div>
     <div id="pos" hidden=true></div>
     <canvas id="minimap" width=0 height=0></canvas>
@@ -290,6 +292,11 @@
 
 
     <script>
+
+    var code = -1;
+
+    var t1 = [100.9,0,0,0,0,31.2];
+    var t2 = [91.7,0,0,0,0,28.4];
 
     var comp = [];
     for (var i = 0 ; i < 500 ; i++) {
@@ -598,8 +605,7 @@
         ["CRISTY'S RUN", 66, [1382, 751, 1360, 785, 1339, 821, 1329, 856, 1323, 880, 1319, 904, 1319, 934]],
         ["BIG BLUE", 19, [851, 225, 829, 258, 807, 289, 779, 330, 753, 365, 735, 394, 707, 423, 684, 474, 650, 551, 627, 599, 614, 617]]
       ];
-      var t1 = [100.9,0,0,0,0,31.2];
-      var t2 = [91.7,0,0,0,0,28.4];
+
         for (var i = 0 ; i < races.length ; i++) {
           g.fillStyle = 'rgb(100, 100, 100, 0.25)';
 
@@ -658,14 +664,67 @@
        document.getElementById("selimg").width = 0;
        document.getElementById("selimg").height = 0;
        var menu = true;
+       var clicked = false;
+
+       var elem = document.getElementById("win");
+       elem.addEventListener("mousedown", e => {
+         clicked = true;
+       });
 
      function animate2() {
 
        var gg = document.getElementById("click").getContext('2d');
 
        if (win) {
+         document.getElementById("minimap").width = 0;
+         document.getElementById("minimap").height = 0;
+         loaded = false;
+         console.log("WIN");
+         console.log(document.getElementById("extra3").innerHTML);
+         var time = parseInt(document.getElementById("extra3").innerHTML.split(" ")[1]);
+         var id = parseInt(document.getElementById("extra3").innerHTML.split(" ")[0]);
+         gg = document.getElementById("win").getContext('2d');
          gg.fillStyle = 'rgb(0, 0, 0)';
+         document.getElementById("win").width = window.innerWidth;
+         document.getElementById("win").height = 1000;
+         gg.font = '24px Avenir';
+         gg.textAlign = "center";
+         if (time < t2[id]) {
+           gg.fillText("Congratulations, you win three candies!", window.innerWidth*0.5, window.innerHeight*0.35);
+           gg.fillText("Show this screen to the CodeRams officers to collect your prize.", window.innerWidth*0.5, window.innerHeight*0.45);
+           gg.fillText("Game Code: " + code, window.innerWidth*0.5, window.innerHeight*0.55);
+
+        }
+        else if (time < t1[id]) {
+          gg.fillText("Congratulations, you win one candy!", window.innerWidth*0.5, window.innerHeight*0.35);
+          gg.fillText("Show this screen to the CodeRams officers to collect your prize.", window.innerWidth*0.5, window.innerHeight*0.45);
+          gg.fillText("Game Code: " + code, window.innerWidth*0.5, window.innerHeight*0.55);
+
+
+        }
+        else {
+          gg.fillText("Your time was " + (-parseInt((t1[id]-time)*10)/10) + " seconds\nslower than the required time\nfor winning candy.", window.innerWidth*0.5, window.innerHeight*0.4);
+        }
+
+
+        gg.fillText("Tap anywhere to try again.", window.innerWidth*0.5, window.innerHeight*0.65);
+
          //gg.fillText("Your time of " + )
+         var g = document.getElementById("click").getContext('2d');
+         g.fillStyle = 'rgb(255, 255, 255)';
+         g.fillRect(0, 0, window.innerWidth, 100);
+
+         if (clicked) {
+           clicked = false;
+           win = false;
+           document.getElementById("win").width = 0;
+           document.getElementById("win").height = 0;
+           menu = true;
+         }
+       }
+       else {
+         document.getElementById("win").width = 0;
+         document.getElementById("win").height = 0;
        }
 
        //gg.fillStyle = 'rgb(0, 0, 0)';
@@ -777,6 +836,10 @@
        }
        if (document.getElementById("extra").innerHTML == "Going Back") {
          win = true;
+         code = "";
+         for (var i = 0 ; i  <10 ; i++) {
+           code += parseInt(Math.random()*10);
+         }
          //menu = true;
          document.getElementById("extra").innerHTML = "";
        }
@@ -887,6 +950,8 @@
     elem.addEventListener("mousedown", e => {
       //lockPointer(elem);
     });
+
+
 
 
     function lockPointer(elem) {
