@@ -2193,8 +2193,11 @@ function runProgram(num, trailInd, raceInd) {
     });
 
     function animate() {
+      renderer.setSize(window.innerWidth, window.innerHeight - 150);
+
       document.getElementById("click").height = 100;
       document.getElementById("click").width = window.innerWidth;
+
       var g = document.getElementById("click").getContext('2d');
       g.font = '24px Avenir';
       g.fillStyle = 'rgb(0, 0, 0)';
@@ -2397,7 +2400,7 @@ function runProgram(num, trailInd, raceInd) {
       if (raceInd != -1) {
         document.getElementById("top").hidden = false;
         if (starting > 16) {
-          document.getElementById("top").innerHTML = "UPDATE7 Instructions: go to the right of the red slalom poles, and to the left of the blue ones";
+          document.getElementById("top").innerHTML = "UPDATE8 Instructions: go to the right of the red slalom poles, and to the left of the blue ones";
         }
         else if (starting > 11) {
           document.getElementById("top").innerHTML = "Your goal is to reach the finish line as fast as possible";
