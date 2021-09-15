@@ -835,7 +835,10 @@
          document.getElementById("extra").innerHTML = "";
        }
        if (document.getElementById("extra").innerHTML == "Going Back") {
-         document.body.innerHTML = "";
+         document.getElementById("three").width= 0;
+         document.getElementById("three").height = 0;
+         document.getElementById("top").hidden = true;
+         
          win = true;
          code = "";
          for (var i = 0 ; i  <10 ; i++) {
