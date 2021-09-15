@@ -295,8 +295,8 @@
 
     var code = -1;
 
-    var t1 = [100.9,0,0,0,20.7,31.2];
-    var t2 = [91.7,0,0,0,18.8,28.4];
+    var t1 = [100.9,85.3,61.1,40.2,20.7,26.5];
+    var t2 = [91.7,77.5,55.5,36.5,18.8,23.9];
 
     var comp = [];
     for (var i = 0 ; i < 500 ; i++) {
@@ -837,6 +837,7 @@
        if (document.getElementById("extra").innerHTML == "Going Back") {
          document.getElementById("three").width= 0;
          document.getElementById("three").height = 0;
+         document.getElementById("three").innerHTML = "";
          document.getElementById("top").hidden = true;
 
          win = true;
