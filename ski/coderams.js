@@ -2396,7 +2396,7 @@ function runProgram(num, trailInd, raceInd) {
 
       if (raceInd != -1) {
         if (starting > 16) {
-          document.getElementById("top").innerHTML = "Instructions: go to the right of the red slalom poles, and to the left of the blue ones";
+          document.getElementById("top").innerHTML = "UPDATE Instructions: go to the right of the red slalom poles, and to the left of the blue ones";
         }
         else if (starting > 11) {
           document.getElementById("top").innerHTML = "Your goal is to reach the finish line as fast as possible";
@@ -2999,6 +2999,9 @@ function runProgram(num, trailInd, raceInd) {
       document.getElementById("game").height = 270 + 50 * 207 + 50;
 
       document.getElementById("three").removeChild(renderer.domElement);
+
+      document.getElementById("three").width = 0;
+      document.getElementById("three").height = 0;
       //num++;
     }
 
